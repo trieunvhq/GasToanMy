@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,6 +12,19 @@ namespace GasToanMy
 {
     internal static class CheckString
     {
+        public static string EncodeMD5(string Metin)
+        {
+            MD5CryptoServiceProvider MD5Code = new MD5CryptoServiceProvider();
+            byte[] byteDizisi = Encoding.UTF8.GetBytes(Metin);
+            byteDizisi = MD5Code.ComputeHash(byteDizisi);
+            StringBuilder sb = new StringBuilder();
+            foreach (byte ba in byteDizisi)
+            {
+                sb.Append(ba.ToString("x2").ToUpper());
+            }
+            return sb.ToString();
+        }
+
         public static String creatSoChungTuXuatContDK()
         {
             DataTable dt;

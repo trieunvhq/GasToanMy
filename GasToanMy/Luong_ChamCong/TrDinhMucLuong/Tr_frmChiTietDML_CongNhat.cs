@@ -230,7 +230,7 @@ namespace GasToanMy
 
         private void TrReadonly()
         {
-            if (!frmDangNhap._bIsAdmin)
+            if (!frmDangNhap._bIsQuanTri)
             {
                 searchLookMaDML.ReadOnly = true;
                 dateTuNgay.ReadOnly = true;

@@ -17,7 +17,6 @@ namespace GasToanMy
         public static int _miID_DangNhap;
         public static int _iID_NhanSu;
         public static bool _bIsQuanTri;
-        public static bool _bIsAdmin;
         public static string _TenNhanVien;
         public static string _ChucVu;
 
@@ -54,18 +53,18 @@ namespace GasToanMy
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsTbDangNhap cls = new clsTbDangNhap();
-            cls.sTen = txtTen.Text.ToString();
-            cls.sMatKhau = txtMatKhau.Text.ToString();
-            DataTable dt = cls.pr_tbDangNhap_KiemTraDangNhap();
+            clsUsers cls = new clsUsers();
+            cls.sAcountName = txtTen.Text.Trim();
+            cls.sPassword = CheckString.EncodeMD5(txtMatKhau.Text.Trim());
+            DataTable dt = cls.pr_Users_Login();
+
             if (dt.Rows.Count > 0)
             {
                 _miID_DangNhap = Convert.ToInt16(dt.Rows[0]["ID_DangNhap"].ToString());
                 _iID_NhanSu = Convert.ToInt16(dt.Rows[0]["ID_NhanSu"].ToString());
-                _bIsQuanTri = Convert.ToBoolean(dt.Rows[0]["bQuanTri"].ToString());
-                _bIsAdmin = Convert.ToBoolean(dt.Rows[0]["bAdmin"].ToString());
-                _TenNhanVien = dt.Rows[0]["TenNhanVien"].ToString();
-                _ChucVu = dt.Rows[0]["TenChucVu"].ToString();
+                _bIsQuanTri = Convert.ToBoolean(dt.Rows[0]["Type"].ToString());
+                _TenNhanVien = dt.Rows[0]["FullName"].ToString();
+                _ChucVu = dt.Rows[0]["ChucVu"].ToString();
 
 
                 this.Hide();
