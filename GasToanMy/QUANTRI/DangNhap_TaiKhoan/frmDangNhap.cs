@@ -60,7 +60,7 @@ namespace GasToanMy
 
             if (dt.Rows.Count > 0)
             {
-                _miID_DangNhap = Convert.ToInt16(dt.Rows[0]["ID_DangNhap"].ToString());
+                _miID_DangNhap = Convert.ToInt16(dt.Rows[0]["ID_NhanSu"].ToString());
                 _iID_NhanSu = Convert.ToInt16(dt.Rows[0]["ID_NhanSu"].ToString());
                 _bIsQuanTri = Convert.ToBoolean(dt.Rows[0]["Type"].ToString());
                 _TenNhanVien = dt.Rows[0]["FullName"].ToString();

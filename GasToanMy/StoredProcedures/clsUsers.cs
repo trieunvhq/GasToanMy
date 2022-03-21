@@ -13,7 +13,7 @@ namespace GasToanMy
 	/// <summary>
 	/// Purpose: Data Access class for the table 'Users'.
 	/// </summary>
-	public class clsUsers : clsDBInteractionBase
+	public partial class clsUsers : clsDBInteractionBase
 	{
 		#region Class Member Declarations
 			private SqlBoolean		m_bType;
