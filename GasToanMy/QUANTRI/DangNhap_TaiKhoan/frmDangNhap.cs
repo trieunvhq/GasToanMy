@@ -56,7 +56,7 @@ namespace GasToanMy
             clsUsers cls = new clsUsers();
             cls.sAcountName = txtTen.Text.Trim();
             cls.sPassword = CheckString.EncodeMD5(txtMatKhau.Text.Trim());
-            DataTable dt = cls.pr_Users_Login();
+            DataTable dt = cls.Users_Login();
 
             if (dt.Rows.Count > 0)
             {

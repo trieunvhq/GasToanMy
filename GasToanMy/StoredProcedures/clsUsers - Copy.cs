@@ -16,10 +16,10 @@ namespace GasToanMy
 	public partial class clsUsers : clsDBInteractionBase
 	{
 
-		public DataTable pr_Users_Login()
+		public DataTable Users_Login()
 		{
 			SqlCommand scmCmdToExecute = new SqlCommand();
-			scmCmdToExecute.CommandText = "dbo.[pr_Users_Login]";
+			scmCmdToExecute.CommandText = "dbo.[Users_Login]";
 			scmCmdToExecute.CommandType = CommandType.StoredProcedure;
 			DataTable dtToReturn = new DataTable("Users");
 			SqlDataAdapter sdaAdapter = new SqlDataAdapter(scmCmdToExecute);
@@ -41,7 +41,7 @@ namespace GasToanMy
 			catch (Exception ex)
 			{
 				// some error occured. Bubble it to caller and encapsulate Exception object
-				throw new Exception("pr_Users_Login", ex);
+				throw new Exception("Users_Login", ex);
 			}
 			finally
 			{
