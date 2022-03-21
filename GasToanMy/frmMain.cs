@@ -20,45 +20,8 @@ namespace GasToanMy
       //
         private void QuyenTruyCap()
         {
-           // thiếtLậpBanĐầuToolStripMenuItem.Enabled = false;
-            clsTbDangNhap cls = new GasToanMy.clsTbDangNhap();
-            cls.iID_DangNhap = frmDangNhap._miID_DangNhap;
-            DataTable dt = cls.SelectOne();
-            
-            if(dt.Rows.Count>0)
-            {
-               
-
-                if (cls.bBMuaHang.Value == false)
-                    btnMuaHang.Enabled = false;
-                if (cls.bBBanHang.Value == false)
-                    btnBanHang.Enabled = false;
-                if (cls.bBNguyenPhuLieu.Value == false)
-                    btnKhoNguyenPhuLieu.Enabled = false;
-                if (cls.bBBanThanhPham.Value == false)
-                    btnKhoBanThanhPham.Enabled = false;
-                if (cls.bBDaiLy.Value == false)
-                    btnDaiLy.Enabled = false;
-                if (cls.bBThanhPham.Value == false)
-                    btnKhoThanhPham.Enabled = false;
-                if (cls.bBQuanLySanXuat.Value == false)
-                    btnQLSX.Enabled = false;
-                if (cls.bBLuongChamCong.Value == false)
-                    btnLuongChamCong.Enabled = false;
-                if (cls.bBQuyNganHang.Value == false)
-                    btnQuyNganHang.Enabled = false;
-                if (cls.bBQuanTri.Value == true)
-                {
-                    //stripQuanTri.Enabled = true;
-                }
-
-                else
-                {
-                    //stripQuanTri.Enabled = false;
-                }
-                    
-            }
         }
+
         public frmMain()
         {
             InitializeComponent();
@@ -89,7 +52,6 @@ namespace GasToanMy
         private void frmMain_Load(object sender, EventArgs e)
         {
             QuyenTruyCap();
-            
         }
 
         private void simpleButton10_Click(object sender, EventArgs e)
