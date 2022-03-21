@@ -1,0 +1,90 @@
+﻿namespace GasToanMy
+{
+
+
+    public partial class DataSet_TinLuong
+    {
+        partial class Tr_PhieuKeToanDataTable
+        {
+        }
+
+        partial class Tr_BTTL_ToDotDataTable
+        {
+
+        }
+
+        partial class tbBTTL_TMC_CTDataTable
+        {
+        }
+
+        partial class tbBB_Ktra_DMHHSXDataTable
+        {
+        }
+
+        partial class tbChiTiet_LuongSLDataTable
+        {
+        }
+
+        partial class tbChiTiet_LuongSL_subDataTable
+        {
+        }
+
+        partial class tbBan_MuaHangDataTable
+        {
+        }
+
+        partial class tbBTTL_TGD_TQDataTable
+        {
+        }
+
+        partial class tbCongNhatChamCongToGapDanDataTable
+        {
+
+        }
+
+        partial class tbKeHoachSanXuatDataTable
+        {
+
+        }
+
+        partial class NXT_Mot_VatTu_NewwDataTable
+        {
+        }
+
+        partial class tbNganHang_PhieuThu_Chi_Bao_Co_NoDataTable
+        {
+        }
+
+        partial class tbNhap_Xuat_ton_ChiTiet_Mot_VatTuDataTable
+        {
+        }
+
+        partial class tbNhap_Xuat_TonDataTable
+        {
+        }
+
+        partial class tbLuongDaiLyDataTable
+        {
+        }
+
+        partial class tbChiTietPhieuSanXuatDataTable
+        {
+        }
+
+        partial class tbLenhSanXuat_I_C_DDataTable
+        {
+        }
+
+        partial class tbChiTietMuaHangDataTable
+        {
+        }
+
+        partial class tbTraLuongDataTable
+        {
+        }
+
+        partial class tbLenhSanXuatDataTable
+        {
+        }
+    }
+}

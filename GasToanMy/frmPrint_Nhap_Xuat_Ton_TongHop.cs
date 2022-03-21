@@ -1,0 +1,214 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GasToanMy
+{
+    public partial class frmPrint_Nhap_Xuat_Ton_TongHop : Form
+    {
+        private void Print_N_X_T( DataTable dt3)
+        {
+           
+            Xtra_Nhap_Xuat_Ton xtr111 = new Xtra_Nhap_Xuat_Ton();
+          
+            DataTable dt2 = new DataTable();
+          
+            dt2.Columns.Add("MaVT", typeof(string));
+            dt2.Columns.Add("TenVTHH", typeof(string));
+            dt2.Columns.Add("DonViTinh", typeof(string));
+
+            dt2.Columns.Add("SoLuong_TonDauKy", typeof(double));
+            dt2.Columns.Add("GiaTri_TonDauKy", typeof(double));
+
+            dt2.Columns.Add("SoLuongNhap_TrongKy", typeof(double));
+            dt2.Columns.Add("GiaTriNhap_TrongKy", typeof(double));
+
+            dt2.Columns.Add("SoLuongXuat_TrongKy", typeof(double));
+            dt2.Columns.Add("GiaTriXuat_TrongKy", typeof(double));
+
+            dt2.Columns.Add("SoLuongTon_CuoiKy", typeof(double));
+            dt2.Columns.Add("GiaTriTon_CuoiKy", typeof(double));
+
+            DataSet_TinLuong ds = new DataSet_TinLuong();
+            ds.tbNhap_Xuat_Ton.Clone();
+            ds.tbNhap_Xuat_Ton.Clear();
+
+            if (frmBaoCaoNXT_KhoThanhPham.mbPrint_NXT_Kho_NPL || frmBaoCaoNhapXuatTon_BanThanhPham.mbPrint_NXT_Kho_BTP)
+            {
+                for (int i = 0; i < dt3.Rows.Count -1; i++)
+                {
+                    DataRow _ravi = ds.tbNhap_Xuat_Ton.NewRow();
+
+                    _ravi["MaVT"] = dt3.Rows[i]["MaVT"].ToString();
+                    _ravi["TenVTHH"] = dt3.Rows[i]["TenVTHH"].ToString();
+                    _ravi["DonViTinh"] = dt3.Rows[i]["DonViTinh"].ToString();
+
+                    _ravi["SoLuong_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuong_TonDauKy"].ToString());
+                    _ravi["GiaTri_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTri_TonDauKy"].ToString());
+
+                    _ravi["SoLuongNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongNhap_TrongKy"].ToString());
+                    _ravi["GiaTriNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriNhap_TrongKy"].ToString());
+
+
+                    _ravi["SoLuongXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongXuat_TrongKy"].ToString());
+                    _ravi["GiaTriXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriXuat_TrongKy"].ToString());
+
+                    _ravi["SoLuongTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongTon_CuoiKy"].ToString());
+                    _ravi["GiaTriTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriTon_CuoiKy"].ToString());
+
+                    ds.tbNhap_Xuat_Ton.Rows.Add(_ravi);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dt3.Rows.Count; i++)
+                {
+                    DataRow _ravi = ds.tbNhap_Xuat_Ton.NewRow();
+
+                    _ravi["MaVT"] = dt3.Rows[i]["MaVT"].ToString();
+                    _ravi["TenVTHH"] = dt3.Rows[i]["TenVTHH"].ToString();
+                    _ravi["DonViTinh"] = dt3.Rows[i]["DonViTinh"].ToString();
+
+                    _ravi["SoLuong_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuong_TonDauKy"].ToString());
+                    _ravi["GiaTri_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTri_TonDauKy"].ToString());
+
+                    _ravi["SoLuongNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongNhap_TrongKy"].ToString());
+                    _ravi["GiaTriNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriNhap_TrongKy"].ToString());
+
+
+                    _ravi["SoLuongXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongXuat_TrongKy"].ToString());
+                    _ravi["GiaTriXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriXuat_TrongKy"].ToString());
+
+                    _ravi["SoLuongTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongTon_CuoiKy"].ToString());
+                    _ravi["GiaTriTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriTon_CuoiKy"].ToString());
+
+                    ds.tbNhap_Xuat_Ton.Rows.Add(_ravi);
+                }
+            }
+            
+
+            xtr111.DataSource = null;
+            xtr111.DataSource = ds.tbNhap_Xuat_Ton;
+            xtr111.DataMember = "tbNhap_Xuat_Ton";
+            // xtr111.IntData(sgiamdoc);
+            xtr111.CreateDocument();
+            documentViewer1.DocumentSource = xtr111;
+        }
+        private void Print_NhapXuatTon_Theo_Tung_DaiLy(DataTable dt3)
+        {
+
+            Xtra_N_X_T_DaiLy_TheoTung_DaiLy xtr111 = new Xtra_N_X_T_DaiLy_TheoTung_DaiLy();
+
+
+            DataSet_TinLuong ds = new DataSet_TinLuong();
+            ds.tbNhap_Xuat_Ton.Clone();
+            ds.tbNhap_Xuat_Ton.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                DataRow _ravi = ds.tbNhap_Xuat_Ton.NewRow();
+                //_ravi["STT"] = dt3.Rows[i]["STT"].ToString();
+                _ravi["MaVT"] = dt3.Rows[i]["MaVT"].ToString();
+                _ravi["TenVTHH"] = dt3.Rows[i]["TenVTHH"].ToString();
+                _ravi["DonViTinh"] = dt3.Rows[i]["DonViTinh"].ToString();
+
+                _ravi["SoLuong_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuong_TonDauKy"].ToString());               
+                _ravi["SoLuongNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongNhap_TrongKy"].ToString());               
+                _ravi["SoLuongXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongXuat_TrongKy"].ToString());              
+                _ravi["SoLuongTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongTon_CuoiKy"].ToString());
+               
+                if (frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_CoTien == true)
+                {
+                    _ravi["GiaTri_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTri_TonDauKy"].ToString());
+                    _ravi["GiaTriNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriNhap_TrongKy"].ToString());
+                    _ravi["GiaTriXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriXuat_TrongKy"].ToString());
+                    _ravi["GiaTriTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriTon_CuoiKy"].ToString());
+                }
+                ds.tbNhap_Xuat_Ton.Rows.Add(_ravi);
+            }
+
+            xtr111.DataSource = null;
+            xtr111.DataSource = ds.tbNhap_Xuat_Ton;
+            xtr111.DataMember = "tbNhap_Xuat_Ton";            
+            xtr111.CreateDocument();
+            documentViewer1.DocumentSource = xtr111;
+        }
+        private void Print_N_X_T_DaiLy(DataTable dt3)
+        {
+
+            Xtra_Nhap_Xuat_Ton_DaiLy xtr111 = new Xtra_Nhap_Xuat_Ton_DaiLy();
+          
+
+            DataSet_TinLuong ds = new DataSet_TinLuong();
+            ds.tbNhap_Xuat_Ton.Clone();
+            ds.tbNhap_Xuat_Ton.Clear();
+            for (int i = 0; i < dt3.Rows.Count; i++)
+            {
+                DataRow _ravi = ds.tbNhap_Xuat_Ton.NewRow();
+                _ravi["STT"] = dt3.Rows[i]["STT"].ToString();
+                _ravi["MaVT"] = dt3.Rows[i]["MaVT"].ToString();
+                _ravi["TenVTHH"] = dt3.Rows[i]["TenVTHH"].ToString();
+                _ravi["DonViTinh"] = dt3.Rows[i]["DonViTinh"].ToString();
+                _ravi["SoLuong_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuong_TonDauKy"].ToString());
+                _ravi["SoLuongNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongNhap_TrongKy"].ToString());
+                _ravi["SoLuongXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongXuat_TrongKy"].ToString());
+                _ravi["SoLuongTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["SoLuongTon_CuoiKy"].ToString());
+                if (frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_CoTien == true)
+                {
+                    _ravi["GiaTri_TonDauKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTri_TonDauKy"].ToString());
+                    _ravi["GiaTriNhap_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriNhap_TrongKy"].ToString());
+                    _ravi["GiaTriXuat_TrongKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriXuat_TrongKy"].ToString());
+                    _ravi["GiaTriTon_CuoiKy"] = CheckString.ConvertToDouble_My(dt3.Rows[i]["GiaTriTon_CuoiKy"].ToString());
+                }
+                ds.tbNhap_Xuat_Ton.Rows.Add(_ravi);
+            }
+
+            xtr111.DataSource = null;
+            xtr111.DataSource = ds.tbNhap_Xuat_Ton;
+            xtr111.DataMember = "tbNhap_Xuat_Ton";
+            // xtr111.IntData(sgiamdoc);
+            xtr111.CreateDocument();
+            documentViewer1.DocumentSource = xtr111;
+        }
+        public frmPrint_Nhap_Xuat_Ton_TongHop()
+        {
+            InitializeComponent();
+        }
+
+        private void frmPrint_Nhap_Xuat_Ton_TongHop_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmBaoCaoNXT.mbPrint_NXT_Kho_NPL = false;
+            frmBaoCaoNhapXuatTon_BanThanhPham.mbPrint_NXT_Kho_BTP = false;
+            frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_One = false;
+            frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_ALL = false;
+            DaiLy_GapDan_BaoCao_Nhap_Xuat_Ton.mbPrint = false;
+            frmBaoCaoNXT_KhoThanhPham.mbPrint_NXT_Kho_NPL = false;
+           
+        }
+
+        private void frmPrint_Nhap_Xuat_Ton_TongHop_Load(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if (frmBaoCaoNXT.mbPrint_NXT_Kho_NPL == true)
+                Print_N_X_T(frmBaoCaoNXT.mdt_ChiTiet_Print);
+            if (frmBaoCaoNhapXuatTon_BanThanhPham.mbPrint_NXT_Kho_BTP == true)
+                Print_N_X_T(frmBaoCaoNhapXuatTon_BanThanhPham.mdt_ChiTiet_Print);         
+            if (DaiLy_GapDan_BaoCao_Nhap_Xuat_Ton.mbPrint == true)
+                Print_N_X_T(DaiLy_GapDan_BaoCao_Nhap_Xuat_Ton.mdtPrint);
+            if (frmBaoCaoNXT_KhoThanhPham.mbPrint_NXT_Kho_NPL == true)
+                Print_N_X_T(frmBaoCaoNXT_KhoThanhPham.mdt_ChiTiet_Print);
+
+            if (frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_ALL == true)
+                Print_N_X_T_DaiLy(frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mdtPrint);
+
+            if (frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mbPrint_One == true)
+                Print_NhapXuatTon_Theo_Tung_DaiLy(frmBaoCao_Nhap_Xuat_ton_kho_DaiLy.mdtPrint);
+            Cursor.Current = Cursors.Default;
+        }
+    }
+}
