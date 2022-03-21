@@ -23,8 +23,6 @@ namespace GasToanMy
 
         private void KiemTraDangNhap()
         {
-            clsTbDangNhap cls = new clsTbDangNhap();
-            DataTable dt = cls.SelectAll();
         }
         public frmDangNhap()
         {
