@@ -314,7 +314,7 @@ namespace GasToanMy
 
         private void btnMuaHang_Click(object sender, EventArgs e)
         {
-            frmMuaHang2222 ff = new frmMuaHang2222();
+            frmNhapHang ff = new frmNhapHang();
             ////this.Hide();
             ff.Show();
         }
