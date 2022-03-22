@@ -273,26 +273,27 @@ namespace GasToanMy
 
         private void btnHeThong_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormMain.FormSystem(), sender);
+            if (activeForm != null)
+                activeForm.Close();
+            Reset();
         }
 
         private void btnQuanTri_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormMain.FormQuanTri(), sender);
-
+            //OpenChildForm(new FormMain.FormQuanTri(), sender);
         }
 
         private void btnCongCu_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormMain.FormCongCu(), sender);
+            //OpenChildForm(new FormMain.FormCongCu(), sender);
         }
 
         private void btnKHSX_Click(object sender, EventArgs e)
         {
-            frmKeHoachSanXuat ff = new frmKeHoachSanXuat();
-            ////this.Hide();
-            ff.Show();
-            ////this.Show();
+            //frmKeHoachSanXuat ff = new frmKeHoachSanXuat();
+            //////this.Hide();
+            //ff.Show();
+            //////this.Show();
         }
 
         private void btnCloseChildForm_Click(object sender, EventArgs e)
@@ -321,18 +322,18 @@ namespace GasToanMy
          
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            frmQuanLyBanHang ff = new GasToanMy.frmQuanLyBanHang();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmQuanLyBanHang ff = new GasToanMy.frmQuanLyBanHang();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void btnDaiLy_Click(object sender, EventArgs e)
         {
-            frmQuanLyKhoDaiLy ff = new frmQuanLyKhoDaiLy();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmQuanLyKhoDaiLy ff = new frmQuanLyKhoDaiLy();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void btnQLSX_Click(object sender, EventArgs e)

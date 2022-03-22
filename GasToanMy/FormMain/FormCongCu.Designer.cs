@@ -43,7 +43,7 @@
             this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             this.btnTaoTaiKhoan.Size = new System.Drawing.Size(425, 218);
             this.btnTaoTaiKhoan.TabIndex = 1;
-            this.btnTaoTaiKhoan.Text = "Tạo tài khoản";
+            this.btnTaoTaiKhoan.Text = " ";
             this.btnTaoTaiKhoan.UseVisualStyleBackColor = true;
             this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
@@ -56,7 +56,7 @@
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(413, 218);
             this.btnDoiMatKhau.TabIndex = 1;
-            this.btnDoiMatKhau.Text = "Đổi mật khẩu";
+            this.btnDoiMatKhau.Text = " ";
             this.btnDoiMatKhau.UseVisualStyleBackColor = true;
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
@@ -69,7 +69,7 @@
             this.btnThoatChuongTrinh.Name = "btnThoatChuongTrinh";
             this.btnThoatChuongTrinh.Size = new System.Drawing.Size(425, 218);
             this.btnThoatChuongTrinh.TabIndex = 1;
-            this.btnThoatChuongTrinh.Text = "Thoát chương trình";
+            this.btnThoatChuongTrinh.Text = " ";
             this.btnThoatChuongTrinh.UseVisualStyleBackColor = true;
             this.btnThoatChuongTrinh.Click += new System.EventHandler(this.btnThoatChuongTrinh_Click);
             // 
@@ -95,7 +95,7 @@
             this.Controls.Add(this.btnThoatChuongTrinh);
             this.Controls.Add(this.btnTaoTaiKhoan);
             this.Name = "FormCongCu";
-            this.Text = this.Name+"-->        CÔNG CỤ";
+            this.Text = "FormCongCu-->        CÔNG CỤ";
             this.Load += new System.EventHandler(this.FormCongCu_Load);
             this.ResumeLayout(false);
 
