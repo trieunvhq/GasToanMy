@@ -167,6 +167,7 @@
             this.label1.Size = new System.Drawing.Size(230, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "Đăng nhập tài khoản để tiếp tục sử dụng!";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // frmDangNhap
             // 

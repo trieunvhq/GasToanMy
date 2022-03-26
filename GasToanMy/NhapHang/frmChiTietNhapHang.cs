@@ -13,29 +13,36 @@ namespace GasToanMy
 {
     public partial class frmChiTietNhapHang : Form
     {
-        private bool Insert_BB_Ktra_DMHHSX()
+        private bool Insert_SanPham()
         {
             try
             {
-                using (clsTr_BB_KtraDinhMuc_HHSX cls = new clsTr_BB_KtraDinhMuc_HHSX())
+                using (clsSanPham cls = new clsSanPham())
                 {
-                    cls.daNgayThang = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
-                    cls.sSoHieu = txtSoHieu.Text.ToString().Trim();
-                    cls.iCa = Convert.ToInt32(txtCa.Text.ToString());
-                    cls.sLoaiHang = txtLoaiHang.Text.ToString().Trim();
-                    cls.sLoaiGiay = txtLoaiGiay.Text.ToString().Trim();
-                    cls.fSoLuongKtra = CheckString.ConvertToDouble_My(txtSoLuongKtra.Text.ToString());
-                    cls.sDonVi_first = txtDonVi_in.Text.ToString().Trim();
-                    cls.fTrongLuong = CheckString.ConvertToDouble_My(txtTrongLuong.Text.ToString());
-                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSoLuong.Text.ToString());
-                    cls.sDonVi_Second = txtDonVi_Out.Text.ToString().Trim();
-                    cls.fQuyRaKien = CheckString.ConvertToDouble_My(txtQuyRaKien.Text.ToString());
-                    cls.fPhePham = CheckString.ConvertToDouble_My(txtPhePham.Text.ToString());
-                    cls.fDoCao = CheckString.ConvertToDouble_My(txtDoCao.Text.ToString());
-                    cls.fMotBao_kg = CheckString.ConvertToDouble_My(txt1Bao_kg.Text.ToString());
-                    cls.fMotBao_SoKien = CheckString.ConvertToDouble_My(txt1Bao_SoKien.Text.ToString());
-                    cls.fSauMuoi_BaoKien = CheckString.ConvertToDouble_My(txt60Bao_Kien.Text.ToString());
-                    cls.sGhiChu = txtGhiChu.Text.ToString().Trim();
+                    string tensp = txtTenSanPham.Text.Trim();
+                    string ghichu = txtGhiChu.Text.Trim();
+
+                    while (tensp.IndexOf("  ") >= 0)
+                    {
+                        tensp = tensp.Replace("  ", " ");
+                    }
+
+                    while (ghichu.IndexOf("  ") >= 0)
+                    {
+                        ghichu = ghichu.Replace("  ", " ");
+                    }
+
+                    cls.daCreateDate = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
+                    cls.iCreateUser = frmDangNhap._iID_NhanSu;
+                    cls.sCode = txtCode.Text.Trim();
+                    cls.sNhaCungCap = txtNhaCungCap.Text.Trim();
+                    cls.sTenSanPham = tensp;
+                    cls.sDonViTinh= txtDonVi.Text.Trim();
+                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSLNhap.Text);
+                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sRecordStatus = "Y";
+                    cls.sDescription = ghichu;
 
                     if (cls.Insert()) return true;
                     else return false;
@@ -50,227 +57,108 @@ namespace GasToanMy
 
 
         // 
-        private bool Update_BB_Ktra_DMHHSX()
+        private bool Update_SanPham()
         {
-            try
-            {
-                using (clsTr_BB_KtraDinhMuc_HHSX cls = new clsTr_BB_KtraDinhMuc_HHSX())
-                {
-                    cls.iId_BB = Tr_UC_BB_Ktra_DM_HHSX.miID_BienBan;
-                    cls.daNgayThang = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
-                    cls.sSoHieu = txtSoHieu.Text.ToString().Trim();
-                    cls.iCa = Convert.ToInt32(txtCa.Text.ToString());
-                    cls.sLoaiHang = txtLoaiHang.Text.ToString().Trim();
-                    cls.sLoaiGiay = txtLoaiGiay.Text.ToString().Trim();
-                    cls.fSoLuongKtra = CheckString.ConvertToDouble_My(txtSoLuongKtra.Text.ToString());
-                    cls.sDonVi_first = txtDonVi_in.Text.ToString().Trim();
-                    cls.fTrongLuong = CheckString.ConvertToDouble_My(txtTrongLuong.Text.ToString());
-                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSoLuong.Text.ToString());
-                    cls.sDonVi_Second = txtDonVi_Out.Text.ToString().Trim();
-                    cls.fQuyRaKien = CheckString.ConvertToDouble_My(txtQuyRaKien.Text.ToString());
-                    cls.fPhePham = CheckString.ConvertToDouble_My(txtPhePham.Text.ToString());
-                    cls.fDoCao = CheckString.ConvertToDouble_My(txtDoCao.Text.ToString());
-                    cls.fMotBao_kg = CheckString.ConvertToDouble_My(txt1Bao_kg.Text.ToString());
-                    cls.fMotBao_SoKien = CheckString.ConvertToDouble_My(txt1Bao_SoKien.Text.ToString());
-                    cls.fSauMuoi_BaoKien = CheckString.ConvertToDouble_My(txt60Bao_Kien.Text.ToString());
-                    cls.sGhiChu = txtGhiChu.Text.ToString().Trim();
+            //try
+            //{
+            //    using (clsTr_SanPhamDinhMuc_HHSX cls = new clsTr_SanPhamDinhMuc_HHSX())
+            //    {
+            //        cls.iId_BB = Tr_UC_SanPham_DM_HHSX.miID_BienBan;
+            //        cls.daNgayThang = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
+            //        cls.sSoHieu = txtTenSanPham.Text.ToString().Trim();
+            //        cls.iCa = Convert.ToInt32(txtSoLuong.Text.ToString());
+            //        cls.sLoaiHang = txtGiaVon.Text.ToString().Trim();
+            //        cls.sLoaiGiay = txtGiaban.Text.ToString().Trim();
+            //        cls.fSoLuongKtra = CheckString.ConvertToDouble_My(txtSoLuongKtra.Text.ToString());
+            //        cls.sDonVi_first = txtDonVi_in.Text.ToString().Trim();
+            //        cls.fTrongLuong = CheckString.ConvertToDouble_My(txtTrongLuong.Text.ToString());
+            //        cls.fSoLuong = CheckString.ConvertToDouble_My(txtSoLuongd.Text.ToString());
+            //        cls.sDonVi_Second = txtDonVi_Out.Text.ToString().Trim();
+            //        cls.fQuyRaKien = CheckString.ConvertToDouble_My(txtQuyRaKien.Text.ToString());
+            //        cls.fPhePham = CheckString.ConvertToDouble_My(txtPhePham.Text.ToString());
+            //        cls.fDoCao = CheckString.ConvertToDouble_My(txtDoCao.Text.ToString());
+            //        cls.fMotBao_kg = CheckString.ConvertToDouble_My(txt1Bao_kg.Text.ToString());
+            //        cls.fMotBao_SoKien = CheckString.ConvertToDouble_My(txt1Bao_SoKien.Text.ToString());
+            //        cls.fSauMuoi_BaoKien = CheckString.ConvertToDouble_My(txt60Bao_Kien.Text.ToString());
+            //        cls.sGhiChu = txtGhiChu.Text.ToString().Trim();
 
-                    if (cls.Update()) return true;
-                    else return false;
-                }
-            }
-            catch (Exception ea)
-            {
-                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            //        if (cls.Update()) return true;
+            //        else return false;
+            //    }
+            //}
+            //catch (Exception ea)
+            //{
+            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return false;
+            //}
+            return true;
         }
        
    
         private void Load_frmEdit()
         {
-            try
-            {
-                dateNgayThang.EditValue = Tr_UC_BB_Ktra_DM_HHSX.mdNgayThang;
-                txtSoHieu.Text = Tr_UC_BB_Ktra_DM_HHSX.msSoHieu;
-                txtCa.Text = Tr_UC_BB_Ktra_DM_HHSX.miCaSanXuat.ToString();
-                txtLoaiHang.Text = Tr_UC_BB_Ktra_DM_HHSX.msLoaiHang.ToString();
-                txtLoaiGiay.Text = Tr_UC_BB_Ktra_DM_HHSX.msLoaiGiay.ToString();
-                txtSoLuongKtra.Text = Tr_UC_BB_Ktra_DM_HHSX.mfSoLuongKiemTra.ToString();
-                txtDonVi_in.Text = Tr_UC_BB_Ktra_DM_HHSX.msDonVi;
-                txtTrongLuong.Text = Tr_UC_BB_Ktra_DM_HHSX.mfTrongLuong.ToString();
-                txtSoLuong.Text = Tr_UC_BB_Ktra_DM_HHSX.mfSoLuong.ToString();
-                txtDonVi_Out.Text = Tr_UC_BB_Ktra_DM_HHSX.msDonVi_;
-                txtQuyRaKien.Text = Tr_UC_BB_Ktra_DM_HHSX.mfQuyRaKien.ToString();
-                txtPhePham.Text = Tr_UC_BB_Ktra_DM_HHSX.mfPhePham.ToString();
-                txtDoCao.Text = Tr_UC_BB_Ktra_DM_HHSX.mfDoCao.ToString();
-                txt1Bao_kg.Text = Tr_UC_BB_Ktra_DM_HHSX.mfMotBao_kg.ToString();
-                txt1Bao_SoKien.Text = Tr_UC_BB_Ktra_DM_HHSX.mfMotBao_SoKien.ToString();
-                txt60Bao_Kien.Text = Tr_UC_BB_Ktra_DM_HHSX.mfSauMuoi_BaoKien.ToString();
-                txtGhiChu.Text = Tr_UC_BB_Ktra_DM_HHSX.msGhiChu;
-            }
-            catch (Exception ea)
-            {
-                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    dateNgayThang.EditValue = Tr_UC_SanPham_DM_HHSX.mdNgayThang;
+            //    txtTenSanPham.Text = Tr_UC_SanPham_DM_HHSX.msSoHieu;
+            //    txtSoLuong.Text = Tr_UC_SanPham_DM_HHSX.miCaSanXuat.ToString();
+            //    txtGiaVon.Text = Tr_UC_SanPham_DM_HHSX.msLoaiHang.ToString();
+            //    txtGiaban.Text = Tr_UC_SanPham_DM_HHSX.msLoaiGiay.ToString();
+            //    txtSoLuongKtra.Text = Tr_UC_SanPham_DM_HHSX.mfSoLuongKiemTra.ToString();
+            //    txtDonVi_in.Text = Tr_UC_SanPham_DM_HHSX.msDonVi;
+            //    txtTrongLuong.Text = Tr_UC_SanPham_DM_HHSX.mfTrongLuong.ToString();
+            //    txtSoLuongd.Text = Tr_UC_SanPham_DM_HHSX.mfSoLuong.ToString();
+            //    txtDonVi_Out.Text = Tr_UC_SanPham_DM_HHSX.msDonVi_;
+            //    txtQuyRaKien.Text = Tr_UC_SanPham_DM_HHSX.mfQuyRaKien.ToString();
+            //    txtPhePham.Text = Tr_UC_SanPham_DM_HHSX.mfPhePham.ToString();
+            //    txtDoCao.Text = Tr_UC_SanPham_DM_HHSX.mfDoCao.ToString();
+            //    txt1Bao_kg.Text = Tr_UC_SanPham_DM_HHSX.mfMotBao_kg.ToString();
+            //    txt1Bao_SoKien.Text = Tr_UC_SanPham_DM_HHSX.mfMotBao_SoKien.ToString();
+            //    txt60Bao_Kien.Text = Tr_UC_SanPham_DM_HHSX.mfSauMuoi_BaoKien.ToString();
+            //    txtGhiChu.Text = Tr_UC_SanPham_DM_HHSX.msGhiChu;
+            //}
+            //catch (Exception ea)
+            //{
+            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private bool CheckDataInput()
         {
-            if (string.IsNullOrWhiteSpace(txtSoHieu.Text))
+            if (string.IsNullOrWhiteSpace(txtTenSanPham.Text))
             {
-                MessageBox.Show("Kiểm tra lại Số hiệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoHieu.Focus();
+                MessageBox.Show("Kiểm tra lại tên sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenSanPham.Focus();
                 return false;
             }
-            else if (!CheckIsNumber(txtSoHieu.Text))
+            else if (string.IsNullOrWhiteSpace(txtSLNhap.Text))
             {
-                MessageBox.Show("Kiểm tra lại Số hiệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoHieu.Focus();
+                MessageBox.Show("Kiểm tra lại số lượng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSLNhap.Focus();
                 return false;
             }
-            else if (string.IsNullOrWhiteSpace(txtCa.Text))
+            else if (!CheckIsNumber(txtSLNhap.Text))
             {
-                MessageBox.Show("Kiểm tra lại Ca sản xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtCa.Focus();
+                MessageBox.Show("Kiểm tra lại số lượng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSLNhap.Focus();
                 return false;
             }
-            else if (!CheckIsNumber(txtCa.Text))
+            else if (string.IsNullOrWhiteSpace(txtGiaVon.Text))
             {
-                MessageBox.Show("Kiểm tra lại Ca sản xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtCa.Focus();
+                MessageBox.Show("Kiểm tra lại giá vốn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaVon.Focus();
                 return false;
             }
-            else if (string.IsNullOrWhiteSpace(txtLoaiHang.Text))
+            else if (string.IsNullOrWhiteSpace(txtGiaban.Text))
             {
-                MessageBox.Show("Kiểm tra lại Loại hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtLoaiHang.Focus();
+                MessageBox.Show("Kiểm tra lại giá bán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtGiaban.Focus();
                 return false;
             }
-            else if (string.IsNullOrWhiteSpace(txtLoaiGiay.Text))
+            else if (string.IsNullOrWhiteSpace(txtDonVi.Text))
             {
-                MessageBox.Show("Kiểm tra lại Loại giấy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtLoaiGiay.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtSoLuongKtra.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Số lượng kiểm tra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoLuongKtra.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtSoLuongKtra.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Số lượng kiểm tra!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoLuongKtra.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtDonVi_in.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDonVi_in.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtTrongLuong.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Trọng lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTrongLuong.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtTrongLuong.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Trọng lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtTrongLuong.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtSoLuong.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoLuong.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtSoLuong.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSoLuong.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtDonVi_Out.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Đơn vị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDonVi_Out.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtQuyRaKien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Quy ra kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtQuyRaKien.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtQuyRaKien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Quy ra kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtQuyRaKien.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtPhePham.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Phế phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPhePham.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtPhePham.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Phế phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPhePham.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtDoCao.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Độ cao!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDoCao.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txtDoCao.Text))
-            {
-                MessageBox.Show("Kiểm tra lại Độ cao!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDoCao.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txt1Bao_kg.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 1 Bao (kg)!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt1Bao_kg.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txt1Bao_kg.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 1 Bao (kg)!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt1Bao_kg.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txt1Bao_SoKien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 1 Bao giao số kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt1Bao_SoKien.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txt1Bao_SoKien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 1 Bao giao số kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt1Bao_SoKien.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txt60Bao_Kien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 60 Bao/kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt60Bao_Kien.Focus();
-                return false;
-            }
-            else if (!CheckIsNumber(txt60Bao_Kien.Text))
-            {
-                MessageBox.Show("Kiểm tra lại 60 Bao/kiện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt60Bao_Kien.Focus();
+                MessageBox.Show("Kiểm tra lại đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDonVi.Focus();
                 return false;
             }
             else return true;
@@ -292,23 +180,40 @@ namespace GasToanMy
             }
         }
 
-        Tr_UC_BB_Ktra_DM_HHSX _ucBBKTDM;
-        public frmChiTietNhapHang(Tr_UC_BB_Ktra_DM_HHSX ucBBKTDM)
+        frmNhapHang _ucBBKTDM;
+        public frmChiTietNhapHang(frmNhapHang ucBBKTDM)
         {
             _ucBBKTDM = ucBBKTDM;
             InitializeComponent();
+
             dateNgayThang.EditValue = DateTime.Now;
 
-            if (Tr_UC_BB_Ktra_DM_HHSX.mbCopy_BB_Ktra)
+            txtDonVi.Properties.Items.Add("Bộ");
+            txtDonVi.Properties.Items.Add("Cái");
+            txtDonVi.Properties.Items.Add("Chiếc");
+            txtDonVi.Properties.Items.Add("tấn");
+            txtDonVi.Properties.Items.Add("tạ");
+            txtDonVi.Properties.Items.Add("kg");
+            txtDonVi.Properties.Items.Add("km");
+            txtDonVi.Properties.Items.Add("m");
+            txtDonVi.Properties.Items.Add("cm");
+            txtDonVi.Text = "Chiếc";
+
+            if (frmNhapHang.mbCopy_SanPham)
             {
                 Load_frmEdit();
             }
-            dateNgayThang.Focus();
+            else if (frmNhapHang.mbAdd_SanPham)
+            {
+                txtCode.Text = CheckString.creatCodeSanPham();
+            }
+
+            txtTenSanPham.Focus();
         }
 
         private void frmChiTietNhapHang_Load(object sender, EventArgs e)
         {
-            dateNgayThang.Focus();
+            txtTenSanPham.Focus();
         }
 
         private void btThoat_Click(object sender, EventArgs e)
@@ -321,12 +226,12 @@ namespace GasToanMy
         {
             try
             {
-                if (Tr_UC_BB_Ktra_DM_HHSX.mbAdd_BB_Ktra == true
-               && Tr_UC_BB_Ktra_DM_HHSX.mb_Sua_BB_Ktra == false)
+                if (frmNhapHang.mbAdd_SanPham == true
+               && frmNhapHang.mb_Sua_SanPham == false)
                 {
                     if (CheckDataInput())
                     {
-                        if (Insert_BB_Ktra_DMHHSX())
+                        if (Insert_SanPham())
                         {
                             this.Close();
                             _ucBBKTDM.btRefresh_Click(null, null);
@@ -338,10 +243,10 @@ namespace GasToanMy
                         }
                     }
                 }
-                else if (Tr_UC_BB_Ktra_DM_HHSX.mbAdd_BB_Ktra == false
-                    && Tr_UC_BB_Ktra_DM_HHSX.mb_Sua_BB_Ktra == true)
+                else if (frmNhapHang.mbAdd_SanPham == false
+                    && frmNhapHang.mb_Sua_SanPham == true)
                 {
-                    if (Update_BB_Ktra_DMHHSX())
+                    if (Update_SanPham())
                     {
                         this.Close();
                         _ucBBKTDM.btRefresh_Click(null, null);
@@ -359,6 +264,26 @@ namespace GasToanMy
             }
         }
 
+        //private void dateNgayThang_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (e.KeyChar == (char)13)
+        //    {
+        //        SendKeys.Send("{TAB}");
+        //    }
+        //}
+
+       
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtGhiChu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            btSave.Focus();
+        }
+
         private void dateNgayThang_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -367,7 +292,7 @@ namespace GasToanMy
             }
         }
 
-        private void txtSoHieu_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNhaCungCap_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -375,7 +300,7 @@ namespace GasToanMy
             }
         }
 
-        private void txtCa_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTenSanPham_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -383,7 +308,7 @@ namespace GasToanMy
             }
         }
 
-        private void txtLoaiHang_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtDonVi_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
@@ -391,113 +316,56 @@ namespace GasToanMy
             }
         }
 
-        private void txtLoaiGiay_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSLNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)13)
+            {
+                txtGiaVon.Focus();
+            }
+        }
+
+        private void txtGiaVon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
             if (e.KeyChar == (char)13)
             {
                 SendKeys.Send("{TAB}");
             }
         }
 
-        private void txtSoLuongKtra_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtGiaban_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
             if (e.KeyChar == (char)13)
             {
                 SendKeys.Send("{TAB}");
             }
         }
 
-        private void txtDonVi_in_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSLNhap_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
                 SendKeys.Send("{TAB}");
             }
-        }
-
-        private void txtTrongLuong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtDonVi_Out_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtQuyRaKien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtPhePham_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtDoCao_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txt1Bao_kg_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txt1Bao_SoKien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txt60Bao_Kien_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtGhiChu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                btSave.Focus();
-            }
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

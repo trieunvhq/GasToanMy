@@ -315,9 +315,12 @@ namespace GasToanMy
 
         private void btnMuaHang_Click(object sender, EventArgs e)
         {
-            frmNhapHang ff = new frmNhapHang();
-            ////this.Hide();
-            ff.Show();
+            if (!CheckString.FormIsOpened("frmNhapHang"))
+            {
+                frmNhapHang ff = new frmNhapHang();
+                ////this.Hide();
+                ff.Show();
+            }
         }
          
         private void btnBanHang_Click(object sender, EventArgs e)

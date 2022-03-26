@@ -13,9 +13,9 @@ namespace GasToanMy
 {
     public partial class frmNhapHang : Form
     {
-        public static bool mbAdd_BB_Ktra = false;
-        public static bool mb_Sua_BB_Ktra = false;
-        public static bool mbCopy_BB_Ktra = false;
+        public static bool mbAdd_SanPham = false;
+        public static bool mb_Sua_SanPham = false;
+        public static bool mbCopy_SanPham = false;
         public static DateTime mdNgayThang;
         public static string msSoHieu;
         public static int miID_BienBan;
@@ -51,86 +51,93 @@ namespace GasToanMy
 
         public void LoadData(int sotrang, bool isLoadLanDau)
         {
-            //try
-            //{
-            //    isload = true;
-            //    if (isLoadLanDau)
-            //    {
-            //        dteTuNgay.EditValue = DateTime.Now.AddDays(-30);
-            //        dteDenNgay.EditValue = DateTime.Now;
-            //        txtTimKiem.Text = "";
-            //    }
-            //    else { }
-            //    _sSearch = txtTimKiem.Text;
-            //    _ngay_batdau = (DateTime)dteTuNgay.EditValue;
-            //    _ngay_ketthuc = dteDenNgay.DateTime;
-            //    _SoTrang = sotrang;
+            try
+            {
+                isload = true;
+                if (isLoadLanDau)
+                {
+                    //dteTuNgay.EditValue = DateTime.Now.AddDays(-30);
+                    //dteDenNgay.EditValue = DateTime.Now;
+                    txtTimKiem.Text = "";
+                }
+                else { }
+                _sSearch = txtTimKiem.Text;
+                //_ngay_batdau = (DateTime)dteTuNgay.EditValue;
+                //_ngay_ketthuc = dteDenNgay.DateTime;
+                _SoTrang = sotrang;
 
-            //    DataTable dt2 = new DataTable();
-            //    dt2.Columns.Add("STT", typeof(int));
-            //    dt2.Columns.Add("NgayThang", typeof(DateTime));
-            //    dt2.Columns.Add("SoHieu", typeof(string));
-            //    dt2.Columns.Add("ID_BienBan", typeof(int));
-            //    dt2.Columns.Add("CaSanXuat", typeof(int));
-            //    dt2.Columns.Add("LoaiHang", typeof(string));
-            //    dt2.Columns.Add("LoaiGiay", typeof(string));
-            //    dt2.Columns.Add("SoLuongKiemTra", typeof(Double));
-            //    dt2.Columns.Add("DonVi", typeof(string));
-            //    dt2.Columns.Add("TrongLuong", typeof(Double));
-            //    dt2.Columns.Add("SoLuong", typeof(Double));
-            //    dt2.Columns.Add("DonVi_", typeof(string));
-            //    dt2.Columns.Add("QuyRaKien", typeof(Double));
-            //    dt2.Columns.Add("PhePham", typeof(Double));
-            //    dt2.Columns.Add("DoCao", typeof(Double));
-            //    dt2.Columns.Add("MotBao_kg", typeof(Double));
-            //    dt2.Columns.Add("MotBao_SoKien", typeof(Double));
-            //    dt2.Columns.Add("SauMuoi_BaoKien", typeof(Double));
-            //    dt2.Columns.Add("GhiChu", typeof(string));
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("ID", typeof(int));
+                dt2.Columns.Add("STT", typeof(int));
+                dt2.Columns.Add("CreateDate", typeof(DateTime));
+                dt2.Columns.Add("UpdateDate", typeof(DateTime));
+                dt2.Columns.Add("Type", typeof(string));
+                dt2.Columns.Add("Code", typeof(string));
+                dt2.Columns.Add("PhanNhom", typeof(string));
+                dt2.Columns.Add("TenSanPham", typeof(string));
+                dt2.Columns.Add("DonViTinh", typeof(string));
+                dt2.Columns.Add("NhaCungCap", typeof(string));
+                dt2.Columns.Add("SLNhap", typeof(Double));
+                dt2.Columns.Add("SLXuat", typeof(Double));
+                dt2.Columns.Add("SLTon", typeof(Double));
+                dt2.Columns.Add("GiaVon", typeof(Decimal));
+                dt2.Columns.Add("GiaBan", typeof(Decimal));
+                dt2.Columns.Add("RecordStatus", typeof(string));
+                dt2.Columns.Add("Description", typeof(string));
+                dt2.Columns.Add("CreateUser", typeof(int));
+                dt2.Columns.Add("UpdateUser", typeof(int));
 
-            //    using (clsTr_BB_KtraDinhMuc_HHSX cls_ = new clsTr_BB_KtraDinhMuc_HHSX())
-            //    {
-            //        DataTable dt_ = cls_.Tr_SelecPage_BB_Ktra_HHSX(_SoTrang, _ngay_batdau, _ngay_ketthuc, _sSearch);
 
-            //        _RowPage_curent = dt_.Rows.Count;
+                using (clsSanPham cls_ = new clsSanPham())
+                {
+                    DataTable dt_;
+                    
+                    if (checkAll.Checked)
+                        dt_ = cls_.SelecPage_SanPham_All(_SoTrang, _sSearch);
+                    else
+                        dt_ = cls_.SelecPage_SanPham_ConHang(_SoTrang, _sSearch);
 
-            //        if (dt_ != null && dt_.Rows.Count > 0)
-            //        {
-            //            for (int i = 0; i < dt_.Rows.Count; i++)
-            //            {
-            //                DataRow _ravi = dt2.NewRow();
 
-            //                _ravi["STT"] = _STT.ToString(); _STT++;
-            //                _ravi["NgayThang"] = Convert.ToDateTime(dt_.Rows[i]["NgayThang"].ToString());
-            //                _ravi["SoHieu"] = dt_.Rows[i]["SoHieu"].ToString();
-            //                _ravi["ID_BienBan"] = Convert.ToInt32(dt_.Rows[i]["Id_BB"].ToString());
-            //                _ravi["CaSanXuat"] = Convert.ToInt32(dt_.Rows[i]["Ca"].ToString());
-            //                _ravi["LoaiHang"] = dt_.Rows[i]["LoaiHang"].ToString().Trim();
-            //                _ravi["LoaiGiay"] = dt_.Rows[i]["LoaiGiay"].ToString().Trim();
-            //                _ravi["SoLuongKiemTra"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["SoLuongKtra"].ToString());
-            //                _ravi["DonVi"] = dt_.Rows[i]["DonVi_first"].ToString();
-            //                _ravi["TrongLuong"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["TrongLuong"].ToString());
-            //                _ravi["SoLuong"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["SoLuong"].ToString());
-            //                _ravi["DonVi_"] = dt_.Rows[i]["DonVi_Second"].ToString();
-            //                _ravi["QuyRaKien"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["QuyRaKien"].ToString());
-            //                _ravi["PhePham"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["PhePham"].ToString());
-            //                _ravi["DoCao"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["DoCao"].ToString());
-            //                _ravi["MotBao_kg"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["MotBao_kg"].ToString());
-            //                _ravi["MotBao_SoKien"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["MotBao_SoKien"].ToString());
-            //                _ravi["SauMuoi_BaoKien"] = CheckString.ConvertToDouble_My(dt_.Rows[i]["SauMuoi_BaoKien"].ToString());
-            //                _ravi["GhiChu"] = dt_.Rows[i]["GhiChu"].ToString();
+                    _RowPage_curent = dt_.Rows.Count;
 
-            //                dt2.Rows.Add(_ravi);
-            //            }
-            //        }
-            //    }
-            //    gridControl1.DataSource = dt2;
+                    if (dt_ != null && dt_.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt_.Rows.Count; i++)
+                        {
+                            DataRow _ravi = dt2.NewRow();
 
-            //    isload = false;
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                            _ravi["ID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
+                            _ravi["STT"] = _STT.ToString(); _STT++;
+                            _ravi["CreateDate"] = dt_.Rows[i]["CreateDate"];
+                            _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
+                            _ravi["Type"] = dt_.Rows[i]["Type"];
+                            _ravi["Code"] = dt_.Rows[i]["Code"];
+                            _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
+                            _ravi["TenSanPham"] = dt_.Rows[i]["TenSanPham"];
+                            _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
+                            _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
+                            _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
+                            _ravi["SLXuat"] = dt_.Rows[i]["SLXuat"];
+                            _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
+                            _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
+                            _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
+                            _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
+                            _ravi["Description"] = dt_.Rows[i]["Description"];
+                            _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
+                            _ravi["UpdateUser"] = dt_.Rows[i]["UpdateUser"];
+
+                            dt2.Rows.Add(_ravi);
+                        }
+                    }
+                }
+                gridControl1.DataSource = dt2;
+
+                isload = false;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
        
@@ -139,18 +146,15 @@ namespace GasToanMy
         {
             _frmQLSX = frmQLSX;
             InitializeComponent();
-
-            NhaCungCap.Caption = "Số lượng\nkiểm tra";
-            SoLuong.Caption = "Trọng\nlượng";
         }
 
         private void frmNhapHang_Load(object sender, EventArgs e)
         {
-            //Cursor.Current = Cursors.WaitCursor;
-            //_STT = 1;
-            //LoadData(1, true);
-            //ResetSoTrang_BB();
-            //Cursor.Current = Cursors.Default;
+            Cursor.Current = Cursors.WaitCursor;
+            _STT = 1;
+            LoadData(1, true);
+            ResetSoTrang_BB();
+            Cursor.Current = Cursors.Default;
         }
 
         public void btRefresh_Click(object sender, EventArgs e)
@@ -178,9 +182,9 @@ namespace GasToanMy
             //    {
             //        Cursor.Current = Cursors.WaitCursor;
 
-            //        mbAdd_BB_Ktra = false;
-            //        mb_Sua_BB_Ktra = true;
-            //        mbCopy_BB_Ktra = true;
+            //        mbAdd_SanPham = false;
+            //        mb_Sua_SanPham = true;
+            //        mbCopy_SanPham = true;
 
             //        //
             //        mdNgayThang = Convert.ToDateTime(gridView1.GetFocusedRowCellValue(clNgayThang).ToString());
@@ -222,7 +226,7 @@ namespace GasToanMy
             //{
             //    Cursor.Current = Cursors.WaitCursor;
 
-            //    clsTr_BB_KtraDinhMuc_HHSX cls = new clsTr_BB_KtraDinhMuc_HHSX();
+            //    clsTr_SanPhamDinhMuc_HHSX cls = new clsTr_SanPhamDinhMuc_HHSX();
             //    cls.iId_BB = Convert.ToInt32(gridView1.GetFocusedRowCellValue(CreateUser).ToString());
 
             //    DialogResult traloi;
@@ -308,58 +312,26 @@ namespace GasToanMy
 
         private void btThemMoi_Click_1(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
 
-            //    mbAdd_BB_Ktra = true;
-            //    mbCopy_BB_Ktra = false;
-            //    mb_Sua_BB_Ktra = false;
+                mbAdd_SanPham = true;
+                mbCopy_SanPham = false;
+                mb_Sua_SanPham = false;
 
-            //    Tr_frmChiTietBB_Ktra_DMHH ff = new Tr_frmChiTietBB_Ktra_DMHH(this);
-            //    ff.Show();
+                if (!CheckString.FormIsOpened("frmChiTietNhapHang"))
+                {
+                    frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
+                    ff.Show();
+                }
 
-            //    Cursor.Current = Cursors.Default;
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-
-        private void dteTuNgay_EditValueChanged(object sender, EventArgs e)
-        {
-            //if (isload)
-            //    return;
-
-            //try
-            //{
-            //    _ngay_batdau = Convert.ToDateTime(dteTuNgay.DateTime);
-            //    ResetSoTrang_BB();
-            //    _STT = 1;
-            //    LoadData(1, false);
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-
-        private void dteDenNgay_EditValueChanged(object sender, EventArgs e)
-        {
-            //if (isload)
-            //    return;
-            //try
-            //{
-            //    _ngay_ketthuc = Convert.ToDateTime(dteDenNgay.DateTime);
-            //    ResetSoTrang_BB();
-            //    _STT = 1;
-            //    LoadData(1, false);
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
@@ -380,9 +352,9 @@ namespace GasToanMy
             //    {
             //        Cursor.Current = Cursors.WaitCursor;
 
-            //        mbAdd_BB_Ktra = true;
-            //        mb_Sua_BB_Ktra = false;
-            //        mbCopy_BB_Ktra = true;
+            //        mbAdd_SanPham = true;
+            //        mb_Sua_SanPham = false;
+            //        mbCopy_SanPham = true;
 
             //        mdNgayThang = Convert.ToDateTime(gridView1.GetFocusedRowCellValue(clNgayThang).ToString());
             //        msSoHieu = gridView1.GetFocusedRowCellValue(clSoHieu).ToString().Trim();
@@ -430,9 +402,14 @@ namespace GasToanMy
                 btnTrangTiep.LinkColor = Color.Blue;
                 txtSoTrang.Text = "1";
 
-                using (clsTr_BB_KtraDinhMuc_HHSX cls = new clsTr_BB_KtraDinhMuc_HHSX())
+                using (clsSanPham cls = new clsSanPham())
                 {
-                    DataTable dt_ = cls.T_TongSoBB(_ngay_batdau, _ngay_ketthuc, _sSearch);
+                    DataTable dt_;
+                    if (checkAll.Checked)
+                        dt_ = cls.TongSoSanPhamAll(_sSearch);
+                    else
+                        dt_ = cls.TongSoSanPham_ConHang(_sSearch);
+
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {
                         _TongSoTrang = Convert.ToInt32(Math.Ceiling(CheckString.ConvertToDouble_My(dt_.Rows[0]["tongso"].ToString()) / (double)20));
@@ -479,7 +456,7 @@ namespace GasToanMy
                         btnTrangTiep.LinkColor = Color.Black;
                     }
 
-                    Load_BBKtraHHSX(false);
+                    Load_SanPham(false);
                 }
                 else
                 {
@@ -526,7 +503,7 @@ namespace GasToanMy
                         btnTrangSau.LinkColor = Color.Black;
                     }
 
-                    Load_BBKtraHHSX(false);
+                    Load_SanPham(false);
                 }
             }
             catch
@@ -538,7 +515,7 @@ namespace GasToanMy
             }
         }
 
-        private void Load_BBKtraHHSX(bool islandau)
+        private void Load_SanPham(bool islandau)
         {
             int sotrang_ = 1;
             try
@@ -567,21 +544,14 @@ namespace GasToanMy
             }
         }
 
-        private void dteTuNgay_KeyPress(object sender, KeyPressEventArgs e)
+        private void checkAll_CheckedChanged(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
+            if (isload)
+                return;
+            _sSearch = txtTimKiem.Text;
+            ResetSoTrang_BB();
+            _STT = 1;
+            LoadData(1, false);
         }
-
-        private void dteDenNgay_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
     }
 }

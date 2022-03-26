@@ -12,6 +12,55 @@ namespace GasToanMy
 {
     internal static class CheckString
     {
+        public static bool FormIsOpened(string FormName)
+        {
+            FormCollection fc = Application.OpenForms;
+
+            foreach (Form frm in fc)
+            {
+                if (frm.Name == FormName)
+                {
+                    frm.BringToFront();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static String creatCodeSanPham()
+        {
+            DataTable dt;
+            String Code = "SP10101010";
+            String sq_curent = "";
+
+            try
+            {
+                using (clsSanPham cls = new clsSanPham())
+                {
+                    dt = cls.Select_CodeSanPham();
+                    if (dt.Rows.Count > 0)
+                    {
+                        sq_curent = dt.Rows[0]["Code"].ToString().Trim();
+                    }
+
+                    if (sq_curent != "" && sq_curent.Length >= 3)
+                    {
+                        String tmp = sq_curent.Substring(2);
+                        int sq = Convert.ToInt32(tmp) + 1;
+
+                        Code = "XC" + sq.ToString();
+                    }
+                    else Code = "SP10101010";
+                }
+            }
+            catch (Exception ea)
+            {
+            }
+
+            return Code;
+        }
+
+        //=======================================
         public static string EncodeMD5(string Metin)
         {
             MD5CryptoServiceProvider MD5Code = new MD5CryptoServiceProvider();
@@ -673,10 +722,10 @@ namespace GasToanMy
             double temp_ = 0;
             try
             {
-                temp_ = Convert.ToDouble(new DataTable().Compute(str.ToString(), null));
+                temp_ = Convert.ToDouble(new DataTable().Compute(str_2_, null));
                 //Convert.ToDouble(str);
             }
-            catch
+            catch (Exception ex)
             {
                 try
                 {
@@ -704,7 +753,8 @@ namespace GasToanMy
             decimal temp_ = 0;
             try
             {
-                temp_ = Convert.ToDecimal(str);
+                //temp_ = Convert.ToDecimal(str);
+                temp_ = Convert.ToDecimal(new DataTable().Compute(str.ToString(), null));
             }
             catch
             {

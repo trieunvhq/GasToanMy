@@ -2442,6 +2442,7 @@
     <Compile Include="StoredProcedures\clsDonHang.cs" />
     <Compile Include="StoredProcedures\clsKhachHang.cs" />
     <Compile Include="StoredProcedures\clsNhanSu.cs" />
+    <Compile Include="StoredProcedures\clsSanPham - Copy.cs" />
     <Compile Include="StoredProcedures\clsSanPham.cs" />
     <Compile Include="StoredProcedures\clsUsers - Copy.cs" />
     <Compile Include="StoredProcedures\clsUsers.cs" />

@@ -429,7 +429,7 @@
             this.btnMuaHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMuaHang.Size = new System.Drawing.Size(285, 227);
             this.btnMuaHang.TabIndex = 14;
-            this.btnMuaHang.Text = "                     Nhập hàng";
+            this.btnMuaHang.Text = "                     Sản phẩm";
             this.btnMuaHang.UseVisualStyleBackColor = false;
             this.btnMuaHang.Click += new System.EventHandler(this.btnMuaHang_Click);
             // 
