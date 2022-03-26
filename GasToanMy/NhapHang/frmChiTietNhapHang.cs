@@ -59,68 +59,79 @@ namespace GasToanMy
         // 
         private bool Update_SanPham()
         {
-            //try
-            //{
-            //    using (clsTr_SanPhamDinhMuc_HHSX cls = new clsTr_SanPhamDinhMuc_HHSX())
-            //    {
-            //        cls.iId_BB = Tr_UC_SanPham_DM_HHSX.miID_BienBan;
-            //        cls.daNgayThang = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
-            //        cls.sSoHieu = txtTenSanPham.Text.ToString().Trim();
-            //        cls.iCa = Convert.ToInt32(txtSoLuong.Text.ToString());
-            //        cls.sLoaiHang = txtGiaVon.Text.ToString().Trim();
-            //        cls.sLoaiGiay = txtGiaban.Text.ToString().Trim();
-            //        cls.fSoLuongKtra = CheckString.ConvertToDouble_My(txtSoLuongKtra.Text.ToString());
-            //        cls.sDonVi_first = txtDonVi_in.Text.ToString().Trim();
-            //        cls.fTrongLuong = CheckString.ConvertToDouble_My(txtTrongLuong.Text.ToString());
-            //        cls.fSoLuong = CheckString.ConvertToDouble_My(txtSoLuongd.Text.ToString());
-            //        cls.sDonVi_Second = txtDonVi_Out.Text.ToString().Trim();
-            //        cls.fQuyRaKien = CheckString.ConvertToDouble_My(txtQuyRaKien.Text.ToString());
-            //        cls.fPhePham = CheckString.ConvertToDouble_My(txtPhePham.Text.ToString());
-            //        cls.fDoCao = CheckString.ConvertToDouble_My(txtDoCao.Text.ToString());
-            //        cls.fMotBao_kg = CheckString.ConvertToDouble_My(txt1Bao_kg.Text.ToString());
-            //        cls.fMotBao_SoKien = CheckString.ConvertToDouble_My(txt1Bao_SoKien.Text.ToString());
-            //        cls.fSauMuoi_BaoKien = CheckString.ConvertToDouble_My(txt60Bao_Kien.Text.ToString());
-            //        cls.sGhiChu = txtGhiChu.Text.ToString().Trim();
+            try
+            {
+                using (clsSanPham cls = new clsSanPham())
+                {
+                    string tensp = txtTenSanPham.Text.Trim();
+                    string ghichu = txtGhiChu.Text.Trim();
 
-            //        if (cls.Update()) return true;
-            //        else return false;
-            //    }
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            return true;
+                    while (tensp.IndexOf("  ") >= 0)
+                    {
+                        tensp = tensp.Replace("  ", " ");
+                    }
+
+                    while (ghichu.IndexOf("  ") >= 0)
+                    {
+                        ghichu = ghichu.Replace("  ", " ");
+                    }
+
+                    cls.iID = frmNhapHang.miID;
+                    cls.daCreateDate = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
+                    cls.daUpdateDate = DateTime.Now;
+                    cls.iCreateUser = frmNhapHang.miCreateUser;
+                    cls.iUpdateUser = frmDangNhap._iID_NhanSu;
+                    cls.sCode = txtCode.Text.Trim();
+                    cls.sNhaCungCap = txtNhaCungCap.Text.Trim();
+                    cls.sTenSanPham = tensp;
+                    cls.sDonViTinh = txtDonVi.Text.Trim();
+                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSLNhap.Text);
+                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sRecordStatus = "Y";
+                    cls.sDescription = ghichu;
+
+                    if (cls.Update()) return true;
+                    else return false;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
        
    
         private void Load_frmEdit()
         {
-            //try
-            //{
-            //    dateNgayThang.EditValue = Tr_UC_SanPham_DM_HHSX.mdNgayThang;
-            //    txtTenSanPham.Text = Tr_UC_SanPham_DM_HHSX.msSoHieu;
-            //    txtSoLuong.Text = Tr_UC_SanPham_DM_HHSX.miCaSanXuat.ToString();
-            //    txtGiaVon.Text = Tr_UC_SanPham_DM_HHSX.msLoaiHang.ToString();
-            //    txtGiaban.Text = Tr_UC_SanPham_DM_HHSX.msLoaiGiay.ToString();
-            //    txtSoLuongKtra.Text = Tr_UC_SanPham_DM_HHSX.mfSoLuongKiemTra.ToString();
-            //    txtDonVi_in.Text = Tr_UC_SanPham_DM_HHSX.msDonVi;
-            //    txtTrongLuong.Text = Tr_UC_SanPham_DM_HHSX.mfTrongLuong.ToString();
-            //    txtSoLuongd.Text = Tr_UC_SanPham_DM_HHSX.mfSoLuong.ToString();
-            //    txtDonVi_Out.Text = Tr_UC_SanPham_DM_HHSX.msDonVi_;
-            //    txtQuyRaKien.Text = Tr_UC_SanPham_DM_HHSX.mfQuyRaKien.ToString();
-            //    txtPhePham.Text = Tr_UC_SanPham_DM_HHSX.mfPhePham.ToString();
-            //    txtDoCao.Text = Tr_UC_SanPham_DM_HHSX.mfDoCao.ToString();
-            //    txt1Bao_kg.Text = Tr_UC_SanPham_DM_HHSX.mfMotBao_kg.ToString();
-            //    txt1Bao_SoKien.Text = Tr_UC_SanPham_DM_HHSX.mfMotBao_SoKien.ToString();
-            //    txt60Bao_Kien.Text = Tr_UC_SanPham_DM_HHSX.mfSauMuoi_BaoKien.ToString();
-            //    txtGhiChu.Text = Tr_UC_SanPham_DM_HHSX.msGhiChu;
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            try
+            {
+                if (frmNhapHang.mbCopy_SanPham)
+                {
+                    dateNgayThang.EditValue = DateTime.Now;
+                    txtCode.Text = CheckString.creatCodeSanPham();
+                }
+                else
+                {
+                    txtCode.Text = frmNhapHang.msCode;
+                    txtSLXuat.Text = frmNhapHang.mfSLXuat.ToString();
+                    txtSLTon.Text = frmNhapHang.mfSLTon.ToString();
+                    dateNgayThang.EditValue = frmNhapHang.mdaCreateDate;
+                }
+
+                txtTenSanPham.Text = frmNhapHang.msTenSanPham;
+                txtDonVi.Text = frmNhapHang.msDonViTinh;
+                txtNhaCungCap.Text = frmNhapHang.msNhaCungCap;
+                txtSLNhap.Text = frmNhapHang.mfSLNhap.ToString();
+                txtGiaVon.Text = frmNhapHang.mfGiaVon.ToString();
+                txtGiaban.Text = frmNhapHang.mfGiaBan.ToString();
+                txtGhiChu.Text = frmNhapHang.msDescription;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool CheckDataInput()
@@ -199,7 +210,7 @@ namespace GasToanMy
             txtDonVi.Properties.Items.Add("cm");
             txtDonVi.Text = "Chiếc";
 
-            if (frmNhapHang.mbCopy_SanPham)
+            if (frmNhapHang.mbCopy_SanPham || frmNhapHang.mb_Sua_SanPham)
             {
                 Load_frmEdit();
             }
@@ -226,8 +237,7 @@ namespace GasToanMy
         {
             try
             {
-                if (frmNhapHang.mbAdd_SanPham == true
-               && frmNhapHang.mb_Sua_SanPham == false)
+                if (frmNhapHang.mbAdd_SanPham || frmNhapHang.mbCopy_SanPham)
                 {
                     if (CheckDataInput())
                     {
@@ -235,7 +245,7 @@ namespace GasToanMy
                         {
                             this.Close();
                             _ucBBKTDM.btRefresh_Click(null, null);
-                            MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -250,7 +260,7 @@ namespace GasToanMy
                     {
                         this.Close();
                         _ucBBKTDM.btRefresh_Click(null, null);
-                        MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("Lưu dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

@@ -48,7 +48,7 @@ namespace GasToanMy
                         String tmp = sq_curent.Substring(2);
                         int sq = Convert.ToInt32(tmp) + 1;
 
-                        Code = "XC" + sq.ToString();
+                        Code = "SP" + sq.ToString();
                     }
                     else Code = "SP10101010";
                 }

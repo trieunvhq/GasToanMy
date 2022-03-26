@@ -83,7 +83,7 @@ namespace GasToanMy
             }
         }
 
-        public DataTable SelecPage_SanPham_ConHang(int sotrang, string keysearch)
+        public DataTable SelecPage_SanPham_ConHang(int SoHang, int sotrang, string keysearch)
         {
             SqlCommand scmCmdToExecute = new SqlCommand();
             scmCmdToExecute.CommandText = "dbo.[SelecPage_SanPham_ConHang]";
@@ -98,6 +98,7 @@ namespace GasToanMy
             {
                 m_scoMainConnection.Open();
 
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@SoHang", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, SoHang));
                 scmCmdToExecute.Parameters.Add(new SqlParameter("@SoTrang", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, sotrang));
                 scmCmdToExecute.Parameters.Add(new SqlParameter("@keysearch", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, keysearch));
 
@@ -119,7 +120,7 @@ namespace GasToanMy
         }
 
 
-        public DataTable SelecPage_SanPham_All(int sotrang, string keysearch)
+        public DataTable SelecPage_SanPham_All(int SoHang, int sotrang, string keysearch)
         {
             SqlCommand scmCmdToExecute = new SqlCommand();
             scmCmdToExecute.CommandText = "dbo.[SelecPage_SanPham]";
@@ -134,6 +135,7 @@ namespace GasToanMy
             {
                 m_scoMainConnection.Open();
 
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@SoHang", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, SoHang));
                 scmCmdToExecute.Parameters.Add(new SqlParameter("@SoTrang", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, sotrang));
                 scmCmdToExecute.Parameters.Add(new SqlParameter("@keysearch", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, keysearch));
 
