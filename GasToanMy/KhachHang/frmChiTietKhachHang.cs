@@ -108,7 +108,7 @@ namespace GasToanMy
                 if (frmKhachHang.mbCopy_SanPham)
                 {
                     dateNgayThang.EditValue = DateTime.Now;
-                    txtCode.Text = CheckString.creatCodeSanPham();
+                    txtCode.Text = CheckString.Create_CodeKhachHang();
                 }
                 else
                 {
@@ -193,7 +193,7 @@ namespace GasToanMy
             }
             else if (frmKhachHang.mbAdd_SanPham)
             {
-                txtCode.Text = CheckString.creatCodeSanPham();
+                txtCode.Text = CheckString.Create_CodeKhachHang();
             }
 
             txtAddress.Focus();

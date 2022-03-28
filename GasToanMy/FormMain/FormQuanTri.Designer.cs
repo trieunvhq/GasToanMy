@@ -68,7 +68,6 @@
             this.btnQuanTriNhanSu.TabIndex = 0;
             this.btnQuanTriNhanSu.Text = " ";
             this.btnQuanTriNhanSu.UseVisualStyleBackColor = false;
-            this.btnQuanTriNhanSu.Click += new System.EventHandler(this.btnQuanTriNhanSu_Click);
             // 
             // btnQuanTriKhachHang
             // 
@@ -82,7 +81,6 @@
             this.btnQuanTriKhachHang.TabIndex = 0;
             this.btnQuanTriKhachHang.Text = " ";
             this.btnQuanTriKhachHang.UseVisualStyleBackColor = false;
-            this.btnQuanTriKhachHang.Click += new System.EventHandler(this.btnQuanTriKhachHang_Click);
             // 
             // btnQuanTriVTHH
             // 
@@ -95,7 +93,6 @@
             this.btnQuanTriVTHH.Size = new System.Drawing.Size(210, 145);
             this.btnQuanTriVTHH.TabIndex = 0;
             this.btnQuanTriVTHH.UseVisualStyleBackColor = false;
-            this.btnQuanTriVTHH.Click += new System.EventHandler(this.btnQuanTriVTHH_Click);
             // 
             // btnMucLuongCongNhat
             // 
@@ -108,7 +105,6 @@
             this.btnMucLuongCongNhat.Size = new System.Drawing.Size(210, 145);
             this.btnMucLuongCongNhat.TabIndex = 0;
             this.btnMucLuongCongNhat.UseVisualStyleBackColor = false;
-            this.btnMucLuongCongNhat.Click += new System.EventHandler(this.btnMucLuongCongNhat_Click);
             // 
             // btnQuanTriNhaCC
             // 
@@ -122,7 +118,6 @@
             this.btnQuanTriNhaCC.TabIndex = 0;
             this.btnQuanTriNhaCC.Text = " ";
             this.btnQuanTriNhaCC.UseVisualStyleBackColor = false;
-            this.btnQuanTriNhaCC.Click += new System.EventHandler(this.btnQuanTriNhaCC_Click);
             // 
             // btnQuanTriDVT
             // 
@@ -135,7 +130,6 @@
             this.btnQuanTriDVT.Size = new System.Drawing.Size(210, 145);
             this.btnQuanTriDVT.TabIndex = 0;
             this.btnQuanTriDVT.UseVisualStyleBackColor = false;
-            this.btnQuanTriDVT.Click += new System.EventHandler(this.btnQuanTriDVT_Click);
             // 
             // btnMucLuongSanLuong
             // 
@@ -148,7 +142,6 @@
             this.btnMucLuongSanLuong.Size = new System.Drawing.Size(210, 145);
             this.btnMucLuongSanLuong.TabIndex = 0;
             this.btnMucLuongSanLuong.UseVisualStyleBackColor = false;
-            this.btnMucLuongSanLuong.Click += new System.EventHandler(this.btnMucLuongSanLuong_Click);
             // 
             // btnQuanTriMaySX
             // 
@@ -162,7 +155,6 @@
             this.btnQuanTriMaySX.TabIndex = 0;
             this.btnQuanTriMaySX.Text = " ";
             this.btnQuanTriMaySX.UseVisualStyleBackColor = false;
-            this.btnQuanTriMaySX.Click += new System.EventHandler(this.btnQuanTriMaySX_Click);
             // 
             // btnQuanTriDaiLy
             // 
@@ -176,7 +168,6 @@
             this.btnQuanTriDaiLy.TabIndex = 0;
             this.btnQuanTriDaiLy.Text = " ";
             this.btnQuanTriDaiLy.UseVisualStyleBackColor = false;
-            this.btnQuanTriDaiLy.Click += new System.EventHandler(this.btnQuanTriDaiLy_Click);
             // 
             // btnHTTKKeToan
             // 
@@ -189,7 +180,6 @@
             this.btnHTTKKeToan.Size = new System.Drawing.Size(210, 145);
             this.btnHTTKKeToan.TabIndex = 0;
             this.btnHTTKKeToan.UseVisualStyleBackColor = false;
-            this.btnHTTKKeToan.Click += new System.EventHandler(this.btnHTTKKeToan_Click);
             // 
             // btnMacDinhNguoiKy
             // 
@@ -202,7 +192,6 @@
             this.btnMacDinhNguoiKy.Size = new System.Drawing.Size(210, 145);
             this.btnMacDinhNguoiKy.TabIndex = 0;
             this.btnMacDinhNguoiKy.UseVisualStyleBackColor = false;
-            this.btnMacDinhNguoiKy.Click += new System.EventHandler(this.btnMacDinhNguoiKy_Click);
             // 
             // FormQuanTri
             // 

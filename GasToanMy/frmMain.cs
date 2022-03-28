@@ -58,13 +58,12 @@ namespace GasToanMy
         {
            
         }
-        frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii _frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii;
 
         private void importDuLieuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii = new GasToanMy.frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii(this);
-            //this.Hide();
-            _frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii.Show();
+            //_frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii = new GasToanMy.frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii(this);
+            ////this.Hide();
+            //_frm_imPortDuLieu_Moiiiiiiiiiiiiiiiiiiiiiiiiiii.Show();
         }
 
         private void btDinhMucDot_Click(object sender, EventArgs e)
@@ -75,17 +74,17 @@ namespace GasToanMy
 
         private void simpleButton6_Click(object sender, EventArgs e)
         {
-            clsDelete_ALL_newwww cls = new clsDelete_ALL_newwww();
-            cls.HUU_Delete_ALL();
-            MessageBox.Show("Đã xoá ALLL");
+            //clsDelete_ALL_newwww cls = new clsDelete_ALL_newwww();
+            //cls.HUU_Delete_ALL();
+            //MessageBox.Show("Đã xoá ALLL");
         }
 
        
         private void simpleButton10_Click_1(object sender, EventArgs e)
         {
-            clsNganHang_ChiTietBienDongTaiKhoanKeToan cls = new clsNganHang_ChiTietBienDongTaiKhoanKeToan();
+            //clsNganHang_ChiTietBienDongTaiKhoanKeToan cls = new clsNganHang_ChiTietBienDongTaiKhoanKeToan();
            
-            MessageBox.Show("Đã xong");
+            //MessageBox.Show("Đã xong");
         }
 
 
@@ -96,107 +95,107 @@ namespace GasToanMy
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            clsMH_tbMuaHang cls1 = new clsMH_tbMuaHang();
-            cls1.daNgayChungTu = DateTime.Today;
-            cls1.sSoChungTu = "MH 1";
-            cls1.sSoHoaDon = "";
-            cls1.iIDNhaCungCap = 3;
-            cls1.sDienGiai = "";
-            cls1.fTongTienHangChuaVAT = 17000000;
-            cls1.fTongTienHangCoVAT = 18700000;
-            cls1.iID_NguoiMua = 12;
-            cls1.bTonTai = true;
-            cls1.bNgungTheoDoi = false;
-            //cls1.iID_TKNo = 46;
-            //cls1.iID_TKCo = 291;
-            //cls1.iID_TKVAT = 79;
-            cls1.bTienUSD = false;
-            cls1.fPhanTramVAT = 10;
-            cls1.fTienVAT = 1700000;
-            cls1.bMuaHangNhapKho = true;
-            cls1.bGuiDuLieu = true;
-            cls1.bCheck_BaoVe = true;
-            cls1.bCheck_LaiXe = true;
-            cls1.bTrangThaiNhapKho = false;
-            cls1.Insert();
-            int iiDIMuahang = cls1.iID_MuaHang.Value;
+            //clsMH_tbMuaHang cls1 = new clsMH_tbMuaHang();
+            //cls1.daNgayChungTu = DateTime.Today;
+            //cls1.sSoChungTu = "MH 1";
+            //cls1.sSoHoaDon = "";
+            //cls1.iIDNhaCungCap = 3;
+            //cls1.sDienGiai = "";
+            //cls1.fTongTienHangChuaVAT = 17000000;
+            //cls1.fTongTienHangCoVAT = 18700000;
+            //cls1.iID_NguoiMua = 12;
+            //cls1.bTonTai = true;
+            //cls1.bNgungTheoDoi = false;
+            ////cls1.iID_TKNo = 46;
+            ////cls1.iID_TKCo = 291;
+            ////cls1.iID_TKVAT = 79;
+            //cls1.bTienUSD = false;
+            //cls1.fPhanTramVAT = 10;
+            //cls1.fTienVAT = 1700000;
+            //cls1.bMuaHangNhapKho = true;
+            //cls1.bGuiDuLieu = true;
+            //cls1.bCheck_BaoVe = true;
+            //cls1.bCheck_LaiXe = true;
+            //cls1.bTrangThaiNhapKho = false;
+            //cls1.Insert();
+            //int iiDIMuahang = cls1.iID_MuaHang.Value;
 
-            clsMH_tbChiTietMuaHang cls2 = new clsMH_tbChiTietMuaHang();
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 741;
-            cls2.fSoLuong = 100;
-            cls2.fDonGia = 100000;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //clsMH_tbChiTietMuaHang cls2 = new clsMH_tbChiTietMuaHang();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 741;
+            //cls2.fSoLuong = 100;
+            //cls2.fDonGia = 100000;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 108;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 108;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 1116;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 1116;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 938;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 938;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 440;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 440;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 104;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 104;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 43;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 43;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
-            cls2.iID_MuaHang = iiDIMuahang;
-            cls2.iID_VTHH = 471;
-            cls2.fSoLuong = 10000;
-            cls2.fDonGia = 100;
-            cls2.bTonTai = true;
-            cls2.bNgungTheoDoi = false;
-            cls2.sGhiChu = "test";
-            cls2.Insert();
+            //cls2.iID_MuaHang = iiDIMuahang;
+            //cls2.iID_VTHH = 471;
+            //cls2.fSoLuong = 10000;
+            //cls2.fDonGia = 100;
+            //cls2.bTonTai = true;
+            //cls2.bNgungTheoDoi = false;
+            //cls2.sGhiChu = "test";
+            //cls2.Insert();
 
            
 
-            MessageBox.Show("Đã xong");
+            //MessageBox.Show("Đã xong");
         }
 
 
@@ -333,60 +332,61 @@ namespace GasToanMy
 
         private void btnDaiLy_Click(object sender, EventArgs e)
         {
-            //frmQuanLyKhoDaiLy ff = new frmQuanLyKhoDaiLy();
+            if (!CheckString.FormIsOpened("frmKhachHang"))
+            {
+                frmKhachHang ff = new frmKhachHang();
+                ff.Show();
+            }
+        }
+
+        private void btnQLSX_Click(object sender, EventArgs e)
+        {
+            //SanXuat_frmQuanLySanXuat ff = new SanXuat_frmQuanLySanXuat();
             ////this.Hide();
             //ff.Show();
             ////this.Show();
         }
 
-        private void btnQLSX_Click(object sender, EventArgs e)
-        {
-            SanXuat_frmQuanLySanXuat ff = new SanXuat_frmQuanLySanXuat();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
-        }
-
         //frmQuanLy_Luong_ChamCong _frmQuanLy_Luong_ChamCong;
         private void btnLuongChamCong_Click(object sender, EventArgs e)
         {
-            frmQuanLy_Luong_ChamCong ff = new GasToanMy.frmQuanLy_Luong_ChamCong();
-            ////this.Hide();
-            ff.Show();
-            ////this.Show();
+            //frmQuanLy_Luong_ChamCong ff = new GasToanMy.frmQuanLy_Luong_ChamCong();
+            //////this.Hide();
+            //ff.Show();
+            //////this.Show();
 
         }
 
         private void btnQuyNganHang_Click(object sender, EventArgs e)
         {
-            frmQuy_NganHang_Newwwwwwwwwwwwwwwww ff = new GasToanMy.frmQuy_NganHang_Newwwwwwwwwwwwwwwww();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmQuy_NganHang_Newwwwwwwwwwwwwwwww ff = new GasToanMy.frmQuy_NganHang_Newwwwwwwwwwwwwwwww();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void btnKhoNguyenPhuLieu_Click(object sender, EventArgs e)
         {
-            KhoNPL_frmNPL ff = new KhoNPL_frmNPL();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //KhoNPL_frmNPL ff = new KhoNPL_frmNPL();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void btnKhoBanThanhPham_Click(object sender, EventArgs e)
         {
-            frmQuanLyKhoBanThanhPham ff = new GasToanMy.frmQuanLyKhoBanThanhPham();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmQuanLyKhoBanThanhPham ff = new GasToanMy.frmQuanLyKhoBanThanhPham();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void btnKhoThanhPham_Click(object sender, EventArgs e)
         {
-            frmQuanLyKhoThanhPham ff = new GasToanMy.frmQuanLyKhoThanhPham();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmQuanLyKhoThanhPham ff = new GasToanMy.frmQuanLyKhoThanhPham();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
 
@@ -417,10 +417,10 @@ namespace GasToanMy
 
         private void btnPhieuSX_Click(object sender, EventArgs e)
         {
-            frmImPortPhieuSanXuat_banDau ff = new frmImPortPhieuSanXuat_banDau();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmImPortPhieuSanXuat_banDau ff = new frmImPortPhieuSanXuat_banDau();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
 
@@ -436,10 +436,10 @@ namespace GasToanMy
 
         private void btnBaoCaoNXT_Click(object sender, EventArgs e)
         {
-            frmBaoCaoNXT ff = new frmBaoCaoNXT();
-            //this.Hide();
-            ff.Show();
-            //this.Show();
+            //frmBaoCaoNXT ff = new frmBaoCaoNXT();
+            ////this.Hide();
+            //ff.Show();
+            ////this.Show();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
