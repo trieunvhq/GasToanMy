@@ -38,7 +38,7 @@ namespace GasToanMy
                     cls.sFullName = txtFullName.Text.Trim();
                     cls.sAddress = DiaChi;
                     cls.sPhone= txtPhone.Text.Trim();
-                    cls.sEmail = txtGiaVon.Text.Trim();
+                    cls.sEmail = txtEmail.Text.Trim();
                     cls.fScore = CheckString.ConvertToDouble_My(txtScore.Text);
                     cls.sRecordStatus = "Y";
                     cls.sDescription = ghichu;
@@ -84,7 +84,7 @@ namespace GasToanMy
                     cls.sFullName = txtFullName.Text.Trim();
                     cls.sAddress = DiaChi;
                     cls.sPhone = txtPhone.Text.Trim();
-                    cls.sEmail = txtGiaVon.Text.Trim();
+                    cls.sEmail = txtEmail.Text.Trim();
                     cls.fScore = CheckString.ConvertToDouble_My(txtScore.Text);
                     cls.sRecordStatus = "Y";
                     cls.sDescription = ghichu;
@@ -312,33 +312,7 @@ namespace GasToanMy
 
             if (e.KeyChar == (char)13)
             {
-                txtGiaVon.Focus();
-            }
-        }
-
-        private void txtGiaVon_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txtGiaban_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-
-            if (e.KeyChar == (char)13)
-            {
-                SendKeys.Send("{TAB}");
+                txtScore.Focus();
             }
         }
 

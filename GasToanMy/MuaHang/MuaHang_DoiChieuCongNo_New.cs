@@ -295,7 +295,6 @@ namespace GasToanMy
                     isChiTiet_thuchi = true;
                     UCQuy_NganHang_BaoCo.isChiTiet_thuchi = false;
                     frmChiTietBienDongTaiKhoan_Mot_TaiKhoan.isChiTiet_thuchi = false;
-                    BanHang_DoiChieu_CongNo_new.isChiTiet_thuchi = false;
                     mibientrangthai = cls.iBienTrangThai_BaoCo1_BaoNo_2_PhieuChi3_PhieuThu4_DoiTien_5.Value;
                     Quy_nganHang_frmThemMoi_ThuChi_CoNo_Newwwwww ff = new Quy_nganHang_frmThemMoi_ThuChi_CoNo_Newwwwww();
                     ff.Show();

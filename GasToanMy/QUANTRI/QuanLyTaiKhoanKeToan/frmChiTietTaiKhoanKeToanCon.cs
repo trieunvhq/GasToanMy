@@ -145,7 +145,6 @@ namespace GasToanMy
                     }
 
                     if (_frmQLTKKT != null) _frmQLTKKT.btRefresh_Click(null, null);
-                    if (_frmCTKH != null) _frmCTKH.frmChiTietKhachHang_Load(null, null);
                     if (_frmCTNCC != null) _frmCTNCC.frmChiTietNhaCungCap_Load(null, null);
                     this.Close();
                 }

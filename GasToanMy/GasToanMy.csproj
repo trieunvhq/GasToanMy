@@ -118,78 +118,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanHang\clsBanHang_BangGia - Copy.cs" />
-    <Compile Include="BanHang\clsBanHang_BangGia.cs" />
-    <Compile Include="BanHang\clsBanHang_ChiTietBanHang - Copy.cs" />
-    <Compile Include="BanHang\clsBanHang_ChiTietBanHang.cs" />
-    <Compile Include="BanHang\clsBanHang_tbBanHang - Copy.cs" />
-    <Compile Include="BanHang\clsBanHang_tbBanHang.cs" />
-    <Compile Include="BanHang\frmQuanLyBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\frmQuanLyBanHang.Designer.cs">
-      <DependentUpon>frmQuanLyBanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_FrmChiTietBanHang_Newwwwwwww.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_FrmChiTietBanHang_Newwwwwwww.Designer.cs">
-      <DependentUpon>BanHang_FrmChiTietBanHang_Newwwwwwww.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_FrmThamChieuKeHoachSanXuat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_FrmThamChieuKeHoachSanXuat.Designer.cs">
-      <DependentUpon>BanHang_FrmThamChieuKeHoachSanXuat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_frmChiTietMotVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_frmChiTietMotVatTu.Designer.cs">
-      <DependentUpon>BanHang_frmChiTietMotVatTu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_frmBangKeHoaDonBanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_frmBangKeHoaDonBanHang.Designer.cs">
-      <DependentUpon>BanHang_frmBangKeHoaDonBanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_SoTongHopbanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_SoTongHopbanHang.Designer.cs">
-      <DependentUpon>BanHang_SoTongHopbanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_ChiTietCongNo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_ChiTietCongNo.Designer.cs">
-      <DependentUpon>BanHang_ChiTietCongNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_CongNo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_CongNo.Designer.cs">
-      <DependentUpon>BanHang_CongNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\BanHang_DoiChieu_CongNo_new.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\BanHang_DoiChieu_CongNo_new.Designer.cs">
-      <DependentUpon>BanHang_DoiChieu_CongNo_new.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\Tr_frmPrint_DoiChieuCongNo_KH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\Tr_frmPrint_DoiChieuCongNo_KH.Designer.cs">
-      <DependentUpon>Tr_frmPrint_DoiChieuCongNo_KH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\Tr_Xtra_DoiChieuCongNo_NCC.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BanHang\Tr_Xtra_DoiChieuCongNo_NCC.Designer.cs">
-      <DependentUpon>Tr_Xtra_DoiChieuCongNo_NCC.cs</DependentUpon>
-    </Compile>
     <Compile Include="KhachHang\frmChiTietKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -709,12 +637,6 @@
     <Compile Include="clsTbKeHoachSanXuat_HinhAnh.cs" />
     <Compile Include="Constants\CheckString.cs" />
     <Compile Include="Copy of clsSoTienBangChu.cs" />
-    <Compile Include="BanHang\frmCaiDatBangGia_BanHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\frmCaiDatBangGia_BanHang.Designer.cs">
-      <DependentUpon>frmCaiDatBangGia_BanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="KhoDaiLy\DaiLy_FrmChiTiet_NhapKho_GapDan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -915,12 +837,6 @@
     </Compile>
     <Compile Include="FormMain\FormSystem.Designer.cs">
       <DependentUpon>FormSystem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\frmPrint_baoGia_BanHanag.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BanHang\frmPrint_baoGia_BanHanag.Designer.cs">
-      <DependentUpon>frmPrint_baoGia_BanHanag.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrint_BanHang.cs">
       <SubType>Form</SubType>
@@ -2209,18 +2125,6 @@
     <Compile Include="KhoThanhPham\UCThanhPham_DaNhapKho.Designer.cs">
       <DependentUpon>UCThanhPham_DaNhapKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="BanHang\UCBanHang_BanHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BanHang\UCBanHang_BanHang.Designer.cs">
-      <DependentUpon>UCBanHang_BanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\UCBanHang_CongNo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BanHang\UCBanHang_CongNo.Designer.cs">
-      <DependentUpon>UCBanHang_CongNo.cs</DependentUpon>
-    </Compile>
     <Compile Include="KhoNPL\UCNPL_XuatKho_TheoLenhSanXuat_mayIN.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2280,12 +2184,6 @@
     </Compile>
     <Compile Include="KhoDaiLy\UCDaiLy_ChiTiet_XuatKho_ALL.Designer.cs">
       <DependentUpon>UCDaiLy_ChiTiet_XuatKho_ALL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\UCBanHang_ChiTiet_ALL.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BanHang\UCBanHang_ChiTiet_ALL.Designer.cs">
-      <DependentUpon>UCBanHang_ChiTiet_ALL.cs</DependentUpon>
     </Compile>
     <Compile Include="MuaHang\XtraMuaHang.cs">
       <SubType>Component</SubType>
@@ -2548,12 +2446,6 @@
     <Compile Include="Xtra_BanHang.Designer.cs">
       <DependentUpon>Xtra_BanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="BanHang\Xtra_banKeHoaDonBanHang.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BanHang\Xtra_banKeHoaDonBanHang.Designer.cs">
-      <DependentUpon>Xtra_banKeHoaDonBanHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="Xtra_BaoCao_N_X_T_ChiTiet_Mot_VatTu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2686,24 +2578,6 @@
     <Compile Include="QuanLySanXuat\Xtra_SanLuong_DOT_DAP_RutGon.Designer.cs">
       <DependentUpon>Xtra_SanLuong_DOT_DAP_RutGon.cs</DependentUpon>
     </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang.Designer.cs">
-      <DependentUpon>Xtra_SoTongHop_banHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang_RutGon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang_RutGon.Designer.cs">
-      <DependentUpon>Xtra_SoTongHop_banHang_RutGon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang_TheoKhachHang.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BanHang\Xtra_SoTongHop_banHang_TheoKhachHang.Designer.cs">
-      <DependentUpon>Xtra_SoTongHop_banHang_TheoKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="Xtra_TraLuong.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -2728,57 +2602,6 @@
     <Compile Include="Xtra_XuatKho_DaiLy_NhieuKho.Designer.cs">
       <DependentUpon>Xtra_XuatKho_DaiLy_NhieuKho.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BanHang\BanHang_ChiTietCongNo.resx">
-      <DependentUpon>BanHang_ChiTietCongNo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_CongNo.resx">
-      <DependentUpon>BanHang_CongNo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_frmChiTietMotVatTu.resx">
-      <DependentUpon>BanHang_frmChiTietMotVatTu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_FrmThamChieuKeHoachSanXuat.resx">
-      <DependentUpon>BanHang_FrmThamChieuKeHoachSanXuat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_SoTongHopbanHang.resx">
-      <DependentUpon>BanHang_SoTongHopbanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\frmCaiDatBangGia_BanHang.resx">
-      <DependentUpon>frmCaiDatBangGia_BanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\frmPrint_baoGia_BanHanag.resx">
-      <DependentUpon>frmPrint_baoGia_BanHanag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\frmQuanLyBanHang.resx">
-      <DependentUpon>frmQuanLyBanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Tr_frmPrint_DoiChieuCongNo_KH.resx">
-      <DependentUpon>Tr_frmPrint_DoiChieuCongNo_KH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Tr_Xtra_DoiChieuCongNo_NCC.resx">
-      <DependentUpon>Tr_Xtra_DoiChieuCongNo_NCC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\UCBanHang_ChiTiet_ALL.resx">
-      <DependentUpon>UCBanHang_ChiTiet_ALL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_FrmChiTietBanHang_Newwwwwwww.resx">
-      <DependentUpon>BanHang_FrmChiTietBanHang_Newwwwwwww.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_frmBangKeHoaDonBanHang.resx">
-      <DependentUpon>BanHang_frmBangKeHoaDonBanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Xtra_SoTongHop_banHang.resx">
-      <DependentUpon>Xtra_SoTongHop_banHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Xtra_SoTongHop_banHang_RutGon.resx">
-      <DependentUpon>Xtra_SoTongHop_banHang_RutGon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Xtra_SoTongHop_banHang_TheoKhachHang.resx">
-      <DependentUpon>Xtra_SoTongHop_banHang_TheoKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\BanHang_DoiChieu_CongNo_new.resx">
-      <DependentUpon>BanHang_DoiChieu_CongNo_new.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmtestcopy.resx">
       <DependentUpon>frmtestcopy.cs</DependentUpon>
     </EmbeddedResource>
@@ -3813,12 +3636,6 @@
     <EmbeddedResource Include="KhoDaiLy\UCDaiLy_XuatKho.resx">
       <DependentUpon>UCDaiLy_XuatKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\UCBanHang_BanHang.resx">
-      <DependentUpon>UCBanHang_BanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\UCBanHang_CongNo.resx">
-      <DependentUpon>UCBanHang_CongNo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="KhoNPL\UCNPL_XuatKho_TheoLenhSanXuat_mayIN.resx">
       <DependentUpon>UCNPL_XuatKho_TheoLenhSanXuat_mayIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -3869,9 +3686,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xtra_BanHang.resx">
       <DependentUpon>Xtra_BanHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BanHang\Xtra_banKeHoaDonBanHang.resx">
-      <DependentUpon>Xtra_banKeHoaDonBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xtra_BaoCao_N_X_T_ChiTiet_Mot_VatTu.resx">
       <DependentUpon>Xtra_BaoCao_N_X_T_ChiTiet_Mot_VatTu.cs</DependentUpon>
@@ -4148,6 +3962,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BanHang\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

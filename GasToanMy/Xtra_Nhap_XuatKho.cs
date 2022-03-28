@@ -31,17 +31,17 @@ namespace GasToanMy
         }
         private void Print_BanHang_FrmChiTietBanHang_Newwwwwwwwo()
         {
-            pTieuDeNguoiNhap_Giao.Value = "Người nhận hàng";
-            pTieuDe.Value = "PHIẾU XUẤT KHO";
-            pKho.Value = "Xuất tại kho: Kho Thành Phẩm";
-            pNguoiGiao_Nhan_TieuDe.Value = "Họ tên người nhận hàng: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msNguoiNhanHang + "";
-            pDienGiai.Value = "Lý do xuất kho: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msDienGiai + "";
-            pNguoiNhan_Giao.Value = BanHang_FrmChiTietBanHang_Newwwwwwww.msNguoiNhanHang;
-            clsSoTienBangChu cls = new clsSoTienBangChu();
-            pSoTienBangChu.Value = cls.DocTienBangChu(CheckString.ConvertToDouble_My(BanHang_FrmChiTietBanHang_Newwwwwwww.mdbTongTienVAT), " đồng");
-            DateTime ngay = BanHang_FrmChiTietBanHang_Newwwwwwww.mdaNgayChungTu;
-            pNgayThang.Value = "Ngày " + ngay.ToString("dd") + " tháng " + ngay.ToString("MM") + " năm " + ngay.ToString("yyyy") + "";
-            pSoChungTu.Value = "Số: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msSoChungTu + "";
+            //pTieuDeNguoiNhap_Giao.Value = "Người nhận hàng";
+            //pTieuDe.Value = "PHIẾU XUẤT KHO";
+            //pKho.Value = "Xuất tại kho: Kho Thành Phẩm";
+            //pNguoiGiao_Nhan_TieuDe.Value = "Họ tên người nhận hàng: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msNguoiNhanHang + "";
+            //pDienGiai.Value = "Lý do xuất kho: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msDienGiai + "";
+            //pNguoiNhan_Giao.Value = BanHang_FrmChiTietBanHang_Newwwwwwww.msNguoiNhanHang;
+            //clsSoTienBangChu cls = new clsSoTienBangChu();
+            //pSoTienBangChu.Value = cls.DocTienBangChu(CheckString.ConvertToDouble_My(BanHang_FrmChiTietBanHang_Newwwwwwww.mdbTongTienVAT), " đồng");
+            //DateTime ngay = BanHang_FrmChiTietBanHang_Newwwwwwww.mdaNgayChungTu;
+            //pNgayThang.Value = "Ngày " + ngay.ToString("dd") + " tháng " + ngay.ToString("MM") + " năm " + ngay.ToString("yyyy") + "";
+            //pSoChungTu.Value = "Số: " + BanHang_FrmChiTietBanHang_Newwwwwwww.msSoChungTu + "";
         }
         private void Print_KhoThanhPham_frmChiTiet_Da_XuatKho()
         {
@@ -343,9 +343,6 @@ namespace GasToanMy
             if (KhoThanhPham_frmChiTiet_Da_XuatKho.mbPrint == true)
                 Print_KhoThanhPham_frmChiTiet_Da_XuatKho();
             //
-            if (BanHang_FrmChiTietBanHang_Newwwwwwww.mbPrint_XuatKho == true)
-                Print_BanHang_FrmChiTietBanHang_Newwwwwwwwo();
-
             if (KhoThanhPham_ChiTietBanHang_Moiiiiiiiiiiiiiiiiii.mbPrint_XuatKho == true)
                 Print_KhoThanhPham_ChiTietBanHang_Moiiiiiiiiiiiiiiiiiio();
         }

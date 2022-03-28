@@ -37,17 +37,17 @@ namespace GasToanMy
                 pTenTaiKhoan_Con.Value = ""+ MuaHang_frmChiTietCongNo_MuaHang.msSoTaiKhoan+ ": "+ MuaHang_frmChiTietCongNo_MuaHang.msTenTaiKhoan+ "";
             }
 
-            if (BanHang_ChiTietCongNo.mbPrint == true)
-            {
-                DateTime denngay = BanHang_ChiTietCongNo.mdadenngay;
-                DateTime tungay = BanHang_ChiTietCongNo.mdatungay;
-                pNgayThang.Value = "Từ ngày " + tungay.ToString("dd/MM/yyyy") + " đến ngày " + denngay.ToString("dd/MM/yyyy") + "  ";
+            //if (BanHang_ChiTietCongNo.mbPrint == true)
+            //{
+            //    DateTime denngay = BanHang_ChiTietCongNo.mdadenngay;
+            //    DateTime tungay = BanHang_ChiTietCongNo.mdatungay;
+            //    pNgayThang.Value = "Từ ngày " + tungay.ToString("dd/MM/yyyy") + " đến ngày " + denngay.ToString("dd/MM/yyyy") + "  ";
 
-                pTieuDeKH_NCC.Value = "Khách hàng";
-                pKhachHang_NCC.Value = BanHang_ChiTietCongNo.msTenTaiKhoan;
-                //PtaiKhoanMe.Value = "331: Phải trả cho người bán";
-                pTenTaiKhoan_Con.Value = "" + BanHang_ChiTietCongNo.msSoTaiKhoan + ": " + BanHang_ChiTietCongNo.msTenTaiKhoan + "";
-            }
+            //    pTieuDeKH_NCC.Value = "Khách hàng";
+            //    pKhachHang_NCC.Value = BanHang_ChiTietCongNo.msTenTaiKhoan;
+            //    //PtaiKhoanMe.Value = "331: Phải trả cho người bán";
+            //    pTenTaiKhoan_Con.Value = "" + BanHang_ChiTietCongNo.msSoTaiKhoan + ": " + BanHang_ChiTietCongNo.msTenTaiKhoan + "";
+            //}
         }
     }
 }
