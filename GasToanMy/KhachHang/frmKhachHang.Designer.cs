@@ -57,8 +57,10 @@
             this.UpdateUser = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.CreateDate = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.Code = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Address = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.FullName = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Address = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Phone = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.Email = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.Score = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.clCopy = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.btCopY = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -90,16 +92,14 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Phone = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.Email = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand14 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand9 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand8 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand10 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand12 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -164,6 +164,9 @@
             this.gridBand4,
             this.gridBand14,
             this.gridBand5,
+            this.gridBand6,
+            this.gridBand9,
+            this.gridBand7,
             this.gridBand8,
             this.gridBand3,
             this.gridBand10,
@@ -283,7 +286,20 @@
             this.Code.Name = "Code";
             this.Code.OptionsColumn.AllowEdit = false;
             this.Code.Visible = true;
-            this.Code.Width = 115;
+            this.Code.Width = 139;
+            // 
+            // FullName
+            // 
+            this.FullName.AppearanceCell.Options.UseTextOptions = true;
+            this.FullName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.FullName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.FullName.Caption = "Họ tên";
+            this.FullName.FieldName = "FullName";
+            this.FullName.Name = "FullName";
+            this.FullName.OptionsColumn.AllowEdit = false;
+            this.FullName.OptionsColumn.FixedWidth = true;
+            this.FullName.Visible = true;
+            this.FullName.Width = 150;
             // 
             // Address
             // 
@@ -302,20 +318,23 @@
             this.Address.OptionsColumn.AllowEdit = false;
             this.Address.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.Address.Visible = true;
-            this.Address.Width = 433;
+            this.Address.Width = 533;
             // 
-            // FullName
+            // Phone
             // 
-            this.FullName.AppearanceCell.Options.UseTextOptions = true;
-            this.FullName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.FullName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.FullName.Caption = "Họ tên";
-            this.FullName.FieldName = "FullName";
-            this.FullName.Name = "FullName";
-            this.FullName.OptionsColumn.AllowEdit = false;
-            this.FullName.OptionsColumn.FixedWidth = true;
-            this.FullName.Visible = true;
-            this.FullName.Width = 150;
+            this.Phone.Caption = "Điện thoại";
+            this.Phone.FieldName = "Phone";
+            this.Phone.Name = "Phone";
+            this.Phone.Visible = true;
+            this.Phone.Width = 100;
+            // 
+            // Email
+            // 
+            this.Email.Caption = "Mail";
+            this.Email.FieldName = "Email";
+            this.Email.Name = "Email";
+            this.Email.Visible = true;
+            this.Email.Width = 100;
             // 
             // Score
             // 
@@ -645,20 +664,6 @@
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             // 
-            // Phone
-            // 
-            this.Phone.Caption = "Điện thoại";
-            this.Phone.FieldName = "Phone";
-            this.Phone.Name = "Phone";
-            this.Phone.Visible = true;
-            // 
-            // Email
-            // 
-            this.Email.Caption = "Mail";
-            this.Email.FieldName = "Email";
-            this.Email.Name = "Email";
-            this.Email.Visible = true;
-            // 
             // gridBand1
             // 
             this.gridBand1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -699,7 +704,7 @@
             this.gridBand14.Columns.Add(this.Code);
             this.gridBand14.Name = "gridBand14";
             this.gridBand14.VisibleIndex = 2;
-            this.gridBand14.Width = 115;
+            this.gridBand14.Width = 139;
             // 
             // gridBand5
             // 
@@ -713,21 +718,6 @@
             this.gridBand5.VisibleIndex = 3;
             this.gridBand5.Width = 150;
             // 
-            // gridBand8
-            // 
-            this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.gridBand8.AppearanceHeader.Options.UseFont = true;
-            this.gridBand8.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridBand8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridBand8.Caption = "Thông tin liên hệ";
-            this.gridBand8.Children.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand6,
-            this.gridBand9,
-            this.gridBand7});
-            this.gridBand8.Name = "gridBand8";
-            this.gridBand8.VisibleIndex = 4;
-            this.gridBand8.Width = 583;
-            // 
             // gridBand6
             // 
             this.gridBand6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -737,8 +727,8 @@
             this.gridBand6.Caption = "Địa chỉ";
             this.gridBand6.Columns.Add(this.Address);
             this.gridBand6.Name = "gridBand6";
-            this.gridBand6.VisibleIndex = 0;
-            this.gridBand6.Width = 433;
+            this.gridBand6.VisibleIndex = 4;
+            this.gridBand6.Width = 533;
             // 
             // gridBand9
             // 
@@ -749,8 +739,8 @@
             this.gridBand9.Caption = "Điện thoại";
             this.gridBand9.Columns.Add(this.Phone);
             this.gridBand9.Name = "gridBand9";
-            this.gridBand9.VisibleIndex = 1;
-            this.gridBand9.Width = 75;
+            this.gridBand9.VisibleIndex = 5;
+            this.gridBand9.Width = 100;
             // 
             // gridBand7
             // 
@@ -761,8 +751,20 @@
             this.gridBand7.Caption = "Mail";
             this.gridBand7.Columns.Add(this.Email);
             this.gridBand7.Name = "gridBand7";
-            this.gridBand7.VisibleIndex = 2;
-            this.gridBand7.Width = 75;
+            this.gridBand7.VisibleIndex = 6;
+            this.gridBand7.Width = 100;
+            // 
+            // gridBand8
+            // 
+            this.gridBand8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridBand8.AppearanceHeader.Options.UseFont = true;
+            this.gridBand8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridBand8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridBand8.Caption = "Thông tin liên hệ";
+            this.gridBand8.Name = "gridBand8";
+            this.gridBand8.Visible = false;
+            this.gridBand8.VisibleIndex = -1;
+            this.gridBand8.Width = 583;
             // 
             // gridBand3
             // 
@@ -773,7 +775,7 @@
             this.gridBand3.Caption = "Điểm";
             this.gridBand3.Columns.Add(this.Score);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.VisibleIndex = 5;
+            this.gridBand3.VisibleIndex = 7;
             // 
             // gridBand10
             // 
@@ -784,7 +786,7 @@
             this.gridBand10.Caption = "Copy";
             this.gridBand10.Columns.Add(this.clCopy);
             this.gridBand10.Name = "gridBand10";
-            this.gridBand10.VisibleIndex = 6;
+            this.gridBand10.VisibleIndex = 8;
             this.gridBand10.Width = 37;
             // 
             // gridBand12
@@ -796,7 +798,7 @@
             this.gridBand12.Caption = "Xoá";
             this.gridBand12.Columns.Add(this.clXoa);
             this.gridBand12.Name = "gridBand12";
-            this.gridBand12.VisibleIndex = 7;
+            this.gridBand12.VisibleIndex = 9;
             this.gridBand12.Width = 32;
             // 
             // frmKhachHang
@@ -885,16 +887,16 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn clCopy;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn clXoa;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn ID;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Phone;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Email;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand14;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand9;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Phone;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn Email;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand8;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand10;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand12;
