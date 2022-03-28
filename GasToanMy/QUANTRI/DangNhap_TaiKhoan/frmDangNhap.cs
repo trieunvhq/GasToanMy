@@ -15,7 +15,7 @@ namespace GasToanMy
     public partial class frmDangNhap : Form
     {
         public static int _miID_DangNhap;
-        public static int _iID_NhanSu;
+        public static string _sCode_NhanSu;
         public static bool _bIsQuanTri;
         public static string _TenNhanVien;
         public static string _ChucVu;
@@ -58,8 +58,8 @@ namespace GasToanMy
 
             if (dt.Rows.Count > 0)
             {
-                _miID_DangNhap = Convert.ToInt16(dt.Rows[0]["ID_NhanSu"].ToString());
-                _iID_NhanSu = Convert.ToInt16(dt.Rows[0]["ID_NhanSu"].ToString());
+                _miID_DangNhap = Convert.ToInt16(dt.Rows[0]["ID"].ToString());
+                _sCode_NhanSu = dt.Rows[0]["Code_NhanSu"].ToString();
                 _bIsQuanTri = Convert.ToBoolean(dt.Rows[0]["Type"].ToString());
                 _TenNhanVien = dt.Rows[0]["FullName"].ToString();
                 _ChucVu = dt.Rows[0]["ChucVu"].ToString();

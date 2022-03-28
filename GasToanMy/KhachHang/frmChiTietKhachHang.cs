@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GasToanMy
 {
-    public partial class frmChiTietNhapHang : Form
+    public partial class frmChiTietKhachHang : Form
     {
         private bool Insert_SanPham()
         {
@@ -192,7 +192,7 @@ namespace GasToanMy
         }
 
         frmNhapHang _ucBBKTDM;
-        public frmChiTietNhapHang(frmNhapHang ucBBKTDM)
+        public frmChiTietKhachHang(frmNhapHang ucBBKTDM)
         {
             _ucBBKTDM = ucBBKTDM;
             InitializeComponent();
@@ -223,7 +223,7 @@ namespace GasToanMy
             txtTenSanPham.Focus();
         }
 
-        private void frmChiTietNhapHang_Load(object sender, EventArgs e)
+        private void frmChiTietKhachHang_Load(object sender, EventArgs e)
         {
             txtTenSanPham.Focus();
         }

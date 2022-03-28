@@ -190,6 +190,18 @@
     <Compile Include="BanHang\Tr_Xtra_DoiChieuCongNo_NCC.Designer.cs">
       <DependentUpon>Tr_Xtra_DoiChieuCongNo_NCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhachHang\frmChiTietKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\frmChiTietKhachHang.Designer.cs">
+      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang\frmKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\frmKhachHang.Designer.cs">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhoBanThanhPham\clsDongKien_TbXuatKho_ChiTietXuatKho.cs" />
     <Compile Include="KhoDaiLy\clsDongKien_TbXuatKho_XuatContDL.cs" />
     <Compile Include="KhoDaiLy\clsDongKien_TbXuatKho_XuatContDL_ChiTiet.cs" />
@@ -1982,8 +1994,6 @@
     <Compile Include="QUANTRI\QuanTriDaiLy\clsTbDanhMuc_DaiLy - Copy.cs" />
     <Compile Include="QUANTRI\QuanLyVTHH\clsTbDonViTinh - Copy.cs" />
     <Compile Include="QUANTRI\QuanLyVTHH\clsTbDonViTinh.cs" />
-    <Compile Include="QUANTRI\QuanLyKhachHang\clsTbKhachHang - Copy.cs" />
-    <Compile Include="QUANTRI\QuanLyKhachHang\clsTbKhachHang.cs" />
     <Compile Include="QUANTRI\QuanLyNhaCungCap\clsTbNhaCungCap - Copy.cs" />
     <Compile Include="QUANTRI\QuanLyNhaCungCap\clsTbNhaCungCap.cs" />
     <Compile Include="QUANTRI\QuanLyNhaCungCap\clsTbNhomNCC.cs" />
@@ -2010,12 +2020,6 @@
     </Compile>
     <Compile Include="QuanLySanXuat\frmChiTietDinhMucNPL.Designer.cs">
       <DependentUpon>frmChiTietDinhMucNPL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QUANTRI\QuanLyKhachHang\frmChiTietKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QUANTRI\QuanLyKhachHang\frmChiTietKhachHang.Designer.cs">
-      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="QUANTRI\QuanLyMayMoc\frmChiTietMayMoc.cs">
       <SubType>Form</SubType>
@@ -2058,12 +2062,6 @@
     </Compile>
     <Compile Include="QUANTRI\DangNhap_TaiKhoan\frmDoiMatKhau.Designer.cs">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QUANTRI\QuanLyKhachHang\frmKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QUANTRI\QuanLyKhachHang\frmKhachHang.Designer.cs">
-      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -2783,6 +2781,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmtestcopy.resx">
       <DependentUpon>frmtestcopy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\frmChiTietKhachHang.resx">
+      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\frmKhachHang.resx">
+      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhoDaiLy\Tr_frmChiTietXuatContDongKien.resx">
       <DependentUpon>Tr_frmChiTietXuatContDongKien.cs</DependentUpon>
@@ -3712,9 +3716,6 @@
     <EmbeddedResource Include="QuanLySanXuat\frmChiTietDinhMucNPL.resx">
       <DependentUpon>frmChiTietDinhMucNPL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QUANTRI\QuanLyKhachHang\frmChiTietKhachHang.resx">
-      <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QUANTRI\QuanLyNhaCungCap\frmChiTietNhaCungCap.resx">
       <DependentUpon>frmChiTietNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -3732,9 +3733,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QUANTRI\DangNhap_TaiKhoan\frmDoiMatKhau.resx">
       <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QUANTRI\QuanLyKhachHang\frmKhachHang.resx">
-      <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
