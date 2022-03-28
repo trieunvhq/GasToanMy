@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietKhachHang));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
@@ -103,6 +104,7 @@
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(556, 20);
             this.txtScore.TabIndex = 16;
+            this.txtScore.Text = "0";
             // 
             // txtEmail
             // 

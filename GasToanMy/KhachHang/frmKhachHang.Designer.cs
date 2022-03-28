@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -313,7 +314,7 @@
             this.gridBand14.Columns.Add(this.Code);
             this.gridBand14.Name = "gridBand14";
             this.gridBand14.VisibleIndex = 2;
-            this.gridBand14.Width = 139;
+            this.gridBand14.Width = 132;
             // 
             // Code
             // 
@@ -324,7 +325,7 @@
             this.Code.Name = "Code";
             this.Code.OptionsColumn.AllowEdit = false;
             this.Code.Visible = true;
-            this.Code.Width = 139;
+            this.Code.Width = 132;
             // 
             // gridBand5
             // 
@@ -336,12 +337,11 @@
             this.gridBand5.Columns.Add(this.FullName);
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.VisibleIndex = 3;
-            this.gridBand5.Width = 150;
+            this.gridBand5.Width = 180;
             // 
             // FullName
             // 
             this.FullName.AppearanceCell.Options.UseTextOptions = true;
-            this.FullName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.FullName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.FullName.Caption = "Họ tên";
             this.FullName.FieldName = "FullName";
@@ -349,7 +349,7 @@
             this.FullName.OptionsColumn.AllowEdit = false;
             this.FullName.OptionsColumn.FixedWidth = true;
             this.FullName.Visible = true;
-            this.FullName.Width = 150;
+            this.FullName.Width = 180;
             // 
             // gridBand6
             // 
@@ -361,7 +361,7 @@
             this.gridBand6.Columns.Add(this.Address);
             this.gridBand6.Name = "gridBand6";
             this.gridBand6.VisibleIndex = 4;
-            this.gridBand6.Width = 533;
+            this.gridBand6.Width = 492;
             // 
             // Address
             // 
@@ -380,7 +380,7 @@
             this.Address.OptionsColumn.AllowEdit = false;
             this.Address.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.Address.Visible = true;
-            this.Address.Width = 533;
+            this.Address.Width = 492;
             // 
             // gridBand9
             // 
@@ -392,7 +392,7 @@
             this.gridBand9.Columns.Add(this.Phone);
             this.gridBand9.Name = "gridBand9";
             this.gridBand9.VisibleIndex = 5;
-            this.gridBand9.Width = 100;
+            this.gridBand9.Width = 91;
             // 
             // Phone
             // 
@@ -400,7 +400,7 @@
             this.Phone.FieldName = "Phone";
             this.Phone.Name = "Phone";
             this.Phone.Visible = true;
-            this.Phone.Width = 100;
+            this.Phone.Width = 91;
             // 
             // gridBand7
             // 
@@ -412,15 +412,16 @@
             this.gridBand7.Columns.Add(this.Email);
             this.gridBand7.Name = "gridBand7";
             this.gridBand7.VisibleIndex = 6;
-            this.gridBand7.Width = 100;
+            this.gridBand7.Width = 160;
             // 
             // Email
             // 
             this.Email.Caption = "Mail";
             this.Email.FieldName = "Email";
             this.Email.Name = "Email";
+            this.Email.OptionsColumn.FixedWidth = true;
             this.Email.Visible = true;
-            this.Email.Width = 100;
+            this.Email.Width = 160;
             // 
             // gridBand8
             // 

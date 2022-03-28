@@ -119,6 +119,7 @@ namespace GasToanMy
                 txtFullName.Text = frmKhachHang.msFullName;
                 txtAddress.Text = frmKhachHang.msAddress;
                 txtPhone.Text = frmKhachHang.msPhone;
+                txtEmail.Text = frmKhachHang.msEmail;
                 txtScore.Text = frmKhachHang.msScore.ToString();
                 txtGhiChu.Text = frmKhachHang.msDescription;
             }
@@ -136,6 +137,12 @@ namespace GasToanMy
                 txtAddress.Focus();
                 return false;
             }
+            else if (string.IsNullOrWhiteSpace(txtFullName.Text))
+            {
+                MessageBox.Show("Kiểm tra lại họ tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtFullName.Focus();
+                return false;
+            }
             else if (string.IsNullOrWhiteSpace(txtScore.Text))
             {
                 MessageBox.Show("Kiểm tra lại điểm tích luỹ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -148,18 +155,7 @@ namespace GasToanMy
                 txtScore.Focus();
                 return false;
             }
-            else if (string.IsNullOrWhiteSpace(txtPhone.Text))
-            {
-                MessageBox.Show("Kiểm tra lại số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPhone.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Kiểm tra lại số email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPhone.Focus();
-                return false;
-            }
+           
             else return true;
         }
 
