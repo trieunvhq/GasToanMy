@@ -15,6 +15,39 @@ namespace GasToanMy
 	/// </summary>
 	public partial class clsKhachHang : clsDBInteractionBase
 	{
+        public DataTable Create_CodeKhachHang()
+        {
+            SqlCommand scmCmdToExecute = new SqlCommand();
+            scmCmdToExecute.CommandText = "dbo.[Create_CodeKhachHang]";
+            scmCmdToExecute.CommandType = CommandType.StoredProcedure;
+            DataTable dtToReturn = new DataTable("Create_CodeKhachHang");
+            SqlDataAdapter sdaAdapter = new SqlDataAdapter(scmCmdToExecute);
+
+            // Use base class' connection object
+            scmCmdToExecute.Connection = m_scoMainConnection;
+
+            try
+            {
+                m_scoMainConnection.Open();
+
+                sdaAdapter.Fill(dtToReturn);
+                return dtToReturn;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("Create_CodeKhachHang", ex);
+            }
+            finally
+            {
+                //Close connection.
+                m_scoMainConnection.Close();
+                scmCmdToExecute.Dispose();
+                sdaAdapter.Dispose();
+            }
+        }
+
+
         public DataTable SelecPage_KhachHangAll(int SoHang, int sotrang, string keysearch)
         {
             SqlCommand scmCmdToExecute = new SqlCommand();

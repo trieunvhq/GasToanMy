@@ -13,18 +13,18 @@ namespace GasToanMy
 {
     public partial class frmChiTietKhachHang : Form
     {
-        private bool Insert_SanPham()
+        private bool Insert_KhachHang()
         {
             try
             {
-                using (clsSanPham cls = new clsSanPham())
+                using (clsKhachHang cls = new clsKhachHang())
                 {
-                    string tensp = txtAddress.Text.Trim();
+                    string DiaChi = txtAddress.Text.Trim();
                     string ghichu = txtGhiChu.Text.Trim();
 
-                    while (tensp.IndexOf("  ") >= 0)
+                    while (DiaChi.IndexOf("  ") >= 0)
                     {
-                        tensp = tensp.Replace("  ", " ");
+                        DiaChi = DiaChi.Replace("  ", " ");
                     }
 
                     while (ghichu.IndexOf("  ") >= 0)
@@ -35,12 +35,11 @@ namespace GasToanMy
                     cls.daCreateDate = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
                     cls.sCreateUser = frmDangNhap._sCode_NhanSu;
                     cls.sCode = txtCode.Text.Trim();
-                    cls.sNhaCungCap = txtFullName.Text.Trim();
-                    cls.sTenSanPham = tensp;
-                    cls.sDonViTinh= txtPhone.Text.Trim();
-                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtScore.Text);
-                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
-                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sFullName = txtFullName.Text.Trim();
+                    cls.sAddress = DiaChi;
+                    cls.sPhone= txtPhone.Text.Trim();
+                    cls.sEmail = txtGiaVon.Text.Trim();
+                    cls.fScore = CheckString.ConvertToDouble_My(txtScore.Text);
                     cls.sRecordStatus = "Y";
                     cls.sDescription = ghichu;
 
@@ -61,14 +60,14 @@ namespace GasToanMy
         {
             try
             {
-                using (clsSanPham cls = new clsSanPham())
+                using (clsKhachHang cls = new clsKhachHang())
                 {
-                    string tensp = txtAddress.Text.Trim();
+                    string DiaChi = txtAddress.Text.Trim();
                     string ghichu = txtGhiChu.Text.Trim();
 
-                    while (tensp.IndexOf("  ") >= 0)
+                    while (DiaChi.IndexOf("  ") >= 0)
                     {
-                        tensp = tensp.Replace("  ", " ");
+                        DiaChi = DiaChi.Replace("  ", " ");
                     }
 
                     while (ghichu.IndexOf("  ") >= 0)
@@ -82,12 +81,11 @@ namespace GasToanMy
                     cls.sCreateUser = frmKhachHang.msCreateUser;
                     cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
                     cls.sCode = txtCode.Text.Trim();
-                    cls.sNhaCungCap = txtFullName.Text.Trim();
-                    cls.sTenSanPham = tensp;
-                    cls.sDonViTinh = txtPhone.Text.Trim();
-                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtScore.Text);
-                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
-                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sFullName = txtFullName.Text.Trim();
+                    cls.sAddress = DiaChi;
+                    cls.sPhone = txtPhone.Text.Trim();
+                    cls.sEmail = txtGiaVon.Text.Trim();
+                    cls.fScore = CheckString.ConvertToDouble_My(txtScore.Text);
                     cls.sRecordStatus = "Y";
                     cls.sDescription = ghichu;
 
@@ -115,17 +113,13 @@ namespace GasToanMy
                 else
                 {
                     txtCode.Text = frmKhachHang.msCode;
-                    txtSLXuat.Text = frmKhachHang.mfSLXuat.ToString();
-                    txtSLTon.Text = frmKhachHang.mfSLTon.ToString();
                     dateNgayThang.EditValue = frmKhachHang.mdaCreateDate;
                 }
 
-                txtAddress.Text = frmKhachHang.msTenSanPham;
-                txtPhone.Text = frmKhachHang.msDonViTinh;
-                txtFullName.Text = frmKhachHang.msNhaCungCap;
-                txtScore.Text = frmKhachHang.mfSLNhap.ToString();
-                txtGiaVon.Text = frmKhachHang.mfGiaVon.ToString();
-                txtGiaban.Text = frmKhachHang.mfGiaBan.ToString();
+                txtFullName.Text = frmKhachHang.msFullName;
+                txtAddress.Text = frmKhachHang.msAddress;
+                txtPhone.Text = frmKhachHang.msPhone;
+                txtScore.Text = frmKhachHang.msScore.ToString();
                 txtGhiChu.Text = frmKhachHang.msDescription;
             }
             catch (Exception ea)
@@ -138,37 +132,31 @@ namespace GasToanMy
         {
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
-                MessageBox.Show("Kiểm tra lại tên sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kiểm tra lại địa chỉ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtAddress.Focus();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(txtScore.Text))
             {
-                MessageBox.Show("Kiểm tra lại số lượng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kiểm tra lại điểm tích luỹ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtScore.Focus();
                 return false;
             }
             else if (!CheckIsNumber(txtScore.Text))
             {
-                MessageBox.Show("Kiểm tra lại số lượng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kiểm tra lại điểm tích luỹ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtScore.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtGiaVon.Text))
-            {
-                MessageBox.Show("Kiểm tra lại giá vốn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtGiaVon.Focus();
-                return false;
-            }
-            else if (string.IsNullOrWhiteSpace(txtGiaban.Text))
-            {
-                MessageBox.Show("Kiểm tra lại giá bán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtGiaban.Focus();
                 return false;
             }
             else if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                MessageBox.Show("Kiểm tra lại đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Kiểm tra lại số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtPhone.Focus();
+                return false;
+            }
+            else if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Kiểm tra lại số email!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtPhone.Focus();
                 return false;
             }
@@ -198,18 +186,6 @@ namespace GasToanMy
             InitializeComponent();
 
             dateNgayThang.EditValue = DateTime.Now;
-
-            txtPhone.Properties.Items.Add("Bộ");
-            txtPhone.Properties.Items.Add("Bình");
-            txtPhone.Properties.Items.Add("Cái");
-            txtPhone.Properties.Items.Add("Chiếc");
-            txtPhone.Properties.Items.Add("tấn");
-            txtPhone.Properties.Items.Add("tạ");
-            txtPhone.Properties.Items.Add("kg");
-            txtPhone.Properties.Items.Add("km");
-            txtPhone.Properties.Items.Add("m");
-            txtPhone.Properties.Items.Add("cm");
-            txtPhone.Text = "Chiếc";
 
             if (frmKhachHang.mbCopy_SanPham || frmKhachHang.mb_Sua_SanPham)
             {
@@ -242,7 +218,7 @@ namespace GasToanMy
                 {
                     if (CheckDataInput())
                     {
-                        if (Insert_SanPham())
+                        if (Insert_KhachHang())
                         {
                             this.Close();
                             _ucBBKTDM.btRefresh_Click(null, null);
