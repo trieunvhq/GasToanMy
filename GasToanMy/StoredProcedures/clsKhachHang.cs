@@ -13,7 +13,7 @@ namespace GasToanMy
 	/// <summary>
 	/// Purpose: Data Access class for the table 'KhachHang'.
 	/// </summary>
-	public class clsKhachHang : clsDBInteractionBase
+	public partial class clsKhachHang : clsDBInteractionBase
 	{
 		#region Class Member Declarations
 			private SqlString		m_sRecordStatus, m_sType;

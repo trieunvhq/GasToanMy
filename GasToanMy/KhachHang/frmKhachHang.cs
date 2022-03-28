@@ -22,15 +22,11 @@ namespace GasToanMy
         public static int miID;
         public static string msType;
         public static string msCode;
-        public static string msPhanNhom;
-        public static string msTenSanPham;
-        public static string msDonViTinh;
-        public static string msNhaCungCap;
-        public static Double mfSLNhap;
-        public static Double mfSLXuat;
-        public static Double mfSLTon;
-        public static Double mfGiaVon;
-        public static Double mfGiaBan;
+        public static string msPhone;
+        public static string msEmail;
+        public static string msAddress;
+        public static string msFullName;
+        public static Double msScore; 
         public static string msRecordStatus;
         public static string msDescription;
         public static string msCreateUser;
@@ -67,29 +63,20 @@ namespace GasToanMy
                 dt2.Columns.Add("UpdateDate", typeof(DateTime));
                 dt2.Columns.Add("Type", typeof(string));
                 dt2.Columns.Add("Code", typeof(string));
-                dt2.Columns.Add("PhanNhom", typeof(string));
-                dt2.Columns.Add("TenSanPham", typeof(string));
-                dt2.Columns.Add("DonViTinh", typeof(string));
-                dt2.Columns.Add("NhaCungCap", typeof(string));
-                dt2.Columns.Add("SLNhap", typeof(Double));
-                dt2.Columns.Add("SLXuat", typeof(Double));
-                dt2.Columns.Add("SLTon", typeof(Double));
-                dt2.Columns.Add("GiaVon", typeof(Double));
-                dt2.Columns.Add("GiaBan", typeof(Double));
+                dt2.Columns.Add("FullName", typeof(string));
+                dt2.Columns.Add("Address", typeof(string));
+                dt2.Columns.Add("Phone", typeof(string));
+                dt2.Columns.Add("Email", typeof(string));
+                dt2.Columns.Add("Score", typeof(Double));
                 dt2.Columns.Add("RecordStatus", typeof(string));
                 dt2.Columns.Add("Description", typeof(string));
                 dt2.Columns.Add("CreateUser", typeof(string));
                 dt2.Columns.Add("UpdateUser", typeof(string));
 
 
-                using (clsSanPham cls_ = new clsSanPham())
+                using (clsKhachHang cls_ = new clsKhachHang())
                 {
-                    DataTable dt_;
-                    
-                    if (checkAll.Checked)
-                        dt_ = cls_.SelecPage_SanPham_All(_SoHang, _SoTrang, _sSearch);
-                    else
-                        dt_ = cls_.SelecPage_SanPham_ConHang(_SoHang, _SoTrang, _sSearch);
+                    DataTable dt_ = cls_.SelecPage_KhachHangAll(_SoHang, _SoTrang, _sSearch);
 
 
                     _RowPage_curent = dt_.Rows.Count;
@@ -106,15 +93,11 @@ namespace GasToanMy
                             _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
                             _ravi["Type"] = dt_.Rows[i]["Type"];
                             _ravi["Code"] = dt_.Rows[i]["Code"];
-                            _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
-                            _ravi["TenSanPham"] = dt_.Rows[i]["TenSanPham"];
-                            _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
-                            _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
-                            _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
-                            _ravi["SLXuat"] = dt_.Rows[i]["SLXuat"];
-                            _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
-                            _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
-                            _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
+                            _ravi["FullName"] = dt_.Rows[i]["FullName"];
+                            _ravi["Address"] = dt_.Rows[i]["Address"];
+                            _ravi["Phone"] = dt_.Rows[i]["Phone"];
+                            _ravi["Email"] = dt_.Rows[i]["Email"];
+                            _ravi["Score"] = dt_.Rows[i]["Score"];
                             _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
                             _ravi["Description"] = dt_.Rows[i]["Description"];
                             _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
@@ -179,24 +162,20 @@ namespace GasToanMy
                     mb_Sua_SanPham = true;
                     mbCopy_SanPham = false;
 
+                    msPhone = bandedGridView1.GetFocusedRowCellValue(Phone).ToString().Trim();
+                    msEmail = bandedGridView1.GetFocusedRowCellValue(Email).ToString().Trim();
                     mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
                     msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msPhanNhom = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
-                    msDonViTinh = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
-                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
-                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
-                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
-                    mfSLTon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLTon).ToString());
-                    mfGiaVon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaVon).ToString());
-                    mfGiaBan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaBan).ToString());
+                    msAddress = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    msScore = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
 
-                    frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
+                    frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
                     ff.Show();
 
                     Cursor.Current = Cursors.Default;
@@ -308,13 +287,13 @@ namespace GasToanMy
                 mbCopy_SanPham = false;
                 mb_Sua_SanPham = false;
 
-                //if (!CheckString.FormIsOpened("frmChiTietNhapHang"))
+                //if (!CheckString.FormIsOpened("frmChiTietKhachHang"))
                 //{
-                //    frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
+                //    frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
                 //    ff.Show();
                 //}
 
-                frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
+                frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
                 ff.Show();
 
                 Cursor.Current = Cursors.Default;
@@ -346,25 +325,21 @@ namespace GasToanMy
                     mbAdd_SanPham = false;
                     mb_Sua_SanPham = false;
                     mbCopy_SanPham = true;
-     
+
+                    msPhone = bandedGridView1.GetFocusedRowCellValue(Phone).ToString().Trim();
+                    msEmail = bandedGridView1.GetFocusedRowCellValue(Email).ToString().Trim();
                     mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
                     msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msPhanNhom = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
-                    msDonViTinh = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
-                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
-                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
-                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
-                    mfSLTon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLTon).ToString());
-                    mfGiaVon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaVon).ToString());
-                    mfGiaBan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaBan).ToString());
+                    msAddress = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    msScore = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
 
-                    frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
+                    frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
                     ff.Show();
 
                     Cursor.Current = Cursors.Default;
@@ -389,13 +364,9 @@ namespace GasToanMy
                 btnTrangTiep.LinkColor = Color.Blue;
                 txtSoTrang.Text = "1";
 
-                using (clsSanPham cls = new clsSanPham())
+                using (clsKhachHang cls = new clsKhachHang())
                 {
-                    DataTable dt_;
-                    if (checkAll.Checked)
-                        dt_ = cls.TongSoSanPhamAll(_sSearch);
-                    else
-                        dt_ = cls.TongSoSanPham_ConHang(_sSearch);
+                    DataTable dt_ = cls.TongSoKhachHangAll(_sSearch);
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {

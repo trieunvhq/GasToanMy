@@ -3964,6 +3964,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="StoredProcedures\clsKhachHang %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -76,10 +76,10 @@ namespace GasToanMy
                         ghichu = ghichu.Replace("  ", " ");
                     }
 
-                    cls.iID = frmNhapHang.miID;
+                    cls.iID = frmKhachHang.miID;
                     cls.daCreateDate = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
                     cls.daUpdateDate = DateTime.Now;
-                    cls.sCreateUser = frmNhapHang.msCreateUser;
+                    cls.sCreateUser = frmKhachHang.msCreateUser;
                     cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
                     cls.sCode = txtCode.Text.Trim();
                     cls.sNhaCungCap = txtNhaCungCap.Text.Trim();
@@ -107,26 +107,26 @@ namespace GasToanMy
         {
             try
             {
-                if (frmNhapHang.mbCopy_SanPham)
+                if (frmKhachHang.mbCopy_SanPham)
                 {
                     dateNgayThang.EditValue = DateTime.Now;
                     txtCode.Text = CheckString.creatCodeSanPham();
                 }
                 else
                 {
-                    txtCode.Text = frmNhapHang.msCode;
-                    txtSLXuat.Text = frmNhapHang.mfSLXuat.ToString();
-                    txtSLTon.Text = frmNhapHang.mfSLTon.ToString();
-                    dateNgayThang.EditValue = frmNhapHang.mdaCreateDate;
+                    txtCode.Text = frmKhachHang.msCode;
+                    txtSLXuat.Text = frmKhachHang.mfSLXuat.ToString();
+                    txtSLTon.Text = frmKhachHang.mfSLTon.ToString();
+                    dateNgayThang.EditValue = frmKhachHang.mdaCreateDate;
                 }
 
-                txtTenSanPham.Text = frmNhapHang.msTenSanPham;
-                txtDonVi.Text = frmNhapHang.msDonViTinh;
-                txtNhaCungCap.Text = frmNhapHang.msNhaCungCap;
-                txtSLNhap.Text = frmNhapHang.mfSLNhap.ToString();
-                txtGiaVon.Text = frmNhapHang.mfGiaVon.ToString();
-                txtGiaban.Text = frmNhapHang.mfGiaBan.ToString();
-                txtGhiChu.Text = frmNhapHang.msDescription;
+                txtTenSanPham.Text = frmKhachHang.msTenSanPham;
+                txtDonVi.Text = frmKhachHang.msDonViTinh;
+                txtNhaCungCap.Text = frmKhachHang.msNhaCungCap;
+                txtSLNhap.Text = frmKhachHang.mfSLNhap.ToString();
+                txtGiaVon.Text = frmKhachHang.mfGiaVon.ToString();
+                txtGiaban.Text = frmKhachHang.mfGiaBan.ToString();
+                txtGhiChu.Text = frmKhachHang.msDescription;
             }
             catch (Exception ea)
             {
@@ -191,8 +191,8 @@ namespace GasToanMy
             }
         }
 
-        frmNhapHang _ucBBKTDM;
-        public frmChiTietKhachHang(frmNhapHang ucBBKTDM)
+        frmKhachHang _ucBBKTDM;
+        public frmChiTietKhachHang(frmKhachHang ucBBKTDM)
         {
             _ucBBKTDM = ucBBKTDM;
             InitializeComponent();
@@ -211,11 +211,11 @@ namespace GasToanMy
             txtDonVi.Properties.Items.Add("cm");
             txtDonVi.Text = "Chiếc";
 
-            if (frmNhapHang.mbCopy_SanPham || frmNhapHang.mb_Sua_SanPham)
+            if (frmKhachHang.mbCopy_SanPham || frmKhachHang.mb_Sua_SanPham)
             {
                 Load_frmEdit();
             }
-            else if (frmNhapHang.mbAdd_SanPham)
+            else if (frmKhachHang.mbAdd_SanPham)
             {
                 txtCode.Text = CheckString.creatCodeSanPham();
             }
@@ -238,7 +238,7 @@ namespace GasToanMy
         {
             try
             {
-                if (frmNhapHang.mbAdd_SanPham || frmNhapHang.mbCopy_SanPham)
+                if (frmKhachHang.mbAdd_SanPham || frmKhachHang.mbCopy_SanPham)
                 {
                     if (CheckDataInput())
                     {
@@ -254,8 +254,8 @@ namespace GasToanMy
                         }
                     }
                 }
-                else if (frmNhapHang.mbAdd_SanPham == false
-                    && frmNhapHang.mb_Sua_SanPham == true)
+                else if (frmKhachHang.mbAdd_SanPham == false
+                    && frmKhachHang.mb_Sua_SanPham == true)
                 {
                     if (Update_SanPham())
                     {
