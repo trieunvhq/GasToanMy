@@ -321,6 +321,7 @@
     </Compile>
     <Compile Include="StoredProcedures\clsKhachHang %28copy%29.cs" />
     <Compile Include="StoredProcedures\clsDonHang %28copy%29.cs" />
+    <Compile Include="StoredProcedures\clsDonHangChiTiet %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,7 +13,7 @@ namespace GasToanMy
 	/// <summary>
 	/// Purpose: Data Access class for the table 'DonHangChiTiet'.
 	/// </summary>
-	public class clsDonHangChiTiet : clsDBInteractionBase
+	public partial class clsDonHangChiTiet : clsDBInteractionBase
 	{
 		#region Class Member Declarations
 			private SqlString		m_sType, m_sRecordStatus;

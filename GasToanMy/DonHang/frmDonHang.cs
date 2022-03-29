@@ -121,7 +121,68 @@ namespace GasToanMy
             }
         }
 
-       
+        public void LoadDataDonHangChiTiet(string CodeDonHang_)
+        {
+            try
+            {
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("ID", typeof(int));
+                dt2.Columns.Add("STT", typeof(int));
+                dt2.Columns.Add("CreateDate", typeof(DateTime));
+                dt2.Columns.Add("UpdateDate", typeof(DateTime));
+                dt2.Columns.Add("Type", typeof(string));
+                dt2.Columns.Add("Code", typeof(string));
+                dt2.Columns.Add("CodeDonHang", typeof(string));
+                dt2.Columns.Add("CodeSanPham", typeof(string));
+                dt2.Columns.Add("SoLuong", typeof(Double));
+                dt2.Columns.Add("DonGia", typeof(Double));
+                dt2.Columns.Add("ThanhTien", typeof(Double));
+                dt2.Columns.Add("RecordStatus", typeof(string));
+                dt2.Columns.Add("Description", typeof(string));
+                dt2.Columns.Add("CreateUser", typeof(string));
+                dt2.Columns.Add("UpdateUser", typeof(string));
+
+
+                using (clsDonHangChiTiet cls_ = new clsDonHangChiTiet())
+                {
+                    DataTable dt_ = cls_.DonHangChiTiet_SelectWithCodeDonHang(CodeDonHang_);
+
+                    _RowPage_curent = dt_.Rows.Count;
+
+                    if (dt_ != null && dt_.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt_.Rows.Count; i++)
+                        {
+                            DataRow _ravi = dt2.NewRow();
+
+                            _ravi["ID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
+                            _ravi["STT"] = _STT.ToString(); _STT++;
+                            _ravi["CreateDate"] = dt_.Rows[i]["CreateDate"];
+                            _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
+                            _ravi["Type"] = dt_.Rows[i]["Type"];
+                            _ravi["Code"] = dt_.Rows[i]["Code"];
+                            _ravi["CodeDonHang"] = dt_.Rows[i]["CodeDonHang"];
+                            _ravi["CodeSanPham"] = dt_.Rows[i]["CodeSanPham"];
+                            _ravi["SoLuong"] = dt_.Rows[i]["SoLuong"];
+                            _ravi["DonGia"] = dt_.Rows[i]["DonGia"];
+                            _ravi["ThanhTien"] = dt_.Rows[i]["ThanhTien"];
+                            _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
+                            _ravi["Description"] = dt_.Rows[i]["Description"];
+                            _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
+                            _ravi["UpdateUser"] = dt_.Rows[i]["UpdateUser"];
+
+                            dt2.Rows.Add(_ravi);
+                        }
+                    }
+                }
+                gridControl2.DataSource = dt2;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         public frmDonHang()
         {
@@ -542,7 +603,22 @@ namespace GasToanMy
 
         private void bandedGridView1_RowClick(object sender, RowClickEventArgs e)
         {
+            try
+            {
+                if (bandedGridView1.GetFocusedRowCellValue(Code).ToString() != "")
+                {
+                    Cursor.Current = Cursors.WaitCursor;
 
+                    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
+                    LoadDataDonHangChiTiet(codeDH_);
+                    
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
