@@ -37,6 +37,7 @@
             this.btnKHSX = new System.Windows.Forms.Button();
             this.btnCongCu = new System.Windows.Forms.Button();
             this.btnQuanTri = new System.Windows.Forms.Button();
+            this.btnHeThong = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -55,7 +56,6 @@
             this.btnBanHang = new System.Windows.Forms.Button();
             this.btnMuaHang = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnHeThong = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -180,6 +180,25 @@
             this.btnQuanTri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnQuanTri.UseVisualStyleBackColor = true;
             this.btnQuanTri.Click += new System.EventHandler(this.btnQuanTri_Click);
+            // 
+            // btnHeThong
+            // 
+            this.btnHeThong.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHeThong.FlatAppearance.BorderSize = 0;
+            this.btnHeThong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHeThong.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnHeThong.Image = ((System.Drawing.Image)(resources.GetObject("btnHeThong.Image")));
+            this.btnHeThong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHeThong.Location = new System.Drawing.Point(0, 80);
+            this.btnHeThong.Name = "btnHeThong";
+            this.btnHeThong.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnHeThong.Size = new System.Drawing.Size(200, 46);
+            this.btnHeThong.TabIndex = 67;
+            this.btnHeThong.Text = "          Hệ thống";
+            this.btnHeThong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHeThong.UseVisualStyleBackColor = true;
+            this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
             // 
             // panelLogo
             // 
@@ -411,7 +430,7 @@
             this.btnBanHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBanHang.Size = new System.Drawing.Size(285, 227);
             this.btnBanHang.TabIndex = 14;
-            this.btnBanHang.Text = "                    Bán hàng";
+            this.btnBanHang.Text = "                   Đơn hàng";
             this.btnBanHang.UseVisualStyleBackColor = false;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
@@ -436,25 +455,6 @@
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // btnHeThong
-            // 
-            this.btnHeThong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHeThong.FlatAppearance.BorderSize = 0;
-            this.btnHeThong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHeThong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHeThong.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnHeThong.Image = ((System.Drawing.Image)(resources.GetObject("btnHeThong.Image")));
-            this.btnHeThong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHeThong.Location = new System.Drawing.Point(0, 80);
-            this.btnHeThong.Name = "btnHeThong";
-            this.btnHeThong.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnHeThong.Size = new System.Drawing.Size(200, 46);
-            this.btnHeThong.TabIndex = 67;
-            this.btnHeThong.Text = "          Hệ thống";
-            this.btnHeThong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHeThong.UseVisualStyleBackColor = true;
-            this.btnHeThong.Click += new System.EventHandler(this.btnHeThong_Click);
             // 
             // frmMain
             // 

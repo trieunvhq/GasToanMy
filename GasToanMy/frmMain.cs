@@ -324,10 +324,11 @@ namespace GasToanMy
          
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            //frmQuanLyBanHang ff = new GasToanMy.frmQuanLyBanHang();
-            ////this.Hide();
-            //ff.Show();
-            ////this.Show();
+            if (!CheckString.FormIsOpened("frmDonHang"))
+            {
+                frmDonHang ff = new frmDonHang();
+                ff.Show();
+            }
         }
 
         private void btnDaiLy_Click(object sender, EventArgs e)

@@ -189,41 +189,43 @@ namespace GasToanMy
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
 
-            //    clsTr_SanPhamDinhMuc_HHSX cls = new clsTr_SanPhamDinhMuc_HHSX();
-            //    cls.iId_BB = Convert.ToInt32(gridView1.GetFocusedRowCellValue(CreateUser).ToString());
+                clsKhachHang cls = new clsKhachHang();
+                cls.sCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString();
+                cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
+                cls.daUpdateDate = DateTime.Now;
 
-            //    DialogResult traloi;
-            //    traloi = MessageBox.Show("Xóa dữ liệu tại dòng: \n"
-            //        + "STT: " + gridView1.GetFocusedRowCellValue(clSTT).ToString() + " | "
-            //        + "Ngày: " + Convert.ToDateTime(gridView1.GetFocusedRowCellValue(CreateDate).ToString()).ToString("dd/MM/yyyy") + " | "
-            //        + "Ca: " + gridView1.GetFocusedRowCellValue(clCaLamViec).ToString() + " | "
-            //        + "Loại Hàng: " + gridView1.GetFocusedRowCellValue(clLoaiHang).ToString()
-            //        + "...", "Delete",
-            //            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            //    if (traloi == DialogResult.Yes)
-            //    {
-            //        if (cls.Delete())
-            //        {
-            //            MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            _STT -= _RowPage_curent;
-            //            LoadData(_SoTrang, false);
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Xóa dữ liệu thất bại. Kiểm tra lại kết nối!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        }
-            //    }
+                DialogResult traloi;
+                traloi = MessageBox.Show("Xóa dữ liệu tại dòng: \n"
+                    + "STT: " + bandedGridView1.GetFocusedRowCellValue(clSTT).ToString() + " | "
+                    + "Ngày: " + Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString()).ToString("dd/MM/yyyy") + " | "
+                    + "Mã khách hàng: " + bandedGridView1.GetFocusedRowCellValue(Code).ToString() + " | "
+                    + "Họ tên: " + bandedGridView1.GetFocusedRowCellValue(FullName).ToString()
+                    + "...", "Delete",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (traloi == DialogResult.Yes)
+                {
+                    if (cls.KhachHang_DeleteWithCode())
+                    {
+                        MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _STT -= _RowPage_curent;
+                        LoadData(_SoTrang, false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa dữ liệu thất bại. Kiểm tra lại kết nối!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
 
-            //    Cursor.Current = Cursors.Default;
-            //}
-            //catch (Exception ea)
-            //{
-            //    MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
