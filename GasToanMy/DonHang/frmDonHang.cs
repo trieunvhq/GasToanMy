@@ -197,7 +197,7 @@ namespace GasToanMy
             {
                 Cursor.Current = Cursors.WaitCursor;
 
-                clsSanPham cls = new clsSanPham();
+                clsDonHang cls = new clsDonHang();
                 cls.sCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString();
                 cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
                 cls.daUpdateDate = DateTime.Now;
@@ -212,7 +212,7 @@ namespace GasToanMy
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (traloi == DialogResult.Yes)
                 {
-                    if (cls.SanPham_DeleteWithCode())
+                    if (cls.DonHang_DeleteWithCode())
                     {
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _STT -= _RowPage_curent;
