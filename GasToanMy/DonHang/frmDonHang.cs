@@ -539,5 +539,10 @@ namespace GasToanMy
         {
 
         }
+
+        private void bandedGridView1_RowClick(object sender, RowClickEventArgs e)
+        {
+
+        }
     }
 }
