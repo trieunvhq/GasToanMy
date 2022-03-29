@@ -13,24 +13,20 @@ namespace GasToanMy
 {
     public partial class frmDonHang : Form
     {
-        public static bool mbAdd_SanPham = false;
-        public static bool mb_Sua_SanPham = false;
-        public static bool mbCopy_SanPham = false;
+        public static bool mbAdd = false;
+        public static bool mb_Sua = false;
+        public static bool mbCopy = false;
 
         public static DateTime mdaCreateDate;
         public static DateTime mdaUpdateDate;
         public static int miID;
         public static string msType;
         public static string msCode;
-        public static string msPhanNhom;
-        public static string msTenSanPham;
-        public static string msDonViTinh;
-        public static string msNhaCungCap;
-        public static Double mfSLNhap;
-        public static Double mfSLXuat;
-        public static Double mfSLTon;
-        public static Double mfGiaVon;
-        public static Double mfGiaBan;
+        public static string msPaymentStatus;
+        public static string msFullName;
+        public static string msCodeKhachHang;
+        public static Double mfTongTienDonHang;
+        public static Double mfTienDaThanhToan;
         public static string msRecordStatus;
         public static string msDescription;
         public static string msCreateUser;
@@ -67,30 +63,25 @@ namespace GasToanMy
                 dt2.Columns.Add("UpdateDate", typeof(DateTime));
                 dt2.Columns.Add("Type", typeof(string));
                 dt2.Columns.Add("Code", typeof(string));
-                dt2.Columns.Add("PhanNhom", typeof(string));
-                dt2.Columns.Add("TenSanPham", typeof(string));
-                dt2.Columns.Add("DonViTinh", typeof(string));
-                dt2.Columns.Add("NhaCungCap", typeof(string));
-                dt2.Columns.Add("SLNhap", typeof(Double));
-                dt2.Columns.Add("SLXuat", typeof(Double));
-                dt2.Columns.Add("SLTon", typeof(Double));
-                dt2.Columns.Add("GiaVon", typeof(Double));
-                dt2.Columns.Add("GiaBan", typeof(Double));
+                dt2.Columns.Add("CodeKhachHang", typeof(string));
+                dt2.Columns.Add("PaymentStatus", typeof(string));
+                dt2.Columns.Add("FullName", typeof(string));
+                dt2.Columns.Add("TongTienDonHang", typeof(Double));
+                dt2.Columns.Add("TienDaThanhToan", typeof(Double));
                 dt2.Columns.Add("RecordStatus", typeof(string));
                 dt2.Columns.Add("Description", typeof(string));
                 dt2.Columns.Add("CreateUser", typeof(string));
                 dt2.Columns.Add("UpdateUser", typeof(string));
 
 
-                using (clsSanPham cls_ = new clsSanPham())
+                using (clsDonHang cls_ = new clsDonHang())
                 {
                     DataTable dt_;
                     
                     if (checkAll.Checked)
-                        dt_ = cls_.SelecPage_SanPham_All(_SoHang, _SoTrang, _sSearch);
+                        dt_ = cls_.SelecPage_DonHang_All(_SoHang, _SoTrang, _sSearch);
                     else
-                        dt_ = cls_.SelecPage_SanPham_ConHang(_SoHang, _SoTrang, _sSearch);
-
+                        dt_ = cls_.SelecPage_DonHang_DaThanhToan(_SoHang, _SoTrang, _sSearch);
 
                     _RowPage_curent = dt_.Rows.Count;
 
@@ -106,15 +97,11 @@ namespace GasToanMy
                             _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
                             _ravi["Type"] = dt_.Rows[i]["Type"];
                             _ravi["Code"] = dt_.Rows[i]["Code"];
-                            _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
-                            _ravi["TenSanPham"] = dt_.Rows[i]["TenSanPham"];
-                            _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
-                            _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
-                            _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
-                            _ravi["SLXuat"] = dt_.Rows[i]["SLXuat"];
-                            _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
-                            _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
-                            _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
+                            _ravi["CodeKhachHang"] = dt_.Rows[i]["CodeKhachHang"];
+                            _ravi["PaymentStatus"] = dt_.Rows[i]["PaymentStatus"];
+                            _ravi["FullName"] = dt_.Rows[i]["FullName"];
+                            _ravi["TongTienDonHang"] = dt_.Rows[i]["TongTienDonHang"];
+                            _ravi["TienDaThanhToan"] = dt_.Rows[i]["TienDaThanhToan"];
                             _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
                             _ravi["Description"] = dt_.Rows[i]["Description"];
                             _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
@@ -175,18 +162,19 @@ namespace GasToanMy
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
-                    mbAdd_SanPham = false;
-                    mb_Sua_SanPham = true;
-                    mbCopy_SanPham = false;
+                    mbAdd = false;
+                    mb_Sua = true;
+                    mbCopy = false;
 
                     mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
                     msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
-                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
-                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
-                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
+                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
+                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
+                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
@@ -218,8 +206,8 @@ namespace GasToanMy
                 traloi = MessageBox.Show("Xóa dữ liệu tại dòng: \n"
                     + "STT: " + bandedGridView1.GetFocusedRowCellValue(clSTT).ToString() + " | "
                     + "Ngày: " + Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString()).ToString("dd/MM/yyyy") + " | "
-                    + "Mã sản phẩm: " + bandedGridView1.GetFocusedRowCellValue(Code).ToString() + " | "
-                    + "Tên sản phẩm: " + bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString()
+                    + "Mã đơn: " + bandedGridView1.GetFocusedRowCellValue(Code).ToString() + " | "
+                    + "Tên khách hàng: " + bandedGridView1.GetFocusedRowCellValue(FullName).ToString()
                     + "...", "Delete",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (traloi == DialogResult.Yes)
@@ -301,9 +289,9 @@ namespace GasToanMy
             {
                 Cursor.Current = Cursors.WaitCursor;
 
-                mbAdd_SanPham = true;
-                mbCopy_SanPham = false;
-                mb_Sua_SanPham = false;
+                mbAdd = true;
+                mbCopy = false;
+                mb_Sua = false;
 
                 //if (!CheckString.FormIsOpened("frmChiTietNhapHang"))
                 //{
@@ -340,18 +328,19 @@ namespace GasToanMy
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
-                    mbAdd_SanPham = false;
-                    mb_Sua_SanPham = false;
-                    mbCopy_SanPham = true;
-     
+                    mbAdd = false;
+                    mb_Sua = false;
+                    mbCopy = true;
+
                     mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
                     msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
-                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
-                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
-                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
+                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
+                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
+                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
@@ -381,13 +370,13 @@ namespace GasToanMy
                 btnTrangTiep.LinkColor = Color.Blue;
                 txtSoTrang.Text = "1";
 
-                using (clsSanPham cls = new clsSanPham())
+                using (clsDonHang cls = new clsDonHang())
                 {
                     DataTable dt_;
                     if (checkAll.Checked)
-                        dt_ = cls.TongSoSanPhamAll(_sSearch);
+                        dt_ = cls.TongSoDonHang_All(_sSearch);
                     else
-                        dt_ = cls.TongSoSanPham_ConHang(_sSearch);
+                        dt_ = cls.TongSoDonHang_DaThanhToan(_sSearch);
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {

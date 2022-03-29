@@ -28,6 +28,40 @@ namespace GasToanMy
         }
 
 
+        public static String CreateCodeDonHang()
+        {
+            DataTable dt;
+            String Code = "HD10101010";
+            String sq_curent = "";
+
+            try
+            {
+                using (clsDonHang cls = new clsDonHang())
+                {
+                    dt = cls.CreateCodeDonHang();
+                    if (dt.Rows.Count > 0)
+                    {
+                        sq_curent = dt.Rows[0]["Code"].ToString().Trim();
+                    }
+
+                    if (sq_curent != "" && sq_curent.Length >= 3)
+                    {
+                        String tmp = sq_curent.Substring(2);
+                        int sq = Convert.ToInt32(tmp) + 1;
+
+                        Code = "HD" + sq.ToString();
+                    }
+                    else Code = "HD10101010";
+                }
+            }
+            catch (Exception ea)
+            {
+            }
+
+            return Code;
+        }
+
+
         public static String Create_CodeKhachHang()
         {
             DataTable dt;

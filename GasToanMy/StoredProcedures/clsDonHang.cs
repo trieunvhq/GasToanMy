@@ -13,7 +13,7 @@ namespace GasToanMy
 	/// <summary>
 	/// Purpose: Data Access class for the table 'DonHang'.
 	/// </summary>
-	public class clsDonHang : clsDBInteractionBase
+	public partial class clsDonHang : clsDBInteractionBase
 	{
 		#region Class Member Declarations
 			private SqlDateTime		m_daCreateDate, m_daUpdateDate;
