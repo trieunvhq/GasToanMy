@@ -41,6 +41,14 @@ namespace GasToanMy
         private int _STT = 1;
         private int _RowPage_curent = 0;
         private int _TongSoTrang = 0;
+
+        //Khách hàng:
+        public string _sSearch_KH;
+        private int _SoTrang_Kh = 1;
+        private bool isload_KH = false;
+        private int _STT_KH = 1;
+        private int _RowPage_curent_KH = 0;
+        private int _TongSoTrang_KH = 0;
         private const int _SoHang = 30;
 
         public void LoadData_SP(int sotrang, bool isLoadLanDau)
@@ -114,6 +122,84 @@ namespace GasToanMy
                             _ravi["spDescription"] = dt_.Rows[i]["Description"];
                             _ravi["spCreateUser"] = dt_.Rows[i]["CreateUser"];
                             _ravi["spUpdateUser"] = dt_.Rows[i]["UpdateUser"];
+
+                            dt2.Rows.Add(_ravi);
+                        }
+                    }
+                }
+                gridControl1.DataSource = dt2;
+
+                isload = false;
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LoadData_KH(int sotrang, bool isLoadLanDau)
+        {
+            try
+            {
+                isload_KH = true;
+                if (isLoadLanDau)
+                {
+                    //dteTuNgay.EditValue = DateTime.Now.AddDays(-30);
+                    //dteDenNgay.EditValue = DateTime.Now;
+                    txtTimKiem.Text = "";
+                }
+                else { }
+                _sSearch_KH = txtTimKiem.Text;
+                //_ngay_batdau = (DateTime)dteTuNgay.EditValue;
+                //_ngay_ketthuc = dteDenNgay.DateTime;
+                _SoTrang = sotrang;
+
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("khID", typeof(int));
+                dt2.Columns.Add("khSTT", typeof(int));
+                dt2.Columns.Add("khCreateDate", typeof(DateTime));
+                dt2.Columns.Add("khUpdateDate", typeof(DateTime));
+                dt2.Columns.Add("khType", typeof(string));
+                dt2.Columns.Add("khCode", typeof(string));
+                dt2.Columns.Add("khFullName", typeof(string));
+                dt2.Columns.Add("khAddress", typeof(string));
+                dt2.Columns.Add("Phone", typeof(string));
+                dt2.Columns.Add("Email", typeof(string));
+                dt2.Columns.Add("khScore", typeof(Double));
+                dt2.Columns.Add("khRecordStatus", typeof(string));
+                dt2.Columns.Add("khDescription", typeof(string));
+                dt2.Columns.Add("khCreateUser", typeof(string));
+                dt2.Columns.Add("khUpdateUser", typeof(string));
+
+
+                using (clsKhachHang cls_ = new clsKhachHang())
+                {
+                    DataTable dt_ = cls_.SelecPage_KhachHangAll(_SoHang, _SoTrang, _sSearch);
+
+
+                    _RowPage_curent = dt_.Rows.Count;
+
+                    if (dt_ != null && dt_.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < dt_.Rows.Count; i++)
+                        {
+                            DataRow _ravi = dt2.NewRow();
+
+                            _ravi["khID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
+                            _ravi["khSTT"] = _STT.ToString(); _STT++;
+                            _ravi["khCreateDate"] = dt_.Rows[i]["CreateDate"];
+                            _ravi["khUpdateDate"] = dt_.Rows[i]["UpdateDate"];
+                            _ravi["khType"] = dt_.Rows[i]["Type"];
+                            _ravi["khCode"] = dt_.Rows[i]["Code"];
+                            _ravi["khFullName"] = dt_.Rows[i]["FullName"];
+                            _ravi["khAddress"] = dt_.Rows[i]["Address"];
+                            _ravi["Phone"] = dt_.Rows[i]["Phone"];
+                            _ravi["Email"] = dt_.Rows[i]["Email"];
+                            _ravi["khScore"] = dt_.Rows[i]["Score"];
+                            _ravi["khRecordStatus"] = dt_.Rows[i]["RecordStatus"];
+                            _ravi["khDescription"] = dt_.Rows[i]["Description"];
+                            _ravi["khCreateUser"] = dt_.Rows[i]["CreateUser"];
+                            _ravi["khUpdateUser"] = dt_.Rows[i]["UpdateUser"];
 
                             dt2.Rows.Add(_ravi);
                         }
