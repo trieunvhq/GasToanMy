@@ -84,12 +84,7 @@ namespace GasToanMy
 
                 using (clsSanPham cls_ = new clsSanPham())
                 {
-                    DataTable dt_;
-
-                    if (checkAll.Checked)
-                        dt_ = cls_.SelecPage_SanPham_All(_SoHang, _SoTrang, _sSearch);
-                    else
-                        dt_ = cls_.SelecPage_SanPham_ConHang(_SoHang, _SoTrang, _sSearch);
+                    DataTable dt_ = cls_.SelecPage_SanPham_ConHang(_SoHang, _SoTrang, _sSearch);
 
 
                     _RowPage_curent = dt_.Rows.Count;
