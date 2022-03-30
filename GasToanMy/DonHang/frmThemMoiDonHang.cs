@@ -11,7 +11,7 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace GasToanMy
 {
-    public partial class frmDonHang : Form
+    public partial class frmThemMoiDonHang : Form
     {
         public static bool mbAdd = false;
         public static bool mb_Sua = false;
@@ -195,12 +195,12 @@ namespace GasToanMy
         }
 
 
-        public frmDonHang()
+        public frmThemMoiDonHang()
         {
             InitializeComponent();
         }
 
-        private void frmDonHang_Load(object sender, EventArgs e)
+        private void frmThemMoiDonHang_Load(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             _STT = 1;
@@ -212,7 +212,7 @@ namespace GasToanMy
         public void btRefresh_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            frmDonHang_Load(sender, e);
+            frmThemMoiDonHang_Load(sender, e);
             Cursor.Current = Cursors.Default;
         }
 
@@ -230,7 +230,7 @@ namespace GasToanMy
         {
             try
             {
-                if (bandedGridView1.GetFocusedRowCellValue(ID).ToString() != "")
+                if (bandedGridView1.GetFocusedRowCellValue(spID).ToString() != "")
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
@@ -238,18 +238,18 @@ namespace GasToanMy
                     mb_Sua = true;
                     mbCopy = false;
 
-                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
-                    msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
-                    msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
-                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
-                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
-                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
-                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
-                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
-                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
-                    msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
-                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
+                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(spCreateDate).ToString());
+                    msType = bandedGridView1.GetFocusedRowCellValue(spType).ToString().Trim();
+                    msCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
+                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(spID).ToString());
+                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
+                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
+                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
+                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(spRecordStatus).ToString().Trim();
+                    msDescription = bandedGridView1.GetFocusedRowCellValue(spDescription).ToString().Trim();
+                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(spCreateUser).ToString();
 
                     //frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
                     //ff.Show();
@@ -270,16 +270,16 @@ namespace GasToanMy
                 Cursor.Current = Cursors.WaitCursor;
 
                 clsDonHang cls = new clsDonHang();
-                cls.sCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString();
+                cls.sCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString();
                 cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
                 cls.daUpdateDate = DateTime.Now;
 
                 DialogResult traloi;
                 traloi = MessageBox.Show("Xóa dữ liệu tại dòng: \n"
-                    + "STT: " + bandedGridView1.GetFocusedRowCellValue(clSTT).ToString() + " | "
-                    + "Ngày: " + Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString()).ToString("dd/MM/yyyy") + " | "
-                    + "Mã đơn: " + bandedGridView1.GetFocusedRowCellValue(Code).ToString() + " | "
-                    + "Tên khách hàng: " + bandedGridView1.GetFocusedRowCellValue(FullName).ToString()
+                    + "STT: " + bandedGridView1.GetFocusedRowCellValue(spSTT).ToString() + " | "
+                    + "Ngày: " + Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(spCreateDate).ToString()).ToString("dd/MM/yyyy") + " | "
+                    + "Mã đơn: " + bandedGridView1.GetFocusedRowCellValue(spCode).ToString() + " | "
+                    + "Tên khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString()
                     + "...", "Delete",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (traloi == DialogResult.Yes)
@@ -381,7 +381,7 @@ namespace GasToanMy
         {
             try
             {
-                if (bandedGridView1.GetFocusedRowCellValue(ID).ToString() != "")
+                if (bandedGridView1.GetFocusedRowCellValue(spID).ToString() != "")
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
@@ -389,18 +389,18 @@ namespace GasToanMy
                     mb_Sua = false;
                     mbCopy = true;
 
-                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
-                    msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
-                    msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
-                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(PaymentStatus).ToString().Trim();
-                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
-                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
-                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TongTienDonHang).ToString());
-                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(TienDaThanhToan).ToString());
-                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
-                    msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
-                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
+                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(spCreateDate).ToString());
+                    msType = bandedGridView1.GetFocusedRowCellValue(spType).ToString().Trim();
+                    msCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
+                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(spID).ToString());
+                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
+                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
+                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
+                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(spRecordStatus).ToString().Trim();
+                    msDescription = bandedGridView1.GetFocusedRowCellValue(spDescription).ToString().Trim();
+                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(spCreateUser).ToString();
 
                     //frmChiTietNhapHang ff = new frmChiTietNhapHang(this);
                     //ff.Show();
@@ -601,13 +601,13 @@ namespace GasToanMy
         {
             try
             {
-                if (bandedGridView1.GetFocusedRowCellValue(Code) != null)
+                if (bandedGridView1.GetFocusedRowCellValue(spCode) != null)
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
-                    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
+                    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
                     txtMaDonHang.Text = "Mã đơn hàng: " + codeDH_;
-                    txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
 
                     LoadDataDonHangChiTiet(codeDH_);
                     

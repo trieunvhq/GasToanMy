@@ -394,7 +394,7 @@
             this.btnQLSX.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnQLSX.Size = new System.Drawing.Size(285, 227);
             this.btnQLSX.TabIndex = 14;
-            this.btnQLSX.Text = "                  Nhân sự";
+            this.btnQLSX.Text = "                       Quản lý                         đơn hàng";
             this.btnQLSX.UseVisualStyleBackColor = false;
             this.btnQLSX.Click += new System.EventHandler(this.btnQLSX_Click);
             // 
@@ -430,7 +430,7 @@
             this.btnBanHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBanHang.Size = new System.Drawing.Size(285, 227);
             this.btnBanHang.TabIndex = 14;
-            this.btnBanHang.Text = "                   Đơn hàng";
+            this.btnBanHang.Text = "                       Thêm mới                          đơn hàng";
             this.btnBanHang.UseVisualStyleBackColor = false;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 

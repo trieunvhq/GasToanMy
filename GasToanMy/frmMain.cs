@@ -324,9 +324,9 @@ namespace GasToanMy
          
         private void btnBanHang_Click(object sender, EventArgs e)
         {
-            if (!CheckString.FormIsOpened("frmDonHang"))
+            if (!CheckString.FormIsOpened("frmThemMoiDonHang"))
             {
-                frmDonHang ff = new frmDonHang();
+                frmThemMoiDonHang ff = new frmThemMoiDonHang();
                 ff.Show();
             }
         }
@@ -342,10 +342,11 @@ namespace GasToanMy
 
         private void btnQLSX_Click(object sender, EventArgs e)
         {
-            //SanXuat_frmQuanLySanXuat ff = new SanXuat_frmQuanLySanXuat();
-            ////this.Hide();
-            //ff.Show();
-            ////this.Show();
+            if (!CheckString.FormIsOpened("frmDonHang"))
+            {
+                frmDonHang ff = new frmDonHang();
+                ff.Show();
+            }
         }
 
         //frmQuanLy_Luong_ChamCong _frmQuanLy_Luong_ChamCong;
