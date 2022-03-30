@@ -176,12 +176,12 @@
             this.tabKhachHang = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.llbTrangTiep_KH = new System.Windows.Forms.LinkLabel();
+            this.lbTongSoTrang_KH = new System.Windows.Forms.Label();
+            this.lbSoTrang_KH = new System.Windows.Forms.Label();
+            this.llbTrangTruoc_KH = new System.Windows.Forms.LinkLabel();
+            this.txtSearch_KH = new System.Windows.Forms.TextBox();
+            this.btnAdd_KH = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand22 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -216,7 +216,7 @@
             this.khID = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.repositoryItemCheckEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositoryItemButtonEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefresh_KH = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1610,14 +1610,14 @@
             // 
             // layoutControl3
             // 
-            this.layoutControl3.Controls.Add(this.linkLabel1);
-            this.layoutControl3.Controls.Add(this.label1);
-            this.layoutControl3.Controls.Add(this.label2);
-            this.layoutControl3.Controls.Add(this.linkLabel2);
-            this.layoutControl3.Controls.Add(this.textBox1);
-            this.layoutControl3.Controls.Add(this.simpleButton1);
+            this.layoutControl3.Controls.Add(this.llbTrangTiep_KH);
+            this.layoutControl3.Controls.Add(this.lbTongSoTrang_KH);
+            this.layoutControl3.Controls.Add(this.lbSoTrang_KH);
+            this.layoutControl3.Controls.Add(this.llbTrangTruoc_KH);
+            this.layoutControl3.Controls.Add(this.txtSearch_KH);
+            this.layoutControl3.Controls.Add(this.btnAdd_KH);
             this.layoutControl3.Controls.Add(this.gridControl3);
-            this.layoutControl3.Controls.Add(this.simpleButton2);
+            this.layoutControl3.Controls.Add(this.btnRefresh_KH);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 13);
             this.layoutControl3.Name = "layoutControl3";
@@ -1626,60 +1626,60 @@
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // linkLabel1
+            // llbTrangTiep_KH
             // 
-            this.linkLabel1.Location = new System.Drawing.Point(534, 2);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 20);
-            this.linkLabel1.TabIndex = 74;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Trang tiếp>>";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbTrangTiep_KH.Location = new System.Drawing.Point(534, 2);
+            this.llbTrangTiep_KH.Name = "llbTrangTiep_KH";
+            this.llbTrangTiep_KH.Size = new System.Drawing.Size(72, 20);
+            this.llbTrangTiep_KH.TabIndex = 74;
+            this.llbTrangTiep_KH.TabStop = true;
+            this.llbTrangTiep_KH.Text = "Trang tiếp>>";
+            this.llbTrangTiep_KH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lbTongSoTrang_KH
             // 
-            this.label1.Location = new System.Drawing.Point(483, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 22);
-            this.label1.TabIndex = 73;
-            this.label1.Text = " /";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbTongSoTrang_KH.Location = new System.Drawing.Point(483, 2);
+            this.lbTongSoTrang_KH.Name = "lbTongSoTrang_KH";
+            this.lbTongSoTrang_KH.Size = new System.Drawing.Size(39, 22);
+            this.lbTongSoTrang_KH.TabIndex = 73;
+            this.lbTongSoTrang_KH.Text = " /";
+            this.lbTongSoTrang_KH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // lbSoTrang_KH
             // 
-            this.label2.Location = new System.Drawing.Point(445, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 22);
-            this.label2.TabIndex = 71;
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbSoTrang_KH.Location = new System.Drawing.Point(445, 2);
+            this.lbSoTrang_KH.Name = "lbSoTrang_KH";
+            this.lbSoTrang_KH.Size = new System.Drawing.Size(34, 22);
+            this.lbSoTrang_KH.TabIndex = 71;
+            this.lbSoTrang_KH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // linkLabel2
+            // llbTrangTruoc_KH
             // 
-            this.linkLabel2.Location = new System.Drawing.Point(351, 2);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(90, 20);
-            this.linkLabel2.TabIndex = 70;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "<<Trang trước";
-            this.linkLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.llbTrangTruoc_KH.Location = new System.Drawing.Point(351, 2);
+            this.llbTrangTruoc_KH.Name = "llbTrangTruoc_KH";
+            this.llbTrangTruoc_KH.Size = new System.Drawing.Size(90, 20);
+            this.llbTrangTruoc_KH.TabIndex = 70;
+            this.llbTrangTruoc_KH.TabStop = true;
+            this.llbTrangTruoc_KH.Text = "<<Trang trước";
+            this.llbTrangTruoc_KH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // txtSearch_KH
             // 
-            this.textBox1.Location = new System.Drawing.Point(60, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSearch_KH.Location = new System.Drawing.Point(60, 2);
+            this.txtSearch_KH.Name = "txtSearch_KH";
+            this.txtSearch_KH.Size = new System.Drawing.Size(269, 20);
+            this.txtSearch_KH.TabIndex = 0;
             // 
-            // simpleButton1
+            // btnAdd_KH
             // 
-            this.simpleButton1.ImageOptions.Image = global::GasToanMy.Properties.Resources.ico_Add;
-            this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(648, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(24, 22);
-            this.simpleButton1.StyleController = this.layoutControl3;
-            this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.ToolTip = "Refesh";
+            this.btnAdd_KH.ImageOptions.Image = global::GasToanMy.Properties.Resources.ico_Add;
+            this.btnAdd_KH.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd_KH.Location = new System.Drawing.Point(648, 2);
+            this.btnAdd_KH.Name = "btnAdd_KH";
+            this.btnAdd_KH.Size = new System.Drawing.Size(24, 22);
+            this.btnAdd_KH.StyleController = this.layoutControl3;
+            this.btnAdd_KH.TabIndex = 4;
+            this.btnAdd_KH.ToolTip = "Refesh";
             // 
             // gridControl3
             // 
@@ -2092,16 +2092,16 @@
             this.repositoryItemButtonEdit7.Name = "repositoryItemButtonEdit7";
             this.repositoryItemButtonEdit7.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // simpleButton2
+            // btnRefresh_KH
             // 
-            this.simpleButton2.ImageOptions.Image = global::GasToanMy.Properties.Resources.ico_Update;
-            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton2.Location = new System.Drawing.Point(620, 2);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(24, 22);
-            this.simpleButton2.StyleController = this.layoutControl3;
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.ToolTip = "Refesh";
+            this.btnRefresh_KH.ImageOptions.Image = global::GasToanMy.Properties.Resources.ico_Update;
+            this.btnRefresh_KH.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRefresh_KH.Location = new System.Drawing.Point(620, 2);
+            this.btnRefresh_KH.Name = "btnRefresh_KH";
+            this.btnRefresh_KH.Size = new System.Drawing.Size(24, 22);
+            this.btnRefresh_KH.StyleController = this.layoutControl3;
+            this.btnRefresh_KH.TabIndex = 3;
+            this.btnRefresh_KH.ToolTip = "Refesh";
             // 
             // layoutControlGroup3
             // 
@@ -2136,7 +2136,7 @@
             // 
             // layoutControlItem13
             // 
-            this.layoutControlItem13.Control = this.simpleButton2;
+            this.layoutControlItem13.Control = this.btnRefresh_KH;
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem13.Location = new System.Drawing.Point(615, 0);
             this.layoutControlItem13.Name = "layoutControlItem2";
@@ -2146,7 +2146,7 @@
             // 
             // layoutControlItem14
             // 
-            this.layoutControlItem14.Control = this.simpleButton1;
+            this.layoutControlItem14.Control = this.btnAdd_KH;
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem6";
             this.layoutControlItem14.Location = new System.Drawing.Point(643, 0);
             this.layoutControlItem14.Name = "layoutControlItem6";
@@ -2158,7 +2158,7 @@
             // 
             this.layoutControlItem15.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem15.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem15.Control = this.textBox1;
+            this.layoutControlItem15.Control = this.txtSearch_KH;
             this.layoutControlItem15.CustomizationFormText = "Tìm kiếm";
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem15.Name = "a";
@@ -2176,7 +2176,7 @@
             // 
             // layoutControlItem16
             // 
-            this.layoutControlItem16.Control = this.linkLabel2;
+            this.layoutControlItem16.Control = this.llbTrangTruoc_KH;
             this.layoutControlItem16.Location = new System.Drawing.Point(338, 0);
             this.layoutControlItem16.Name = "layoutControlItem3";
             this.layoutControlItem16.Size = new System.Drawing.Size(102, 26);
@@ -2187,7 +2187,7 @@
             // 
             // layoutControlItem17
             // 
-            this.layoutControlItem17.Control = this.label2;
+            this.layoutControlItem17.Control = this.lbSoTrang_KH;
             this.layoutControlItem17.Location = new System.Drawing.Point(440, 0);
             this.layoutControlItem17.Name = "layoutControlItem4";
             this.layoutControlItem17.Size = new System.Drawing.Size(38, 26);
@@ -2196,7 +2196,7 @@
             // 
             // layoutControlItem18
             // 
-            this.layoutControlItem18.Control = this.label1;
+            this.layoutControlItem18.Control = this.lbTongSoTrang_KH;
             this.layoutControlItem18.Location = new System.Drawing.Point(478, 0);
             this.layoutControlItem18.Name = "layoutControlItem7";
             this.layoutControlItem18.Size = new System.Drawing.Size(43, 26);
@@ -2205,7 +2205,7 @@
             // 
             // layoutControlItem19
             // 
-            this.layoutControlItem19.Control = this.linkLabel1;
+            this.layoutControlItem19.Control = this.llbTrangTiep_KH;
             this.layoutControlItem19.ControlAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.layoutControlItem19.Location = new System.Drawing.Point(521, 0);
             this.layoutControlItem19.Name = "layoutControlItem8";
@@ -2406,12 +2406,12 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.LinkLabel llbTrangTiep_KH;
+        private System.Windows.Forms.Label lbTongSoTrang_KH;
+        private System.Windows.Forms.Label lbSoTrang_KH;
+        private System.Windows.Forms.LinkLabel llbTrangTruoc_KH;
+        private System.Windows.Forms.TextBox txtSearch_KH;
+        private DevExpress.XtraEditors.SimpleButton btnAdd_KH;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridView3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn khCreateUser;
@@ -2435,7 +2435,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn khID;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit3;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh_KH;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
