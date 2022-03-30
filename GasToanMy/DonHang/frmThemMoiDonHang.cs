@@ -749,7 +749,7 @@ namespace GasToanMy
 
                 using (clsKhachHang cls = new clsKhachHang())
                 {
-                    DataTable dt_ = cls.TongSoKhachHangAll(_sSearch);
+                    DataTable dt_ = cls.TongSoKhachHangAll(_sSearch_KH);
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {
@@ -802,7 +802,7 @@ namespace GasToanMy
             int sotrang_;
             try
             {
-                sotrang_ = Convert.ToInt32(txtSoTrang.Text);
+                sotrang_ = Convert.ToInt32(lbSoTrang_KH.Text);
                 if (sotrang_ <= 1)
                 {
                     lbSoTrang_KH.Text = "1";
