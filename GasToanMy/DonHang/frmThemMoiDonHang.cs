@@ -298,8 +298,11 @@ namespace GasToanMy
         {
             Cursor.Current = Cursors.WaitCursor;
             _STT = 1;
+            _STT_KH = 1;
             LoadData_SP(1, true);
+            LoadData_KH(1, true);
             ResetSoTrang_BB();
+            ResetSoTrang_KH();
             Cursor.Current = Cursors.Default;
         }
 
