@@ -22,11 +22,15 @@ namespace GasToanMy
         public static int miID;
         public static string msType;
         public static string msCode;
-        public static string msPaymentStatus;
-        public static string msFullName;
-        public static string msCodeKhachHang;
-        public static Double mfTongTienDonHang;
-        public static Double mfTienDaThanhToan;
+        public static string msPhanNhom;
+        public static string msTenSanPham;
+        public static string msDonViTinh;
+        public static string msNhaCungCap;
+        public static Double mfSLNhap;
+        public static Double mfSLXuat;
+        public static Double mfSLTon;
+        public static Double mfGiaVon;
+        public static Double mfGiaBan;
         public static string msRecordStatus;
         public static string msDescription;
         public static string msCreateUser;
@@ -39,7 +43,7 @@ namespace GasToanMy
         private int _TongSoTrang = 0;
         private const int _SoHang = 30;
 
-        public void LoadData(int sotrang, bool isLoadLanDau)
+        public void LoadData_SP(int sotrang, bool isLoadLanDau)
         {
             try
             {
@@ -63,25 +67,30 @@ namespace GasToanMy
                 dt2.Columns.Add("UpdateDate", typeof(DateTime));
                 dt2.Columns.Add("Type", typeof(string));
                 dt2.Columns.Add("Code", typeof(string));
-                dt2.Columns.Add("CodeKhachHang", typeof(string));
-                dt2.Columns.Add("PaymentStatus", typeof(string));
-                dt2.Columns.Add("FullName", typeof(string));
-                dt2.Columns.Add("TongTienDonHang", typeof(Double));
-                dt2.Columns.Add("TienDaThanhToan", typeof(Double));
+                dt2.Columns.Add("PhanNhom", typeof(string));
+                dt2.Columns.Add("TenSanPham", typeof(string));
+                dt2.Columns.Add("DonViTinh", typeof(string));
+                dt2.Columns.Add("NhaCungCap", typeof(string));
+                dt2.Columns.Add("SLNhap", typeof(Double));
+                dt2.Columns.Add("SLXuat", typeof(Double));
+                dt2.Columns.Add("SLTon", typeof(Double));
+                dt2.Columns.Add("GiaVon", typeof(Double));
+                dt2.Columns.Add("GiaBan", typeof(Double));
                 dt2.Columns.Add("RecordStatus", typeof(string));
                 dt2.Columns.Add("Description", typeof(string));
                 dt2.Columns.Add("CreateUser", typeof(string));
                 dt2.Columns.Add("UpdateUser", typeof(string));
 
 
-                using (clsDonHang cls_ = new clsDonHang())
+                using (clsSanPham cls_ = new clsSanPham())
                 {
                     DataTable dt_;
-                    
+
                     if (checkAll.Checked)
-                        dt_ = cls_.SelecPage_DonHang_All(_SoHang, _SoTrang, _sSearch);
+                        dt_ = cls_.SelecPage_SanPham_All(_SoHang, _SoTrang, _sSearch);
                     else
-                        dt_ = cls_.SelecPage_DonHang_DaThanhToan(_SoHang, _SoTrang, _sSearch);
+                        dt_ = cls_.SelecPage_SanPham_ConHang(_SoHang, _SoTrang, _sSearch);
+
 
                     _RowPage_curent = dt_.Rows.Count;
 
@@ -97,11 +106,15 @@ namespace GasToanMy
                             _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
                             _ravi["Type"] = dt_.Rows[i]["Type"];
                             _ravi["Code"] = dt_.Rows[i]["Code"];
-                            _ravi["CodeKhachHang"] = dt_.Rows[i]["CodeKhachHang"];
-                            _ravi["PaymentStatus"] = dt_.Rows[i]["PaymentStatus"];
-                            _ravi["FullName"] = dt_.Rows[i]["FullName"];
-                            _ravi["TongTienDonHang"] = dt_.Rows[i]["TongTienDonHang"];
-                            _ravi["TienDaThanhToan"] = dt_.Rows[i]["TienDaThanhToan"];
+                            _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
+                            _ravi["TenSanPham"] = dt_.Rows[i]["TenSanPham"];
+                            _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
+                            _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
+                            _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
+                            _ravi["SLXuat"] = dt_.Rows[i]["SLXuat"];
+                            _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
+                            _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
+                            _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
                             _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
                             _ravi["Description"] = dt_.Rows[i]["Description"];
                             _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
@@ -121,7 +134,7 @@ namespace GasToanMy
             }
         }
 
-        public void LoadDataDonHangChiTiet(string CodeDonHang_)
+        public void Load_Data_DonHangChiTiet(string CodeDonHang_)
         {
             try
             {
@@ -204,7 +217,7 @@ namespace GasToanMy
         {
             Cursor.Current = Cursors.WaitCursor;
             _STT = 1;
-            LoadData(1, true);
+            LoadData_SP(1, true);
             ResetSoTrang_BB();
             Cursor.Current = Cursors.Default;
         }
@@ -242,11 +255,15 @@ namespace GasToanMy
                     msType = bandedGridView1.GetFocusedRowCellValue(spType).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(spID).ToString());
-                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
-                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
-                    msFullName = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
-                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    msPhanNhom = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
+                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(TenSanPham).ToString().Trim();
+                    msDonViTinh = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
+                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
+                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
+                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    mfSLTon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLTon).ToString());
+                    mfGiaVon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaVon).ToString());
+                    mfGiaBan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaBan).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(spRecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(spDescription).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(spCreateUser).ToString();
@@ -288,7 +305,7 @@ namespace GasToanMy
                     {
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         _STT -= _RowPage_curent;
-                        LoadData(_SoTrang, false);
+                        LoadData_SP(_SoTrang, false);
                     }
                     else
                     {
@@ -374,7 +391,7 @@ namespace GasToanMy
             _sSearch = txtTimKiem.Text;
             ResetSoTrang_BB();
             _STT = 1;
-            LoadData(1, false);
+            LoadData_SP(1, false);
         }    
 
         private void btCopY_Click(object sender, EventArgs e)
@@ -393,11 +410,15 @@ namespace GasToanMy
                     msType = bandedGridView1.GetFocusedRowCellValue(spType).ToString().Trim();
                     msCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(spID).ToString());
-                    msPaymentStatus = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
-                    msCodeKhachHang = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
-                    msFullName = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-                    mfTongTienDonHang = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
-                    mfTienDaThanhToan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    msPhanNhom = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
+                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(TenSanPham).ToString().Trim();
+                    msDonViTinh = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
+                    msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
+                    mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
+                    mfSLXuat = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLXuat).ToString());
+                    mfSLTon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLTon).ToString());
+                    mfGiaVon = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaVon).ToString());
+                    mfGiaBan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaBan).ToString());
                     msRecordStatus = bandedGridView1.GetFocusedRowCellValue(spRecordStatus).ToString().Trim();
                     msDescription = bandedGridView1.GetFocusedRowCellValue(spDescription).ToString().Trim();
                     msCreateUser = bandedGridView1.GetFocusedRowCellValue(spCreateUser).ToString();
@@ -427,13 +448,9 @@ namespace GasToanMy
                 btnTrangTiep.LinkColor = Color.Blue;
                 txtSoTrang.Text = "1";
 
-                using (clsDonHang cls = new clsDonHang())
+                using (clsSanPham cls = new clsSanPham())
                 {
-                    DataTable dt_;
-                    if (checkAll.Checked)
-                        dt_ = cls.TongSoDonHang_All(_sSearch);
-                    else
-                        dt_ = cls.TongSoDonHang_DaThanhToan(_sSearch);
+                    DataTable dt_ = cls.TongSoSanPham_ConHang(_sSearch);
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {
@@ -552,7 +569,7 @@ namespace GasToanMy
                 sotrang_ = 1;
                 txtSoTrang.Text = "1";
             }
-            LoadData(sotrang_, islandau);
+            LoadData_SP(sotrang_, islandau);
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -576,7 +593,7 @@ namespace GasToanMy
             _sSearch = txtTimKiem.Text;
             ResetSoTrang_BB();
             _STT = 1;
-            LoadData(1, false);
+            LoadData_SP(1, false);
         }
 
         private void bandedGridView1_RowCellStyle(object sender, RowCellStyleEventArgs e)
@@ -609,7 +626,7 @@ namespace GasToanMy
                     txtMaDonHang.Text = "Mã đơn hàng: " + codeDH_;
                     txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
 
-                    LoadDataDonHangChiTiet(codeDH_);
+                    Load_Data_DonHangChiTiet(codeDH_);
                     
                     Cursor.Current = Cursors.Default;
                 }
