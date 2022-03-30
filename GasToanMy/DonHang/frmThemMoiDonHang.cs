@@ -61,14 +61,14 @@ namespace GasToanMy
                 _SoTrang = sotrang;
 
                 DataTable dt2 = new DataTable();
-                dt2.Columns.Add("ID", typeof(int));
-                dt2.Columns.Add("STT", typeof(int));
-                dt2.Columns.Add("CreateDate", typeof(DateTime));
-                dt2.Columns.Add("UpdateDate", typeof(DateTime));
-                dt2.Columns.Add("Type", typeof(string));
-                dt2.Columns.Add("Code", typeof(string));
+                dt2.Columns.Add("spID", typeof(int));
+                dt2.Columns.Add("spSTT", typeof(int));
+                dt2.Columns.Add("spCreateDate", typeof(DateTime));
+                dt2.Columns.Add("spUpdateDate", typeof(DateTime));
+                dt2.Columns.Add("spType", typeof(string));
+                dt2.Columns.Add("spCode", typeof(string));
                 dt2.Columns.Add("PhanNhom", typeof(string));
-                dt2.Columns.Add("TenSanPham", typeof(string));
+                dt2.Columns.Add("spTenSanPham", typeof(string));
                 dt2.Columns.Add("DonViTinh", typeof(string));
                 dt2.Columns.Add("NhaCungCap", typeof(string));
                 dt2.Columns.Add("SLNhap", typeof(Double));
@@ -76,10 +76,10 @@ namespace GasToanMy
                 dt2.Columns.Add("SLTon", typeof(Double));
                 dt2.Columns.Add("GiaVon", typeof(Double));
                 dt2.Columns.Add("GiaBan", typeof(Double));
-                dt2.Columns.Add("RecordStatus", typeof(string));
-                dt2.Columns.Add("Description", typeof(string));
-                dt2.Columns.Add("CreateUser", typeof(string));
-                dt2.Columns.Add("UpdateUser", typeof(string));
+                dt2.Columns.Add("spRecordStatus", typeof(string));
+                dt2.Columns.Add("spDescription", typeof(string));
+                dt2.Columns.Add("spCreateUser", typeof(string));
+                dt2.Columns.Add("spUpdateUser", typeof(string));
 
 
                 using (clsSanPham cls_ = new clsSanPham())
@@ -100,14 +100,14 @@ namespace GasToanMy
                         {
                             DataRow _ravi = dt2.NewRow();
 
-                            _ravi["ID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
-                            _ravi["STT"] = _STT.ToString(); _STT++;
-                            _ravi["CreateDate"] = dt_.Rows[i]["CreateDate"];
-                            _ravi["UpdateDate"] = dt_.Rows[i]["UpdateDate"];
-                            _ravi["Type"] = dt_.Rows[i]["Type"];
-                            _ravi["Code"] = dt_.Rows[i]["Code"];
+                            _ravi["spID"] = Convert.ToInt32(dt_.Rows[i]["spID"].ToString());
+                            _ravi["spSTT"] = _STT.ToString(); _STT++;
+                            _ravi["spCreateDate"] = dt_.Rows[i]["spCreateDate"];
+                            _ravi["spUpdateDate"] = dt_.Rows[i]["spUpdateDate"];
+                            _ravi["spType"] = dt_.Rows[i]["spType"];
+                            _ravi["spCode"] = dt_.Rows[i]["spCode"];
                             _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
-                            _ravi["TenSanPham"] = dt_.Rows[i]["TenSanPham"];
+                            _ravi["spTenSanPham"] = dt_.Rows[i]["spTenSanPham"];
                             _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
                             _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
                             _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
@@ -115,10 +115,10 @@ namespace GasToanMy
                             _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
                             _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
                             _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
-                            _ravi["RecordStatus"] = dt_.Rows[i]["RecordStatus"];
-                            _ravi["Description"] = dt_.Rows[i]["Description"];
-                            _ravi["CreateUser"] = dt_.Rows[i]["CreateUser"];
-                            _ravi["UpdateUser"] = dt_.Rows[i]["UpdateUser"];
+                            _ravi["spRecordStatus"] = dt_.Rows[i]["spRecordStatus"];
+                            _ravi["spDescription"] = dt_.Rows[i]["spDescription"];
+                            _ravi["spCreateUser"] = dt_.Rows[i]["spCreateUser"];
+                            _ravi["spUpdateUser"] = dt_.Rows[i]["spUpdateUser"];
 
                             dt2.Rows.Add(_ravi);
                         }
@@ -411,7 +411,7 @@ namespace GasToanMy
                     msCode = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
                     miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(spID).ToString());
                     msPhanNhom = bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(TenSanPham).ToString().Trim();
+                    msTenSanPham = bandedGridView1.GetFocusedRowCellValue(spTenSanPham).ToString().Trim();
                     msDonViTinh = bandedGridView1.GetFocusedRowCellValue(DonViTinh).ToString().Trim();
                     msNhaCungCap = bandedGridView1.GetFocusedRowCellValue(NhaCungCap).ToString().Trim();
                     mfSLNhap = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLNhap).ToString());
