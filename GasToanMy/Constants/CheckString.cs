@@ -27,6 +27,38 @@ namespace GasToanMy
             return false;
         }
 
+        public static String CreateCodeDonHangChiTiet()
+        {
+            DataTable dt;
+            String Code = "CT1010101010";
+            String sq_curent = "";
+
+            try
+            {
+                using (clsDonHangChiTiet cls = new clsDonHangChiTiet())
+                {
+                    dt = cls.CreateCodeDonHangChiTiet();
+                    if (dt.Rows.Count > 0)
+                    {
+                        sq_curent = dt.Rows[0]["Code"].ToString().Trim();
+                    }
+
+                    if (sq_curent != "" && sq_curent.Length >= 3)
+                    {
+                        String tmp = sq_curent.Substring(2);
+                        int sq = Convert.ToInt32(tmp) + 1;
+
+                        Code = "CT" + sq.ToString();
+                    }
+                    else Code = "CT1010101010";
+                }
+            }
+            catch (Exception ea)
+            {
+            }
+
+            return Code;
+        }
 
         public static String CreateCodeDonHang()
         {

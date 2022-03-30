@@ -315,6 +315,17 @@ namespace GasToanMy
             Cursor.Current = Cursors.Default;
         }
 
+
+        private void RefreshPage()
+        {
+            _STT = 1;
+            _STT_KH = 1;
+            ResetSoTrang_BB();
+            ResetSoTrang_KH();
+            LoadData_SP(1, true);
+            LoadData_KH(1, true);
+            Load_Data_DonHangChiTiet(_CodeDH);
+        }
      
 
         private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
@@ -863,28 +874,28 @@ namespace GasToanMy
         }
 
         private string _CodeDH;
+        private string _CodeSP;
         private string _CodeKH;
         private string _TenKH;
+        private float _SoLuong;
+        private float _GiaBan;
 
         private void bandedGridView1_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
-                //if (bandedGridView1.GetFocusedRowCellValue(spCode) != null)
-                //{
-                //    Cursor.Current = Cursors.WaitCursor;
+                if (bandedGridView1.GetFocusedRowCellValue(spCode) != null)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
 
-                //    txtMaDonHang.Text = "Mã đơn hàng: " + _CodeDH;
+                    _CodeSP = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
+                    _SoLuong = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(SLTon).ToString().Trim());
+                    _GiaBan = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(GiaBan).ToString().Trim());
 
+                    RefreshPage();
 
-                //    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
-                //    txtMaDonHang.Text = "Mã đơn hàng: " + codeDH_;
-                //    txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-
-                //    Load_Data_DonHangChiTiet(codeDH_);
-
-                //    Cursor.Current = Cursors.Default;
-                //}
+                    Cursor.Current = Cursors.Default;
+                }
             }
             catch (Exception ea)
             {
@@ -910,6 +921,83 @@ namespace GasToanMy
             catch (Exception ea)
             {
                 MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private bool Insert_DonHangChiTiet()
+        {
+            try
+            {
+                using (clsDonHangChiTiet cls = new clsDonHangChiTiet())
+                {
+                    cls.daCreateDate = DateTime.Now;
+                    cls.sCreateUser = frmDangNhap._sCode_NhanSu;
+                    cls.sCode = CheckString.CreateCodeDonHangChiTiet();
+                    cls.sCodeDonHang = _CodeDH;
+                    cls.sCodeSanPham = _CodeSP;
+                    cls.fSoLuong = txtDonVi.Text.Trim();
+                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSLNhap.Text);
+                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sRecordStatus = "Y";
+                    cls.sDescription = ghichu;
+
+                    if (cls.Insert()) return true;
+                    else return false;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+        // 
+        private bool Update_DonHangChiTiet()
+        {
+            try
+            {
+                using (clsSanPham cls = new clsSanPham())
+                {
+                    string tensp = txtTenSanPham.Text.Trim();
+                    string ghichu = txtGhiChu.Text.Trim();
+
+                    while (tensp.IndexOf("  ") >= 0)
+                    {
+                        tensp = tensp.Replace("  ", " ");
+                    }
+
+                    while (ghichu.IndexOf("  ") >= 0)
+                    {
+                        ghichu = ghichu.Replace("  ", " ");
+                    }
+
+                    cls.iID = frmNhapHang.miID;
+                    cls.daCreateDate = Convert.ToDateTime(dateNgayThang.EditValue.ToString());
+                    cls.daUpdateDate = DateTime.Now;
+                    cls.sCreateUser = frmNhapHang.msCreateUser;
+                    cls.sUpdateUser = frmDangNhap._sCode_NhanSu;
+                    cls.sCode = txtCode.Text.Trim();
+                    cls.sNhaCungCap = txtNhaCungCap.Text.Trim();
+                    cls.sTenSanPham = tensp;
+                    cls.sDonViTinh = txtDonVi.Text.Trim();
+                    cls.fSoLuong = CheckString.ConvertToDouble_My(txtSLNhap.Text);
+                    cls.fGiaVon = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+                    cls.fGiaBan = CheckString.ConvertToDouble_My(txtGiaban.Text);
+                    cls.sRecordStatus = "Y";
+                    cls.sDescription = ghichu;
+
+                    if (cls.Update()) return true;
+                    else return false;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }
