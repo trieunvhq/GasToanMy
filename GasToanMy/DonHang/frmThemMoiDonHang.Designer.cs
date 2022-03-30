@@ -170,7 +170,6 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabKhachHang = new System.Windows.Forms.TabPage();
@@ -263,7 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabKhachHang.SuspendLayout();
@@ -1034,7 +1032,7 @@
             this.groupBox2.Location = new System.Drawing.Point(698, 18);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 10, 2, 2);
             this.groupBox2.Size = new System.Drawing.Size(649, 689);
             this.groupBox2.TabIndex = 78;
             this.groupBox2.TabStop = false;
@@ -1047,10 +1045,10 @@
             this.layoutControl2.Controls.Add(this.txtMaDonHang);
             this.layoutControl2.Controls.Add(this.gridControl2);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 13);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 23);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(645, 674);
+            this.layoutControl2.Size = new System.Drawing.Size(645, 664);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -1060,6 +1058,7 @@
             this.txtKhachHang.Name = "txtKhachHang";
             this.txtKhachHang.Size = new System.Drawing.Size(316, 20);
             this.txtKhachHang.TabIndex = 75;
+            this.txtKhachHang.Text = "Khách hàng: ...";
             this.txtKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMaDonHang
@@ -1068,11 +1067,12 @@
             this.txtMaDonHang.Name = "txtMaDonHang";
             this.txtMaDonHang.Size = new System.Drawing.Size(305, 20);
             this.txtMaDonHang.TabIndex = 74;
+            this.txtMaDonHang.Text = "Mã đơn hàng: ...";
             this.txtMaDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(5, 36);
+            this.gridControl2.Location = new System.Drawing.Point(5, 26);
             this.gridControl2.MainView = this.bandedGridView2;
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1512,18 +1512,17 @@
             this.layoutControlItem5,
             this.emptySpaceItem1,
             this.layoutControlItem10,
-            this.layoutControlItem11,
-            this.emptySpaceItem2});
+            this.layoutControlItem11});
             this.layoutControlGroup2.Name = "layoutControlGroup1";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 0, 3);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(645, 674);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(645, 664);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.gridControl2;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem5.Name = "layoutControlItem1";
             this.layoutControlItem5.Size = new System.Drawing.Size(639, 637);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -1554,14 +1553,6 @@
             this.layoutControlItem11.Size = new System.Drawing.Size(320, 24);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(639, 10);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // panel1
             // 
@@ -1745,6 +1736,7 @@
             this.bandedGridView3.OptionsView.RowAutoHeight = true;
             this.bandedGridView3.OptionsView.ShowColumnHeaders = false;
             this.bandedGridView3.OptionsView.ShowGroupPanel = false;
+            this.bandedGridView3.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.bandedGridView3_RowClick);
             // 
             // gridBand22
             // 
@@ -2284,7 +2276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabKhachHang.ResumeLayout(false);
@@ -2406,7 +2397,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabSanPham;
         private System.Windows.Forms.TabPage tabKhachHang;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private System.Windows.Forms.LinkLabel llbTrangTiep_KH;

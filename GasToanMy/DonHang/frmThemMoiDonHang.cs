@@ -292,6 +292,8 @@ namespace GasToanMy
         public frmThemMoiDonHang()
         {
             InitializeComponent();
+            _CodeDH = CheckString.CreateCodeDonHang();
+            txtMaDonHang.Text = "Mã đơn hàng: " + _CodeDH;
         }
 
         private void frmThemMoiDonHang_Load(object sender, EventArgs e)
@@ -698,28 +700,7 @@ namespace GasToanMy
 
         }
 
-        private void bandedGridView1_RowClick(object sender, RowClickEventArgs e)
-        {
-            try
-            {
-                if (bandedGridView1.GetFocusedRowCellValue(spCode) != null)
-                {
-                    Cursor.Current = Cursors.WaitCursor;
-
-                    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
-                    txtMaDonHang.Text = "Mã đơn hàng: " + codeDH_;
-                    txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
-
-                    Load_Data_DonHangChiTiet(codeDH_);
-                    
-                    Cursor.Current = Cursors.Default;
-                }
-            }
-            catch (Exception ea)
-            {
-                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void bandedGridView2_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
@@ -879,6 +860,57 @@ namespace GasToanMy
             ResetSoTrang_KH();
             _STT_KH = 1;
             LoadData_KH(1, false);
+        }
+
+        private string _CodeDH;
+        private string _CodeKH;
+        private string _TenKH;
+
+        private void bandedGridView1_RowClick(object sender, RowClickEventArgs e)
+        {
+            try
+            {
+                //if (bandedGridView1.GetFocusedRowCellValue(spCode) != null)
+                //{
+                //    Cursor.Current = Cursors.WaitCursor;
+
+                //    txtMaDonHang.Text = "Mã đơn hàng: " + _CodeDH;
+
+
+                //    string codeDH_ = bandedGridView1.GetFocusedRowCellValue(spCode).ToString().Trim();
+                //    txtMaDonHang.Text = "Mã đơn hàng: " + codeDH_;
+                //    txtKhachHang.Text = "Khách hàng: " + bandedGridView1.GetFocusedRowCellValue(PhanNhom).ToString().Trim();
+
+                //    Load_Data_DonHangChiTiet(codeDH_);
+
+                //    Cursor.Current = Cursors.Default;
+                //}
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bandedGridView3_RowClick(object sender, RowClickEventArgs e)
+        {
+            try
+            {
+                if (bandedGridView3.GetFocusedRowCellValue(khCode) != null)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    _CodeKH = bandedGridView3.GetFocusedRowCellValue(khCode).ToString().Trim();
+                    _TenKH = bandedGridView3.GetFocusedRowCellValue(khFullName).ToString().Trim();
+                    txtKhachHang.Text = "Khách hàng: " + _TenKH + " - " + _CodeKH;
+
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
