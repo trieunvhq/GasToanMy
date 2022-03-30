@@ -870,5 +870,15 @@ namespace GasToanMy
                 lbSoTrang_KH.Text = "1";
             }
         }
+
+        private void txtSearch_KH_TextChanged(object sender, EventArgs e)
+        {
+            if (isload_KH)
+                return;
+            _sSearch_KH = txtSearch_KH.Text;
+            ResetSoTrang_KH();
+            _STT_KH = 1;
+            LoadData_KH(1, false);
+        }
     }
 }

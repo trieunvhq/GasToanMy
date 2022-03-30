@@ -1671,6 +1671,7 @@
             this.txtSearch_KH.Name = "txtSearch_KH";
             this.txtSearch_KH.Size = new System.Drawing.Size(269, 20);
             this.txtSearch_KH.TabIndex = 0;
+            this.txtSearch_KH.TextChanged += new System.EventHandler(this.txtSearch_KH_TextChanged);
             // 
             // btnAdd_KH
             // 
