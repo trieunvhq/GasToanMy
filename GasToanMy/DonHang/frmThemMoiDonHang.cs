@@ -644,5 +644,15 @@ namespace GasToanMy
                 }
             }
         }
+
+        private void llbTrangTruoc_KH_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void llbTrangTiep_KH_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

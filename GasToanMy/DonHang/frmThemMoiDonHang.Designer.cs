@@ -1635,6 +1635,7 @@
             this.llbTrangTiep_KH.TabStop = true;
             this.llbTrangTiep_KH.Text = "Trang tiếp>>";
             this.llbTrangTiep_KH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbTrangTiep_KH.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbTrangTiep_KH_LinkClicked);
             // 
             // lbTongSoTrang_KH
             // 
@@ -1662,6 +1663,7 @@
             this.llbTrangTruoc_KH.TabStop = true;
             this.llbTrangTruoc_KH.Text = "<<Trang trước";
             this.llbTrangTruoc_KH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.llbTrangTruoc_KH.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbTrangTruoc_KH_LinkClicked);
             // 
             // txtSearch_KH
             // 
