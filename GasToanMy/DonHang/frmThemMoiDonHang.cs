@@ -44,7 +44,7 @@ namespace GasToanMy
 
         //Khách hàng:
         public string _sSearch_KH;
-        private int _SoTrang_Kh = 1;
+        private int _SoTrang_KH = 1;
         private bool isload_KH = false;
         private int _STT_KH = 1;
         private int _RowPage_curent_KH = 0;
@@ -152,7 +152,7 @@ namespace GasToanMy
                 _sSearch_KH = txtSearch_KH.Text;
                 //_ngay_batdau = (DateTime)dteTuNgay.EditValue;
                 //_ngay_ketthuc = dteDenNgay.DateTime;
-                _SoTrang = sotrang;
+                _SoTrang_KH = sotrang;
 
                 DataTable dt2 = new DataTable();
                 dt2.Columns.Add("khID", typeof(int));
@@ -174,10 +174,10 @@ namespace GasToanMy
 
                 using (clsKhachHang cls_ = new clsKhachHang())
                 {
-                    DataTable dt_ = cls_.SelecPage_KhachHangAll(_SoHang, _SoTrang, _sSearch);
+                    DataTable dt_ = cls_.SelecPage_KhachHangAll(_SoHang, _SoTrang_KH, _sSearch_KH);
 
 
-                    _RowPage_curent = dt_.Rows.Count;
+                    _RowPage_curent_KH = dt_.Rows.Count;
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {
