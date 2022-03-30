@@ -146,10 +146,10 @@ namespace GasToanMy
                 {
                     //dteTuNgay.EditValue = DateTime.Now.AddDays(-30);
                     //dteDenNgay.EditValue = DateTime.Now;
-                    txtTimKiem.Text = "";
+                    txtSearch_KH.Text = "";
                 }
                 else { }
-                _sSearch_KH = txtTimKiem.Text;
+                _sSearch_KH = txtSearch_KH.Text;
                 //_ngay_batdau = (DateTime)dteTuNgay.EditValue;
                 //_ngay_ketthuc = dteDenNgay.DateTime;
                 _SoTrang = sotrang;
@@ -205,9 +205,9 @@ namespace GasToanMy
                         }
                     }
                 }
-                gridControl1.DataSource = dt2;
+                gridControl3.DataSource = dt2;
 
-                isload = false;
+                isload_KH = false;
             }
             catch (Exception ea)
             {
@@ -731,14 +731,141 @@ namespace GasToanMy
             }
         }
 
+        //Khách hàng:
+        public void ResetSoTrang_KH()
+        {
+            try
+            {
+                llbTrangTruoc_KH.Visible = true;
+                llbTrangTiep_KH.Visible = true;
+                lbTongSoTrang_KH.Visible = true;
+                lbSoTrang_KH.Visible = true;
+                llbTrangTruoc_KH.LinkColor = Color.Black;
+                llbTrangTiep_KH.LinkColor = Color.Blue;
+                lbSoTrang_KH.Text = "1";
+
+                using (clsKhachHang cls = new clsKhachHang())
+                {
+                    DataTable dt_ = cls.TongSoKhachHangAll(_sSearch);
+
+                    if (dt_ != null && dt_.Rows.Count > 0)
+                    {
+                        _TongSoTrang_KH = Convert.ToInt32(Math.Ceiling(CheckString.ConvertToDouble_My(dt_.Rows[0]["tongso"].ToString()) / (double)_SoHang));
+                        lbTongSoTrang_KH.Text = "/" + _TongSoTrang_KH.ToString();
+                    }
+                    else
+                    {
+                        lbTongSoTrang_KH.Text = "/1";
+                    }
+                }
+                if (lbTongSoTrang_KH.Text == "0")
+                    lbTongSoTrang_KH.Text = "/1";
+                if (lbTongSoTrang_KH.Text == "/1")
+                {
+                    llbTrangTruoc_KH.LinkColor = Color.Black;
+                    llbTrangTiep_KH.LinkColor = Color.Black;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Load_KhachHang(bool islandau)
+        {
+            int sotrang_ = 1;
+            try
+            {
+                sotrang_ = Convert.ToInt32(lbSoTrang_KH.Text);
+            }
+            catch
+            {
+                sotrang_ = 1;
+                lbSoTrang_KH.Text = "1";
+            }
+            LoadData_KH(sotrang_, islandau);
+        }
+
         private void llbTrangTruoc_KH_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (isload_KH)
+                return;
+            if (llbTrangTruoc_KH.LinkColor == Color.Black)
+                return;
+            if (llbTrangTiep_KH.LinkColor == Color.Black)
+                llbTrangTiep_KH.LinkColor = Color.Blue;
 
+            int sotrang_;
+            try
+            {
+                sotrang_ = Convert.ToInt32(txtSoTrang.Text);
+                if (sotrang_ <= 1)
+                {
+                    lbSoTrang_KH.Text = "1";
+                    llbTrangTruoc_KH.LinkColor = Color.Black;
+                    _STT_KH = 1;
+
+                }
+                else
+                {
+                    lbSoTrang_KH.Text = (sotrang_ - 1).ToString();
+
+                    _STT_KH -= (_SoHang + _RowPage_curent_KH);
+
+                    if (sotrang_ - 1 == 1)
+                    {
+                        llbTrangTruoc_KH.LinkColor = Color.Black;
+                    }
+
+                    Load_KhachHang(false);
+                }
+            }
+            catch
+            {
+                llbTrangTruoc_KH.LinkColor = Color.Black;
+                sotrang_ = 1;
+                lbSoTrang_KH.Text = "1";
+                _STT_KH = 1;
+            }
         }
 
         private void llbTrangTiep_KH_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (isload_KH)
+                return;
+            if (llbTrangTiep_KH.LinkColor == Color.Black)
+                return;
+            if (llbTrangTruoc_KH.LinkColor == Color.Black)
+                llbTrangTruoc_KH.LinkColor = Color.Blue;
 
+            int sotrang_;
+            try
+            {
+                sotrang_ = Convert.ToInt32(lbSoTrang_KH.Text);
+                int max_ = Convert.ToInt32(lbTongSoTrang_KH.Text.Replace(" ", "").Replace("/", ""));
+                if (sotrang_ < max_)
+                {
+                    lbSoTrang_KH.Text = (sotrang_ + 1).ToString();
+                    if (sotrang_ + 1 == _TongSoTrang_KH)
+                    {
+                        llbTrangTiep_KH.LinkColor = Color.Black;
+                    }
+
+                    Load_KhachHang(false);
+                }
+                else
+                {
+                    lbSoTrang_KH.Text = (max_).ToString();
+                    llbTrangTiep_KH.LinkColor = Color.Black;
+                }
+            }
+            catch
+            {
+                llbTrangTiep_KH.LinkColor = Color.Black;
+                sotrang_ = 1;
+                lbSoTrang_KH.Text = "1";
+            }
         }
     }
 }
