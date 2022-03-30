@@ -100,14 +100,14 @@ namespace GasToanMy
                         {
                             DataRow _ravi = dt2.NewRow();
 
-                            _ravi["spID"] = Convert.ToInt32(dt_.Rows[i]["spID"].ToString());
+                            _ravi["spID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
                             _ravi["spSTT"] = _STT.ToString(); _STT++;
-                            _ravi["spCreateDate"] = dt_.Rows[i]["spCreateDate"];
-                            _ravi["spUpdateDate"] = dt_.Rows[i]["spUpdateDate"];
-                            _ravi["spType"] = dt_.Rows[i]["spType"];
-                            _ravi["spCode"] = dt_.Rows[i]["spCode"];
+                            _ravi["spCreateDate"] = dt_.Rows[i]["CreateDate"];
+                            _ravi["spUpdateDate"] = dt_.Rows[i]["UpdateDate"];
+                            _ravi["spType"] = dt_.Rows[i]["Type"];
+                            _ravi["spCode"] = dt_.Rows[i]["Code"];
                             _ravi["PhanNhom"] = dt_.Rows[i]["PhanNhom"];
-                            _ravi["spTenSanPham"] = dt_.Rows[i]["spTenSanPham"];
+                            _ravi["spTenSanPham"] = dt_.Rows[i]["TenSanPham"];
                             _ravi["DonViTinh"] = dt_.Rows[i]["DonViTinh"];
                             _ravi["NhaCungCap"] = dt_.Rows[i]["NhaCungCap"];
                             _ravi["SLNhap"] = dt_.Rows[i]["SLNhap"];
@@ -115,10 +115,10 @@ namespace GasToanMy
                             _ravi["SLTon"] = dt_.Rows[i]["SLTon"];
                             _ravi["GiaVon"] = dt_.Rows[i]["GiaVon"];
                             _ravi["GiaBan"] = dt_.Rows[i]["GiaBan"];
-                            _ravi["spRecordStatus"] = dt_.Rows[i]["spRecordStatus"];
-                            _ravi["spDescription"] = dt_.Rows[i]["spDescription"];
-                            _ravi["spCreateUser"] = dt_.Rows[i]["spCreateUser"];
-                            _ravi["spUpdateUser"] = dt_.Rows[i]["spUpdateUser"];
+                            _ravi["spRecordStatus"] = dt_.Rows[i]["RecordStatus"];
+                            _ravi["spDescription"] = dt_.Rows[i]["Description"];
+                            _ravi["spCreateUser"] = dt_.Rows[i]["CreateUser"];
+                            _ravi["spUpdateUser"] = dt_.Rows[i]["UpdateUser"];
 
                             dt2.Rows.Add(_ravi);
                         }
