@@ -186,7 +186,7 @@ namespace GasToanMy
                             DataRow _ravi = dt2.NewRow();
 
                             _ravi["khID"] = Convert.ToInt32(dt_.Rows[i]["ID"].ToString());
-                            _ravi["khSTT"] = _STT.ToString(); _STT++;
+                            _ravi["khSTT"] = _STT_KH.ToString(); _STT_KH++;
                             _ravi["khCreateDate"] = dt_.Rows[i]["CreateDate"];
                             _ravi["khUpdateDate"] = dt_.Rows[i]["UpdateDate"];
                             _ravi["khType"] = dt_.Rows[i]["Type"];
