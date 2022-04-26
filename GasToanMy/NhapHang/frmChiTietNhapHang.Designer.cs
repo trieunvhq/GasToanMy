@@ -206,6 +206,9 @@
             this.txtGiaVon.TabIndex = 3;
             this.txtGiaVon.Text = "0";
             this.txtGiaVon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaVon_KeyPress);
+            this.txtGiaVon.Leave += new System.EventHandler(this.txtGiaVon_Leave);
+            this.txtGiaVon.MouseLeave += new System.EventHandler(this.txtGiaVon_MouseLeave);
+            this.txtGiaVon.MouseHover += new System.EventHandler(this.txtGiaVon_MouseHover);
             // 
             // txtGiaban
             // 
@@ -215,6 +218,9 @@
             this.txtGiaban.TabIndex = 4;
             this.txtGiaban.Text = "0";
             this.txtGiaban.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaban_KeyPress);
+            this.txtGiaban.Leave += new System.EventHandler(this.txtGiaban_Leave);
+            this.txtGiaban.MouseLeave += new System.EventHandler(this.txtGiaban_MouseLeave);
+            this.txtGiaban.MouseHover += new System.EventHandler(this.txtGiaban_MouseHover);
             // 
             // txtSLNhap
             // 

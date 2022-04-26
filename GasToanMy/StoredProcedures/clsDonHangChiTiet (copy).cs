@@ -81,5 +81,125 @@ namespace GasToanMy
                 sdaAdapter.Dispose();
             }
         }
+
+        public DataTable DonHangChiTiet_SelectSoLuongWithCode(string CodeDonHang, string CodeSanPham)
+        {
+            SqlCommand scmCmdToExecute = new SqlCommand();
+            scmCmdToExecute.CommandText = "dbo.[DonHangChiTiet_SelectSoLuongWithCode]";
+            scmCmdToExecute.CommandType = CommandType.StoredProcedure;
+            DataTable dtToReturn = new DataTable("DonHangChiTiet_SelectSoLuongWithCode");
+            SqlDataAdapter sdaAdapter = new SqlDataAdapter(scmCmdToExecute);
+
+            // Use base class' connection object
+            scmCmdToExecute.Connection = m_scoMainConnection;
+
+            try
+            {
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeDonHang", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeDonHang));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeSanPham", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeSanPham));
+                m_scoMainConnection.Open();
+
+                sdaAdapter.Fill(dtToReturn);
+                return dtToReturn;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("DonHangChiTiet_SelectSoLuongWithCode", ex);
+            }
+            finally
+            {
+                //Close connection.
+                m_scoMainConnection.Close();
+                scmCmdToExecute.Dispose();
+                sdaAdapter.Dispose();
+            }
+        }
+
+        public bool DonHangChiTiet_DonHang_Insert(string CodeKhachHang)
+        {
+            SqlCommand scmCmdToExecute = new SqlCommand();
+            scmCmdToExecute.CommandText = "dbo.[DonHangChiTiet_DonHang_Insert]";
+            scmCmdToExecute.CommandType = CommandType.StoredProcedure;
+
+            // Use base class' connection object
+            scmCmdToExecute.Connection = m_scoMainConnection;
+
+            try
+            {
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sType", SqlDbType.Char, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sType));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCode", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sCode));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeDonHang", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sCodeDonHang));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeKhachHang", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeKhachHang));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeSanPham", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sCodeSanPham));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@fSoLuong", SqlDbType.Float, 8, ParameterDirection.Input, false, 38, 0, "", DataRowVersion.Proposed, m_fSoLuong));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@fDonGia", SqlDbType.Float, 8, ParameterDirection.Input, false, 38, 0, "", DataRowVersion.Proposed, m_fDonGia));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@fThanhTien", SqlDbType.Float, 8, ParameterDirection.Input, false, 38, 0, "", DataRowVersion.Proposed, m_fThanhTien));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sDescription", SqlDbType.NVarChar, 250, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sDescription));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sRecordStatus", SqlDbType.Char, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sRecordStatus));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@daCreateDate", SqlDbType.DateTime, 8, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_daCreateDate));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCreateUser", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sCreateUser));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@daUpdateDate", SqlDbType.DateTime, 8, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_daUpdateDate));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sUpdateUser", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, m_sUpdateUser));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@iID", SqlDbType.Int, 4, ParameterDirection.Output, false, 10, 0, "", DataRowVersion.Proposed, m_iID));
+
+                // Open connection.
+                m_scoMainConnection.Open();
+
+                // Execute query.
+                scmCmdToExecute.ExecuteNonQuery();
+                m_iID = (SqlInt32)scmCmdToExecute.Parameters["@iID"].Value;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("DonHangChiTiet_DonHang_Insert::Error occured.", ex);
+            }
+            finally
+            {
+                // Close connection.
+                m_scoMainConnection.Close();
+                scmCmdToExecute.Dispose();
+            }
+        }
+
+
+        public bool DeleteDonHangChiTiet_UpDateDonHang(string CodeDonHang, string CodeDonHangChiTiet, string CodeKhachHang, DateTime UpdateDate, string UpdateUser)
+        {
+            SqlCommand scmCmdToExecute = new SqlCommand();
+            scmCmdToExecute.CommandText = "dbo.[DeleteDonHangChiTiet_UpDateDonHang]";
+            scmCmdToExecute.CommandType = CommandType.StoredProcedure;
+
+            // Use base class' connection object
+            scmCmdToExecute.Connection = m_scoMainConnection;
+
+            try
+            {
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeDonHangChiTiet", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeDonHangChiTiet));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeDonHang", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeDonHang));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sCodeKhachHang", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, CodeKhachHang));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@daUpdateDate", SqlDbType.DateTime, 8, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, UpdateDate));
+                scmCmdToExecute.Parameters.Add(new SqlParameter("@sUpdateUser", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, UpdateUser));
+
+                // Open connection.
+                m_scoMainConnection.Open();
+
+                // Execute query.
+                scmCmdToExecute.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // some error occured. Bubble it to caller and encapsulate Exception object
+                throw new Exception("DeleteDonHangChiTiet_UpDateDonHang::Error occured.", ex);
+            }
+            finally
+            {
+                // Close connection.
+                m_scoMainConnection.Close();
+                scmCmdToExecute.Dispose();
+            }
+        }
     }
 }

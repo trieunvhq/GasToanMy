@@ -376,7 +376,7 @@
             this.btnLuongChamCong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLuongChamCong.Size = new System.Drawing.Size(285, 227);
             this.btnLuongChamCong.TabIndex = 14;
-            this.btnLuongChamCong.Text = "                         Lương,                           chấm công";
+            this.btnLuongChamCong.Text = "                      In nhãn";
             this.btnLuongChamCong.UseVisualStyleBackColor = false;
             this.btnLuongChamCong.Click += new System.EventHandler(this.btnLuongChamCong_Click);
             // 
@@ -430,7 +430,7 @@
             this.btnBanHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBanHang.Size = new System.Drawing.Size(285, 227);
             this.btnBanHang.TabIndex = 14;
-            this.btnBanHang.Text = "                       Thêm mới                          đơn hàng";
+            this.btnBanHang.Text = "                     Thêm mới                       đơn hàng";
             this.btnBanHang.UseVisualStyleBackColor = false;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 

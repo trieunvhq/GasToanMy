@@ -352,11 +352,11 @@ namespace GasToanMy
         //frmQuanLy_Luong_ChamCong _frmQuanLy_Luong_ChamCong;
         private void btnLuongChamCong_Click(object sender, EventArgs e)
         {
-            //frmQuanLy_Luong_ChamCong ff = new GasToanMy.frmQuanLy_Luong_ChamCong();
-            //////this.Hide();
-            //ff.Show();
-            //////this.Show();
-
+            if (!CheckString.FormIsOpened("Tr_frmChonSanPhamInNhan"))
+            {
+                Tr_frmChonSanPhamInNhan ff = new Tr_frmChonSanPhamInNhan();
+                ff.Show();
+            }
         }
 
         private void btnQuyNganHang_Click(object sender, EventArgs e)

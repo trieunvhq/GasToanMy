@@ -124,8 +124,8 @@ namespace GasToanMy
                 txtDonVi.Text = frmNhapHang.msDonViTinh;
                 txtNhaCungCap.Text = frmNhapHang.msNhaCungCap;
                 txtSLNhap.Text = frmNhapHang.mfSLNhap.ToString();
-                txtGiaVon.Text = frmNhapHang.mfGiaVon.ToString();
-                txtGiaban.Text = frmNhapHang.mfGiaBan.ToString();
+                txtGiaVon.Text = frmNhapHang.mfGiaVon.ToString("N2");
+                txtGiaban.Text = frmNhapHang.mfGiaBan.ToString("N2");
                 txtGhiChu.Text = frmNhapHang.msDescription;
             }
             catch (Exception ea)
@@ -218,6 +218,8 @@ namespace GasToanMy
             else if (frmNhapHang.mbAdd_SanPham)
             {
                 txtCode.Text = CheckString.creatCodeSanPham();
+                txtGiaVon.Text = 0.ToString("N2");
+                txtGiaban.Text = 0.ToString("N2");
             }
 
             txtTenSanPham.Focus();
@@ -377,6 +379,48 @@ namespace GasToanMy
             {
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void txtGiaVon_Leave(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+
+            txtGiaVon.Text = String.Format("{0:#,##0.00}", vlaue_);
+        }
+
+        private void txtGiaVon_MouseHover(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+
+            txtGiaVon.Text = String.Format("{0:#,##0.00}", vlaue_);
+        }
+
+        private void txtGiaVon_MouseLeave(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaVon.Text);
+
+            txtGiaVon.Text = String.Format("{0:#,##0.00}", vlaue_);
+        }
+
+        private void txtGiaban_Leave(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaban.Text);
+
+            txtGiaban.Text = String.Format("{0:#,##0.00}", vlaue_);
+        }
+
+        private void txtGiaban_MouseHover(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaban.Text);
+
+            txtGiaban.Text = String.Format("{0:#,##0.00}", vlaue_);
+        }
+
+        private void txtGiaban_MouseLeave(object sender, EventArgs e)
+        {
+            double vlaue_ = CheckString.ConvertToDouble_My(txtGiaban.Text);
+
+            txtGiaban.Text = String.Format("{0:#,##0.00}", vlaue_);
         }
     }
 }

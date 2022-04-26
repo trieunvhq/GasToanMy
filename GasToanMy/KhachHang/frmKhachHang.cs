@@ -158,25 +158,13 @@ namespace GasToanMy
                 {
                     Cursor.Current = Cursors.WaitCursor;
 
-                    mbAdd_SanPham = false;
-                    mb_Sua_SanPham = true;
-                    mbCopy_SanPham = false;
+                    string MaKhach_ = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
+                    string TenKhach_ = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
 
-                    msPhone = bandedGridView1.GetFocusedRowCellValue(Phone).ToString().Trim();
-                    msEmail = bandedGridView1.GetFocusedRowCellValue(Email).ToString().Trim();
-                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
-                    msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
-                    msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
-                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
-                    msAddress = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
-                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
-                    msScore = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
-                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
-                    msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
-                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
 
-                    frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
+                    frmDonHangCuaMoiKhach ff = new frmDonHangCuaMoiKhach(TenKhach_, MaKhach_);
                     ff.Show();
+
 
                     Cursor.Current = Cursors.Default;
                 }
@@ -524,6 +512,43 @@ namespace GasToanMy
                     e.Appearance.ForeColor = Color.FromArgb(150, Color.Red);
                     //e.Appearance.ForeColor = Color.FromArgb(150, Color.Salmon);
                 }
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bandedGridView1.GetFocusedRowCellValue(ID).ToString() != "")
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    mbAdd_SanPham = false;
+                    mb_Sua_SanPham = true;
+                    mbCopy_SanPham = false;
+
+                    msPhone = bandedGridView1.GetFocusedRowCellValue(Phone).ToString().Trim();
+                    msEmail = bandedGridView1.GetFocusedRowCellValue(Email).ToString().Trim();
+                    mdaCreateDate = Convert.ToDateTime(bandedGridView1.GetFocusedRowCellValue(CreateDate).ToString());
+                    msType = bandedGridView1.GetFocusedRowCellValue(Type).ToString().Trim();
+                    msCode = bandedGridView1.GetFocusedRowCellValue(Code).ToString().Trim();
+                    miID = Convert.ToInt32(bandedGridView1.GetFocusedRowCellValue(ID).ToString());
+                    msAddress = bandedGridView1.GetFocusedRowCellValue(Address).ToString().Trim();
+                    msFullName = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
+                    msScore = CheckString.ConvertToDouble_My(bandedGridView1.GetFocusedRowCellValue(Score).ToString());
+                    msRecordStatus = bandedGridView1.GetFocusedRowCellValue(RecordStatus).ToString().Trim();
+                    msDescription = bandedGridView1.GetFocusedRowCellValue(Description).ToString().Trim();
+                    msCreateUser = bandedGridView1.GetFocusedRowCellValue(CreateUser).ToString();
+
+                    frmChiTietKhachHang ff = new frmChiTietKhachHang(this);
+                    ff.Show();
+
+                    Cursor.Current = Cursors.Default;
+                }
+            }
+            catch (Exception ea)
+            {
+                MessageBox.Show("Lỗi: ... " + ea.Message.ToString(), "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

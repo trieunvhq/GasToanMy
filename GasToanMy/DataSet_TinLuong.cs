@@ -4,6 +4,10 @@
 
     public partial class DataSet_TinLuong
     {
+        partial class tbInNhanDataTable
+        {
+        }
+
         partial class Tr_PhieuKeToanDataTable
         {
         }

@@ -394,10 +394,53 @@ namespace GasToanMy
                 using (clsSanPham cls = new clsSanPham())
                 {
                     DataTable dt_;
+                    DataTable dtTien_;
+
                     if (checkAll.Checked)
+                    {
                         dt_ = cls.TongSoSanPhamAll(_sSearch);
+                        dtTien_ = cls.Selec_SanPham_All(_sSearch);
+                    }
                     else
+                    {
                         dt_ = cls.TongSoSanPham_ConHang(_sSearch);
+                        dtTien_ = cls.Selec_SanPham_ConHang(_sSearch);
+                    }
+
+                    if (dtTien_ != null && dtTien_.Rows.Count > 0)
+                    {
+                        double TienNhap_ = 0;
+                        double TienXuat_ = 0;
+                        double TienTon_ = 0;
+                        double TienXuatBan_ = 0;
+                        double TienLai_ = 0;
+
+                        for (int i = 0; i < dtTien_.Rows.Count; i++)
+                        {
+                            TienNhap_ += CheckString.ConvertToDouble_My(dtTien_.Rows[i]["SoLuong"].ToString()) * CheckString.ConvertToDouble_My(dtTien_.Rows[i]["GiaVon"].ToString());
+                            TienTon_ += CheckString.ConvertToDouble_My(dtTien_.Rows[i]["SLTon"].ToString()) * CheckString.ConvertToDouble_My(dtTien_.Rows[i]["GiaVon"].ToString());
+
+                            TienXuatBan_ += CheckString.ConvertToDouble_My(dtTien_.Rows[i]["ThanhTien"].ToString());
+                        }
+
+                        TienXuat_ = TienNhap_ - TienTon_;
+                        TienLai_ = TienXuatBan_ - TienXuat_;
+
+
+                        txtNhap.Text = TienNhap_.ToString("N2");
+                        txtXuat.Text = TienXuat_.ToString("N2");
+                        txtTon.Text = TienTon_.ToString("N2");
+                        txtXuatBan.Text = TienXuatBan_.ToString("N2");
+                        txtLai.Text = TienLai_.ToString("N2");
+                    }
+                    else
+                    {
+                        txtNhap.Text = 0.ToString("N2");
+                        txtXuat.Text = 0.ToString("N2");
+                        txtTon.Text = 0.ToString("N2");
+                        txtXuatBan.Text = 0.ToString("N2");
+                        txtLai.Text = 0.ToString("N2");
+                    }
 
                     if (dt_ != null && dt_.Rows.Count > 0)
                     {

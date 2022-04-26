@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -93,6 +94,16 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -118,6 +129,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DonHangs.cs" />
     <Compile Include="DonHang\frmChiTietDonHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,54 @@
     </Compile>
     <Compile Include="DonHang\frmDonHang.Designer.cs">
       <DependentUpon>frmDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang\frmPrintChiTietDonHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonHang\frmPrintChiTietDonHang.designer.cs">
+      <DependentUpon>frmPrintChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang\frmDonHangCuaMoiKhach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonHang\frmDonHangCuaMoiKhach.designer.cs">
+      <DependentUpon>frmDonHangCuaMoiKhach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DonHang\XtrpPrintChiTietDonHang.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DonHang\XtrpPrintChiTietDonHang.designer.cs">
+      <DependentUpon>XtrpPrintChiTietDonHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InNhan\frmPrintInNhanA4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InNhan\frmPrintInNhanA4.designer.cs">
+      <DependentUpon>frmPrintInNhanA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InNhan\frmPrintInNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InNhan\frmPrintInNhan.designer.cs">
+      <DependentUpon>frmPrintInNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InNhan\Print_InNhanA4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InNhan\Print_InNhanA4.designer.cs">
+      <DependentUpon>Print_InNhanA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InNhan\Print_InNhan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="InNhan\Print_InNhan.designer.cs">
+      <DependentUpon>Print_InNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InNhan\Tr_frmChonSanPhamInNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InNhan\Tr_frmChonSanPhamInNhan.designer.cs">
+      <DependentUpon>Tr_frmChonSanPhamInNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="KhachHang\frmChiTietKhachHang.cs">
       <SubType>Form</SubType>
@@ -252,6 +312,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DonHang\frmDonHang.resx">
       <DependentUpon>frmDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonHang\frmPrintChiTietDonHang.resx">
+      <DependentUpon>frmPrintChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonHang\frmDonHangCuaMoiKhach.resx">
+      <DependentUpon>frmDonHangCuaMoiKhach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonHang\XtrpPrintChiTietDonHang.resx">
+      <DependentUpon>XtrpPrintChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InNhan\frmPrintInNhanA4.resx">
+      <DependentUpon>frmPrintInNhanA4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InNhan\frmPrintInNhan.resx">
+      <DependentUpon>frmPrintInNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InNhan\Print_InNhanA4.resx">
+      <DependentUpon>Print_InNhanA4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InNhan\Print_InNhan.resx">
+      <DependentUpon>Print_InNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InNhan\Tr_frmChonSanPhamInNhan.resx">
+      <DependentUpon>Tr_frmChonSanPhamInNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhachHang\frmChiTietKhachHang.resx">
       <DependentUpon>frmChiTietKhachHang.cs</DependentUpon>
