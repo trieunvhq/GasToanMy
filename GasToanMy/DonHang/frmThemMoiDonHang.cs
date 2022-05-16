@@ -62,19 +62,19 @@ namespace GasToanMy
         private DataTable _spdata = new DataTable();
         private DataTable _DHCTdata = new DataTable();
 
-        //Socket Server:
-        const int MAX_CONNECTION = 1000;
-        const int PORT_NUMBER = 8899;
-        int dem = 0;
-        private const int BUFFER_SIZE = 1024 * 100;
-        private Socket _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        private byte[] _buffer = new byte[BUFFER_SIZE];
+        ////Socket Server:
+        //const int MAX_CONNECTION = 1000;
+        //const int PORT_NUMBER = 8989;
+        //int dem = 0;
+        //private const int BUFFER_SIZE = 1024 * 100;
+        //private Socket _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        //private byte[] _buffer = new byte[BUFFER_SIZE];
 
-        List<Socket> DanhSachClient = new List<Socket>();
+        //List<Socket> DanhSachClient = new List<Socket>();
 
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
+        //[DllImport("kernel32.dll", SetLastError = true)]
+        //[return: MarshalAs(UnmanagedType.Bool)]
+        //static extern bool AllocConsole();
 
         public void LoadData_SP(int sotrang, bool isLoadLanDau)
         {
@@ -290,124 +290,124 @@ namespace GasToanMy
             }
         }
 
-        void Connect()
-        {
-            _serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT_NUMBER));
-            _serverSocket.Listen(1000);
-            _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
-        }
+        //void Connect()
+        //{
+        //    _serverSocket.Bind(new IPEndPoint(IPAddress.Any, PORT_NUMBER));
+        //    _serverSocket.Listen(1000);
+        //    _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
+        //}
 
-        private void AcceptCallback(IAsyncResult AR)
-        {
-            Socket socket = _serverSocket.EndAccept(AR);
-            try
-            {
-                socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
-                _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
-            }
-            catch { }
-        }
+        //private void AcceptCallback(IAsyncResult AR)
+        //{
+        //    Socket socket = _serverSocket.EndAccept(AR);
+        //    try
+        //    {
+        //        socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
+        //        _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
+        //    }
+        //    catch { }
+        //}
 
-         byte[] Serialize(object o)
-        {
-            MemoryStream stream = new MemoryStream();
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, o);
-            return stream.ToArray();
-        }
+        // byte[] Serialize(object o)
+        //{
+        //    MemoryStream stream = new MemoryStream();
+        //    BinaryFormatter formatter = new BinaryFormatter();
+        //    formatter.Serialize(stream, o);
+        //    return stream.ToArray();
+        //}
 
-        //Ghép data
-        object Deserialize(byte[] data)
-        {
-            MemoryStream stream = new MemoryStream(data);
-            BinaryFormatter formatter = new BinaryFormatter();
+        ////Ghép data
+        //object Deserialize(byte[] data)
+        //{
+        //    MemoryStream stream = new MemoryStream(data);
+        //    BinaryFormatter formatter = new BinaryFormatter();
 
-            return formatter.Deserialize(stream);
-        }
+        //    return formatter.Deserialize(stream);
+        //}
 
-        private void ReceiveCallback(IAsyncResult AR)
-        {
-            try
-            {
-                //Thread th = Thread.CurrentThread;
-                Socket _client = (Socket)AR.AsyncState;
-                byte[] data = new byte[BUFFER_SIZE];
-                _client.Receive(data);
-                string message = (string)Deserialize(data);
-                DonHangs myJson;
-                myJson = JsonConvert.DeserializeObject<DonHangs>(message);
-                dem++;
-                DanhSachClient.Add(_client);
+        //private void ReceiveCallback(IAsyncResult AR)
+        //{
+        //    try
+        //    {
+        //        //Thread th = Thread.CurrentThread;
+        //        Socket _client = (Socket)AR.AsyncState;
+        //        byte[] data = new byte[BUFFER_SIZE];
+        //        _client.Receive(data);
+        //        string message = (string)Deserialize(data);
+        //        DonHangs myJson;
+        //        myJson = JsonConvert.DeserializeObject<DonHangs>(message);
+        //        dem++;
+        //        DanhSachClient.Add(_client);
                 
 
-                //CheckAcountB29(myJson.TaiKhoan, myJson.MatKhau, _client);
+        //        //CheckAcountB29(myJson.TaiKhoan, myJson.MatKhau, _client);
 
 
-                for (int i = 0; i < DanhSachClient.Count; i++)
-                {
-                    if (SocketConnected(DanhSachClient[i]))
-                    {
-                        DanhSachClient[i].Close();
-                        DanhSachClient.RemoveAt(i);
-                    }
-                }
-                //_client.Dispose();
-            }
-            catch (Exception e)
-            {
-                return;
-            }
-        }
+        //        for (int i = 0; i < DanhSachClient.Count; i++)
+        //        {
+        //            if (SocketConnected(DanhSachClient[i]))
+        //            {
+        //                DanhSachClient[i].Close();
+        //                DanhSachClient.RemoveAt(i);
+        //            }
+        //        }
+        //        //_client.Dispose();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return;
+        //    }
+        //}
 
-         //kiem tra is conecting
-        bool SocketConnected(Socket s)
-        {
-            bool part1 = s.Poll(1000, SelectMode.SelectRead);
-            bool part2 = (s.Available == 0);
-            if (part1 && part2)
-                return false;
-            else
-                return true;
-        }
+        // //kiem tra is conecting
+        //bool SocketConnected(Socket s)
+        //{
+        //    bool part1 = s.Poll(1000, SelectMode.SelectRead);
+        //    bool part2 = (s.Available == 0);
+        //    if (part1 && part2)
+        //        return false;
+        //    else
+        //        return true;
+        //}
 
-        private void SendCallback(IAsyncResult AR)
-        {
-            try
-            {
-                Socket socket = (Socket)AR.AsyncState;
-                if (socket.Connected)
-                    socket.EndSend(AR);
-            }
-            catch { }
+        //private void SendCallback(IAsyncResult AR)
+        //{
+        //    try
+        //    {
+        //        Socket socket = (Socket)AR.AsyncState;
+        //        if (socket.Connected)
+        //            socket.EndSend(AR);
+        //    }
+        //    catch { }
 
-        }
+        //}
 
-        void Send(Socket _client, string Message_)
-        {
-            if (_client.Connected)
-            {
-                try
-                {
-                    if (Message_ != null && Message_ != "")
-                    {
-                        byte[] data = Serialize(Message_);
-                        if (_client.Connected)
-                            _client.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), _client);
-                    }
-                }
-                catch
-                {
+        //void Send(Socket _client, string Message_)
+        //{
+        //    if (_client.Connected)
+        //    {
+        //        try
+        //        {
+        //            if (Message_ != null && Message_ != "")
+        //            {
+        //                byte[] data = Serialize(Message_);
+        //                if (_client.Connected)
+        //                    _client.BeginSend(data, 0, data.Length, SocketFlags.None, new AsyncCallback(SendCallback), _client);
+        //            }
+        //        }
+        //        catch
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         public frmThemMoiDonHang(string MaDH, string MaKH, string TenKH)
         {
             InitializeComponent();
 
             CheckForIllegalCrossThreadCalls = false;
-            Connect();
+            //Connect();
 
             _CodeDH = MaDH;
             txtMaDonHang.Text = "Mã đơn hàng: " + _CodeDH;
@@ -1217,30 +1217,39 @@ namespace GasToanMy
         {
             try
             {
-                using (clsDonHangChiTiet cls = new clsDonHangChiTiet())
+                if (!string.IsNullOrEmpty(_CodeDH))
                 {
-                    cls.daCreateDate = DateTime.Now;
-                    cls.sCreateUser = frmDangNhap._sCode_NhanSu;
-                    cls.sCode = CheckString.CreateCodeDonHangChiTiet();
-                    cls.sCodeDonHang = _CodeDH;
-                    cls.sCodeSanPham = _CodeSP;
-                    cls.fSoLuong = _SoLuong;
-                    cls.fDonGia = _GiaBan;
-
-                    if (checkKhuyenMai.Checked)
+                    using (clsDonHangChiTiet cls = new clsDonHangChiTiet())
                     {
-                        cls.fThanhTien = 0;
-                    }
-                    else
-                    {
-                        cls.fThanhTien = _SoLuong * _GiaBan;
-                    }
+                        cls.daCreateDate = DateTime.Now;
+                        cls.sCreateUser = frmDangNhap._sCode_NhanSu;
+                        cls.sCode = CheckString.CreateCodeDonHangChiTiet();
+                        cls.sCodeDonHang = _CodeDH;
+                        cls.sCodeSanPham = _CodeSP;
+                        cls.fSoLuong = _SoLuong;
+                        cls.fDonGia = _GiaBan;
 
-                    cls.sRecordStatus = "Y";
+                        if (checkKhuyenMai.Checked)
+                        {
+                            cls.fThanhTien = 0;
+                        }
+                        else
+                        {
+                            cls.fThanhTien = _SoLuong * _GiaBan;
+                        }
 
-                    if (cls.DonHangChiTiet_DonHang_Insert(_CodeKH)) return true;
-                    else return false;
+                        cls.sRecordStatus = "Y";
+
+                        if (cls.DonHangChiTiet_DonHang_Insert(_CodeKH)) return true;
+                        else return false;
+                    }
                 }
+                else
+                {
+                    ////MessageBox.Show("Kiểm tra lại: Mã đơn hàng IsNullOrEmpty", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+               
             }
             catch (Exception ea)
             {

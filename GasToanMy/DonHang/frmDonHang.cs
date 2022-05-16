@@ -255,8 +255,15 @@ namespace GasToanMy
                     string CodeKhachHang_ = bandedGridView1.GetFocusedRowCellValue(CodeKhachHang).ToString().Trim();
                     string FullName_ = bandedGridView1.GetFocusedRowCellValue(FullName).ToString().Trim();
 
-                    frmThemMoiDonHang ff = new frmThemMoiDonHang(CodeDH_, CodeKhachHang_, FullName_);
-                    ff.Show();
+                    if (!string.IsNullOrEmpty(CodeDH_))
+                    {
+                        frmThemMoiDonHang ff = new frmThemMoiDonHang(CodeDH_, CodeKhachHang_, FullName_);
+                        ff.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kiểm tra lại mã đơn hàng!", "Lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                     Cursor.Current = Cursors.Default;
                 }
